@@ -158,6 +158,7 @@ Coordinate variables are defined following the CF conventions and should be in l
 <sup>3</sup> `units`, `sdn_uom_urn` and `sdn_uom_urn` is mandatory for all coordinate variables except for `sensor_id` and `platform_id`.
 <sup>4</sup> `cf_role` is a special field as stated on [CF conventions](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#coordinates-metadata), whose only permitted values are `timeseries_id`, `profile_id`, and `trajectory_id`.
 
+### Coordinate Variables Values ###
 
 Unlike other variables, the coordinate variables are limited to the following table:
 
@@ -229,7 +230,7 @@ The following table lists the expected attributes from a biological variable:
 
 The name of the variable is 
 
-### Quality Control variables ###
+### Quality Control Variables ###
 Quality control variables, providing information about the quality of a related variable. The following attributes are expected.
 
 | QC Attributes   | Description                                                                                                                   | Compliance test         | Required | Multiple |
