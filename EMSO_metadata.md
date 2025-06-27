@@ -90,8 +90,8 @@ tests go to Implemented tests section). The mandatory column.
 | time_coverage_start          | Start date of the data in UTC                                                  | data_type#datetime       | true     | false    |
 | time_coverage_end            | End date of the data in UTC                                                    | data_type#datetime       | false    | false    |
 | update_interval              | Update interval (following ISO 8601), if not applicable `void`                 | data_type#str            | true     | false    |
-| site_code                    | EMSO site code of the platform                                                 | emso_site_code           | true     | true     |
-| emso_facility                | EMSO facility name                                                             | emso_facility            | false    | true     |
+| emso_regional_facility       | EMSO Regional Facility name, required for EMSO data                            | oso_ontology#rf          | true     | true     |
+| emso_site                    | site code used, required for EMSO data                                         | oso_ontology#site        | true     | true     |
 | source                       | Platform type name, should be a L06 preferred label (prefLabel)                | sdn_vocab_pref_label#L06 | false    | false    |
 | platform_code                | OceanSITES platform code (leave blank if it does not exist)                    | data_type#str            | false    | true     |
 | wmo_platform_code            | WMO platform code (leave blank if it does not exist)                           | data_type#int            | false    | true     |
@@ -114,8 +114,8 @@ tests go to Implemented tests section). The mandatory column.
 | license_uri                  | URI pointing to a SPDX license, use of CC-BY-4.0 is strongly recommended       | spdx_license_uri         | true     | false    |
 | featureType<sup>2</sup>      | Special field used by CF Discrete Sampling Geometries                          | cf_dsg_types             | true     | false    |
 
-<sup>1</sup> Since author and institution names contain spaces, it uses comma a list separator instead of the usual blank space.
-<sup>2</sup> See CF Discrete Sampling Geometries 
+<sup>1</sup> Since author and institution names contain spaces, it uses comma a list separator instead of the usual blank space.  
+<sup>2</sup> See CF Discrete Sampling Geometries  
 
 ## Variables ##
 Variables in a EMSO-compliant dataset may have different purposes and have different rules. To clearly identify the role of each variable, the attribute `variable_type` should be set with one of the values listed in the following table.
@@ -145,24 +145,24 @@ Coordinate variables are defined following the CF conventions and should be in l
 | ancillary_variables       | Related variables, e.g. quality control flags                       | data_type#str            | false            | true     |
 | sdn_parameter_name        | variable name (should be the preferred label from the P01 term)     | sdn_vocab_pref_label#P01 | true             | false    |
 | sdn_parameter_urn         | variable code (should be an identifier from P01)                    | sdn_vocab_urn#P01        | true             | false    |
-| sdn_parameter_uri         | URI for the P01 term                                                | sdn_vocab_uri#P01        | false            | false    |
-| sdn_uom_name              | Variable units, should be the preferred label from a P06 definition | data_type#str            | true<sup>3</sup> | false    |
-| sdn_uom_urn               | Units identifier from SeaDataNet P06 vocabulary                     | sdn_vocab_urn#P06        | true<sup>3</sup> | false    |
-| sdn_uom_uri               | Units URI from SeaDataNet P06 vocabulary                            | sdn_vocab_uri#P06        | false            | false    |
+| sdn_parameter_uri         | URI for the P01 term                                                | sdn_vocab_uri#P01        | true             | false    |
+| sdn_uom_name<sup>3</sup>  | Variable units, should be the preferred label from a P06 definition | data_type#str            | true<sup>3</sup> | false    |
+| sdn_uom_urn<sup>3</sup>   | Units identifier from SeaDataNet P06 vocabulary                     | sdn_vocab_urn#P06        | true<sup>3</sup> | false    |
+| sdn_uom_uri<sup>3</sup>   | Units URI from SeaDataNet P06 vocabulary                            | sdn_vocab_uri#P06        | false            | false    |
 | cf_role<sup>4</sup>       | Special CF attribute                                                | data_type#str            | false            | false    |
 | variable_type             | Attribute indicating the variable type                              | equals#coordinate        | true             | false    |
 
 
-<sup>1</sup> `$name` refers to the variable name inside the NetCDF file or ERDDAP dataset
-<sup>2</sup> `standard_name` is not required for `sensor_id` since there is not an appropriate term in [CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table).
-<sup>3</sup> `units`, `sdn_uom_urn` and `sdn_uom_urn` is mandatory for all coordinate variables except for `sensor_id` and `platform_id`.
-<sup>4</sup> `cf_role` is a special field as stated on [CF conventions](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#coordinates-metadata), whose only permitted values are `timeseries_id`, `profile_id`, and `trajectory_id`.
+<sup>1</sup> `$name` is not an attribute, but the variable name inside the NetCDF file or ERDDAP dataset  
+<sup>2</sup> `standard_name` is not required for `sensor_id` since there is not an appropriate term in [CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table).  
+<sup>3</sup> `units`, `sdn_uom_urn` and `sdn_uom_urn` is mandatory for all coordinate variables except for `sensor_id` and `platform_id`.  
+<sup>4</sup> `cf_role` is a special field as stated on [CF conventions](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#coordinates-metadata), whose only permitted values are `timeseries_id`, `profile_id`, and `trajectory_id`.  
 
-### Coordinate Variables Values ###
+### Valid Coordinates ###
 
 Unlike other variables, the coordinate variables are limited to the following table:
 
-| Variable Name     | CF standard_name     | mandatory | data_type                | definition                                           | P01 recommended code                                                  |
+| coordinate name   | CF standard_name     | mandatory | data_type                | definition                                           | P01 recommended code                                                  |
 |-------------------|----------------------|-----------|--------------------------|------------------------------------------------------|-----------------------------------------------------------------------|
 | time              | time                 | true      | seconds since 1970-01-01 | time of measurements                                 | [ELTMEP01](https://vocab.nerc.ac.uk/collection/P01/current/ELTMEP01/) |
 | depth             | depth                | true      | float                    | depth of the measurement in metres                   | [ADEPZZ01](https://vocab.nerc.ac.uk/collection/P01/current/ADEPZZ01/) |
@@ -200,7 +200,7 @@ The following table defines the attributes expected in an environmental variable
 | $name               | Variable name is compliant with the naming rules, see 'Variable Codes' section   | check_variable_name      | true     | false    |
 | long_name           | human-readable label for the variable                                            | data_type#str            | true     | false    |
 | standard_name       | Climate and Forecast (CF) standard name                                          | cf_standard_name         | true     | false    |
-| units               | units symbol, alternative label from P06 definition                              | sdn_vocabalt_label#P09   | true     | false    |
+| units               | units symbol, alternative label from P06 definition                              | sdn_vocab_alt_label#P06  | true     | false    |
 | comment             | free-text to add comments on the variable                                        | data_type#str            | false    | false    |
 | coordinates         | Variable coordinates, e.g. `time depth latitude longitude sensor_id platform_id` | data_type#str            | true     | true     |
 | ancillary_variables | Related variables, e.g. quality control flags, standard deviations, etc.         | data_type#str            | false    | true     |
@@ -267,13 +267,14 @@ term might also be used.
 |---------------------------------|--------------------------------------------------------------------------|-------------------------------|----------|----------|
 | $name                           | Sensor name, should be unique                                            | data_type#str                 | true     | false    |
 | long_name                       | human-readable label for the variable                                    | data_type#str                 | true     | false    |
-| sensor_type_name                | Sensor type,  L05 preferred label                                        | sdn_vocab_pref_label#L05      | true     | false    |
-| sensor_type_urn                 | Sensor type L05 URN                                                      | sdn_vocab_urn#L05             | true     | false    |
-| sensor_type_uri                 | Sensor type L05 URI                                                      | sdn_vocab_uri#L05             | true     | false    |
+| sensor_id                       | identifier of the sensor used within the `sensor_id` variable            | data_type#str                 | true     | false    |
 | sdn_instrument_name<sup>1</sup> | Sensor model, L22 preferred label                                        | sdn_vocab_pref_label#L22      | true     | false    |
 | sdn_instrument_urn<sup>1</sup>  | Sensor model, L22 URN                                                    | sdn_vocab_urn#L22             | true     | false    |
 | sdn_instrument_uri<sup>1</sup>  | Sensor model, L22 uri                                                    | sdn_vocab_uri#L22             | true     | false    |
 | sensor_SeaVoX_L22_code          | Same as `sdn_instrument_urn`                                             | sdn_vocab_urn#L22             | true     | false    |
+| sensor_type_name                | Sensor type,  L05 preferred label                                        | sdn_vocab_pref_label#L05      | true     | false    |
+| sensor_type_urn                 | Sensor type L05 URN                                                      | sdn_vocab_urn#L05             | true     | false    |
+| sensor_type_uri                 | Sensor type L05 URI                                                      | sdn_vocab_uri#L05             | true     | false    |
 | sensor_manufacturer_name        | Sensor model, L35 preferred label                                        | sdn_vocab_pref_label#L35      | true     | false    |
 | sensor_manufacturer_uri         | Sensor model (URI from the L35 term)                                     | sdn_vocab_uri#L35             | true     | false    |
 | sensor_manufacturer_urn         | Sensor model (should be preferred label from the L35 term)               | sdn_vocab_urn#L35             | true     | false    |
@@ -292,17 +293,18 @@ term might also be used.
 
 Platform are umbrella variables to store platform metadata. 
 
-| Variable Attributes | Description                                     | Compliance test          | Required | Multiple |
-|---------------------|-------------------------------------------------|--------------------------|----------|----------|
-| $name               | platform name, should be unique                 | data_type#str            | true     | false    |
-| long_name           | human-readable label for the variable           | data_type#str            | true     | false    |
-| platform_type_name  | Platform type, L06 preferred label              | sdn_vocab_pref_label#L06 | true     | false    |
-| platform_type_urn   | Platform type L06 URN                           | sdn_vocab_urn#L06        | true     | false    |
-| platform_type_uri   | Platform type L06 URI                           | sdn_vocab_uri#L06        | true     | false    |
-| platform_oso_uri    | Link to the platform entry in OSO ontology      | oso_platform_uri         | true     | false    |
-| wmo_platform_code   | World Meteorological Organization platform code | data_type#str            | false    | false    |
-| platform_reference  | Link to additional information                  | sdn_vocab_uri#L06        | false    | false    |
-| variable_type       | Attribute indicating the variable type          | equals#platform          | true     | false    |
+| Variable Attributes | Description                                                     | Compliance test          | Required | Multiple |
+|---------------------|-----------------------------------------------------------------|--------------------------|----------|----------|
+| $name               | platform name, should be unique                                 | data_type#str            | true     | false    |
+| long_name           | human-readable label for the variable                           | data_type#str            | true     | false    |
+| platform_id         | identifier of the sensor used within the `platform_id` variable | data_type#str            | true     | false    |
+| platform_type_name  | Platform type L06 preferred label                               | sdn_vocab_pref_label#L06 | true     | false    |
+| platform_type_urn   | Platform type L06 URN                                           | sdn_vocab_urn#L06        | true     | false    |
+| platform_type_uri   | Platform type L06 URI                                           | sdn_vocab_uri#L06        | true     | false    |
+| emso_platform       | Link to the platform entry in OSO ontology                      | oso_ontology#platform    | true     | false    |
+| wmo_platform_code   | World Meteorological Organization (WMO) platform code           | data_type#str            | false    | false    |
+| platform_reference  | Link to additional information                                  | sdn_vocab_uri#L06        | false    | false    |
+| variable_type       | Attribute indicating the variable type                          | equals#platform          | true     | false    |
 
 
 ## Controlled Vocabularies ##
