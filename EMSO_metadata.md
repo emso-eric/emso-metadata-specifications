@@ -281,7 +281,7 @@ term might also be used.
 | sensor_serial_number            | Unique identifier for the sensor                                         | data_type#str                 | true     | false    |
 | sensor_mount                    | One of the possible sensor mounts from OceanSITES reference table 7      | oceansites_sensor_mount       | true     | false    |
 | sensor_orientation              | One of the possible sensor orientation from OceanSITES reference table 8 | oceansites_sensor_orientation | true     | false    |
-| sensor_reference                | Link to additional information,e.g. sensor datasheet                     | data_type#str                 | true     | false    |
+| sensor_reference                | Link to additional information,e.g. sensor datasheet                     | data_type#str                 | false    | false    |
 | variable_type                   | Attribute indicating the variable type                                   | equals#sensor                 | true     | false    |
 
 
