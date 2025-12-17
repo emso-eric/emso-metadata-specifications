@@ -1,5 +1,5 @@
 
-# DataCite #
+# DataCite Contributor Type  #
 The following table reflects the possible values for contributor types from [DataCite Metadata Schema](https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/)
 
 | Type                  | Definition                                                                                                                                                                                                                                                         |
