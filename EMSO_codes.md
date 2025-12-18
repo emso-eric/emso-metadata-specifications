@@ -1,4 +1,7 @@
 # EMSO Codes #
+
+**WARNING**: this information is deprecated and will be replaced by the OSO ontology soon  
+
 This document contains human and machine-readable information to assign EMSO vocabularies (in alphabetical order). It is regularly checked and validated by the EMSO ERIC Data Management Service Group.
 
 # EMSO Regional Facilities #
