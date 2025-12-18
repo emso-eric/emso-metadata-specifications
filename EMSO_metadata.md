@@ -95,15 +95,16 @@ tests go to Implemented tests section). The mandatory column.
 | time_coverage_start          | Start date of the data in UTC                                                  | data_type#datetime       | true     | false    |
 | time_coverage_end            | End date of the data in UTC                                                    | data_type#datetime       | false    | false    |
 | update_interval              | Update interval (following ISO 8601), if not applicable `void`                 | data_type#str            | true     | false    |
-| emso_regional_facility_uri   | EMSO Regional Facility URI, required for EMSO data                             | oso_ontology_uri#rf      | true     | true     |
-| emso_regional_facility_name  | EMSO Regional Facility name, required for EMSO data                            | oso_ontology_name#rf     | true     | true     |
+| emso_regional_facility_uri   | EMSO Regional Facility URI, required for EMSO data                             | oso_ontology_uri#rf      | true     | false    |
+| emso_regional_facility_name  | EMSO Regional Facility name, required for EMSO data                            | oso_ontology_name#rf     | true     | false    |
 | emso_site_uri                | site code used, required for EMSO data                                         | oso_ontology_uri#site    | true     | true     |
 | emso_site_name               | site code used, required for EMSO data                                         | oso_ontology_name#site   | true     | true     |
 | source                       | Platform type name, should be a L06 preferred label (prefLabel)                | sdn_vocab_pref_label#L06 | false    | false    |
 | data_type                    | Type of data, in most cases 'OceanSITES data time-series data'                 | oceansites_data_type     | false    | false    |
-| format_version               | OceanSITES format version                                                      | equals#1.4               | false    | false    |
 | network                      | List of the networks                                                           | data_type#str            | true     | true     |
-| data_mode                    | Data mode from OceanSITES table 4, possible values are R, P D or M             | oceansites_data_mode     | false    | false    |
+| format_version<sup>3</sup>   | OceanSITES format version                                                      | equals#1.4               | false    | false    |
+| data_mode<sup>3</sup>        | Data mode from OceanSITES table 4, possible values are R, P D or M             | oceansites_data_mode     | false    | false    |
+| site_code<sup>3</sup>        | OceanSITES site code (only applicable for platforms members of OceanSITES)     | data_type#str            | false    | true     |
 | title                        | Free-format text describing the dataset, for use by human readers              | data_type#str            | true     | false    |
 | summary                      | Longer free-format text describing the dataset                                 | data_type#str            | true     | false    |
 | keywords                     | Please use 'SeaDataNet Parameter Discovery Vocabulary'                         | data_type#str            | false    | true     |
@@ -113,21 +114,22 @@ tests go to Implemented tests section). The mandatory column.
 | principal_investigator       | Name of the principal investigator                                             | data_type#str            | true     | true     |
 | principal_investigator_email | email of the principal investigator                                            | email                    | true     | true     |
 | contributors<sup>1</sup>     | comma-separated list of author names                                           | data_type#str            | true     | true     |
-| contributor_types            | role for each author in the list                                               | data_type#datacite_contr | true     | true     |
+| contributor_types            | role for each author in the list                                               | contributor_types        | true     | true     |
 | doi                          | Digital Object Identifier (DOI) list of the dataset                            | valid_doi                | false    | true     |
 | license                      | license name (SPDX short identifier), use of CC-BY-4.0 is strongly recommended | spdx_license_name        | true     | false    |
 | license_uri                  | URI pointing to a SPDX license, use of CC-BY-4.0 is strongly recommended       | spdx_license_uri         | true     | false    |
 | featureType<sup>2</sup>      | Special field used by CF Discrete Sampling Geometries                          | cf_dsg_types             | true     | false    |
 
-<sup>1</sup> Since author and institution names contain spaces, it uses comma a list separator instead of the usual blank space.  
+<sup>1</sup> Since the values may contain spaces, use comma a list separator instead of the usual blank space.  
 <sup>2</sup> See CF Discrete Sampling Geometries  
+<sup>3</sup> Used for compatibility with OceanSITES
 
-## Variables ##
+# Variables #
 Variables in a EMSO-compliant dataset may have different purposes and have different rules. To clearly identify the role of each variable, the attribute `variable_type` should be set with one of the values listed in the following table.
 
 
 <p align="center">
-  <img height="500x" src="https://files.obsea.es/other/specs/variables2.png" alt="logo">
+  <img height="350" src="https://files.obsea.es/other/specs/emso-variables.png" alt="logo">
 </p>
 
 
@@ -143,31 +145,31 @@ Variables in a EMSO-compliant dataset may have different purposes and have diffe
 
  
  
-### Coordinate Variables ###
+## Coordinate Variables ##
 Coordinate variables are defined following the CF conventions and should be in lower case (as defined in CF). The following attribute are mandatory in all coordinate datasets:
 
 | Variable Attributes       | Description                                                         | Compliance test          | Required         | Multiple |
 |---------------------------|---------------------------------------------------------------------|--------------------------|------------------|----------|
-| $name<sup>1</sup>         | variable name                                                       | is_coordinate            | true             | false    |
+| $name<sup>4</sup>         | variable name                                                       | is_coordinate            | true             | false    |
 | long_name                 | human-readable label for the variable                               | data_type#str            | true             | false    |
 | standard_name<sup>2</sup> | Climate and Forecast (CF) standard name                             | cf_standard_name         | true<sup>2</sup> | false    |
-| units<sup>3</sup>         | units symbol, alternative label from P06 definition                 | data_type#str            | true<sup>3</sup> | false    |
+| units<sup>5</sup>         | units symbol, alternative label from P06 definition                 | data_type#str            | true<sup>3</sup> | false    |
 | comment                   | free-text to add comments on the variable                           | data_type#str            | false            | false    |
 | ancillary_variables       | Related variables, e.g. quality control flags                       | data_type#str            | false            | true     |
 | sdn_parameter_name        | variable name (should be the preferred label from the P01 term)     | sdn_vocab_pref_label#P01 | true             | false    |
 | sdn_parameter_urn         | variable code (should be an identifier from P01)                    | sdn_vocab_urn#P01        | true             | false    |
 | sdn_parameter_uri         | URI for the P01 term                                                | sdn_vocab_uri#P01        | true             | false    |
-| sdn_uom_name<sup>3</sup>  | Variable units, should be the preferred label from a P06 definition | data_type#str            | true<sup>3</sup> | false    |
-| sdn_uom_urn<sup>3</sup>   | Units identifier from SeaDataNet P06 vocabulary                     | sdn_vocab_urn#P06        | true<sup>3</sup> | false    |
-| sdn_uom_uri<sup>3</sup>   | Units URI from SeaDataNet P06 vocabulary                            | sdn_vocab_uri#P06        | false            | false    |
-| cf_role<sup>4</sup>       | Special CF attribute                                                | data_type#str            | false            | false    |
+| sdn_uom_name<sup>6</sup>  | Variable units, should be the preferred label from a P06 definition | data_type#str            | true<sup>3</sup> | false    |
+| sdn_uom_urn<sup>6</sup>   | Units identifier from SeaDataNet P06 vocabulary                     | sdn_vocab_urn#P06        | true<sup>3</sup> | false    |
+| sdn_uom_uri<sup>6</sup>   | Units URI from SeaDataNet P06 vocabulary                            | sdn_vocab_uri#P06        | false            | false    |
+| cf_role<sup>7</sup>       | Special CF attribute                                                | data_type#str            | false            | false    |
 | variable_type             | Attribute indicating the variable type                              | equals#coordinate        | true             | false    |
 
 
-<sup>1</sup> `$name` is not an attribute, but the variable name inside the NetCDF file or ERDDAP dataset  
-<sup>2</sup> `standard_name` is not required for `sensor_id` since there is not an appropriate term in [CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table).  
-<sup>3</sup> `units`, `sdn_uom_urn` and `sdn_uom_urn` is mandatory for all coordinate variables except for `sensor_id` and `platform_id`.  
-<sup>4</sup> `cf_role` is a special field as stated on [CF conventions](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#coordinates-metadata), whose only permitted values are `timeseries_id`, `profile_id`, and `trajectory_id`.  
+<sup>4</sup> `$name` is not an attribute, but the variable name inside the NetCDF file or ERDDAP dataset  
+<sup>5</sup> `standard_name` is not required for `sensor_id` since there is not an appropriate term in [CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table).  
+<sup>6</sup> `units`, `sdn_uom_urn` and `sdn_uom_urn` is mandatory for all coordinate variables except for `sensor_id` and `platform_id`.  
+<sup>7</sup> `cf_role` is a special field as stated on [CF conventions](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#coordinates-metadata), whose only permitted values are `timeseries_id`, `profile_id`, and `trajectory_id`. Only required for 'platform_id'
 
 ### Valid Coordinates ###
 
@@ -189,6 +191,7 @@ Following the CF conventions, an idealized time series is defined at a single, s
 ocean surface mooring measurements, in which the precise position of the observations varies slightly from a nominal fixed point. The precise position can be
 recorded using the  `precise_latitude` and `precise_longitude` optional coordinate variables.    
 
+## Data Variables ##
 ### Environmental Variables ###
 Variables are data variables related Spatio-temporal coordinates follow the CF conventions and should have the following attributes:
 Note that `platform_id` is 
@@ -240,9 +243,18 @@ The following table lists the expected attributes from a biological variable:
 | comment             | free-text to add comments                                                        | data_type#str     | false    | false    |
 
 
-The name of the variable is 
+### Technical Variables ###
 
-### Quality Control Variables ###
+The following table contains technical variable attributes:
+
+| Variable Attributes | Description                                                                      | Compliance test      | Required | Multiple |
+|---------------------|----------------------------------------------------------------------------------|----------------------|----------|----------|
+| long_name           | human-readable label for the variable                                            | data_type#str        | true     | false    |
+| coordinates         | Variable coordinates, e.g. `time depth latitude longitude sensor_id platform_id` | data_type#str        | true     | true     |
+| comment             | free-text to add comments                                                        | data_type#str        | false    | false    |
+| variable_type       | Attribute indicating the variable type                                           | equals#technical     | true     | false    | 
+
+## Quality Control Variables ##
 Quality control variables, providing information about the quality of a related variable. The following attributes are expected.
 
 | QC Attributes  | Description                                                                                                                   | Compliance test        | Required | Multiple |
@@ -256,17 +268,7 @@ Quality control variables, providing information about the quality of a related 
 | comment        | free-text to add comments                                                                                                     | data_type#str          | false    | false    |
 
 
-### Technical Variables ###
-
-The following table contains technical variable attributes:
-
-| Variable Attributes | Description                                                                      | Compliance test      | Required | Multiple |
-|---------------------|----------------------------------------------------------------------------------|----------------------|----------|----------|
-| $name               | Variable should be a Darwin Core term                                            | dwc_term_name        | true     | false    |
-| long_name           | human-readable label for the variable                                            | data_type#str        | true     | false    |
-| coordinates         | Variable coordinates, e.g. `time depth latitude longitude sensor_id platform_id` | data_type#str        | true     | true     |
-| comment             | free-text to add comments                                                        | data_type#str        | false    | false    |
-| variable_type       | Attribute indicating the variable type                                           | equals#technical     | true     | false    |
+## Metadata Variables ##
 
 ### Sensor Variables ###
 
@@ -280,10 +282,10 @@ term might also be used.
 | $name                              | Sensor name, should be unique                                            | data_type#str                 | true     | false    |
 | long_name                          | human-readable label for the variable                                    | data_type#str                 | true     | false    |
 | sensor_id                          | identifier of the sensor used within the `sensor_id` variable            | data_type#str                 | true     | false    |
-| sdn_instrument_name<sup>1</sup>    | Sensor model, L22 preferred label                                        | sdn_vocab_pref_label#L22      | true     | false    |
-| sdn_instrument_urn<sup>1</sup>     | Sensor model, L22 URN                                                    | sdn_vocab_urn#L22             | true     | false    |
-| sdn_instrument_uri<sup>1</sup>     | Sensor model, L22 uri                                                    | sdn_vocab_uri#L22             | true     | false    |
-| sensor_SeaVoX_L22_code<sup>2</sup> | Same as `sdn_instrument_urn`                                             | sdn_vocab_urn#L22             | true     | false    |
+| sdn_instrument_name<sup>8</sup>    | Sensor model, L22 preferred label                                        | sdn_vocab_pref_label#L22      | true     | false    |
+| sdn_instrument_urn<sup>8</sup>     | Sensor model, L22 URN                                                    | sdn_vocab_urn#L22             | true     | false    |
+| sdn_instrument_uri<sup>8</sup>     | Sensor model, L22 uri                                                    | sdn_vocab_uri#L22             | true     | false    |
+| sensor_SeaVoX_L22_code<sup>9</sup> | Same as `sdn_instrument_urn`                                             | sdn_vocab_urn#L22             | true     | false    |
 | sensor_type_name                   | Sensor type,  L05 preferred label                                        | sdn_vocab_pref_label#L05      | true     | false    |
 | sensor_type_urn                    | Sensor type L05 URN                                                      | sdn_vocab_urn#L05             | true     | false    |
 | sensor_type_uri                    | Sensor type L05 URI                                                      | sdn_vocab_uri#L05             | true     | false    |
@@ -292,13 +294,13 @@ term might also be used.
 | sensor_manufacturer_urn            | Sensor model (should be preferred label from the L35 term)               | sdn_vocab_urn#L35             | true     | false    |
 | sensor_serial_number               | Unique identifier for the sensor                                         | data_type#str                 | true     | false    |
 | sensor_mount                       | One of the possible sensor mounts from OceanSITES reference table 7      | oceansites_sensor_mount       | true     | false    |
-| sensor_orientation                 | One of the possible sensor orientation from OceanSITES reference table 8 | oceansites_sensor_orientation | true     | false    |
+| sensor_orientation                 | One of the possible sensor orientation from OceanSITES reference table 8 | oceansites_sensor_orientation | false    | false    |
 | sensor_reference                   | Link to additional information,e.g. sensor datasheet                     | data_type#str                 | false    | false    |
 | comment                            | free-text to add additional comments                                     | data_type#str                 | false    | false    |
 | variable_type                      | Attribute indicating the variable type                                   | equals#sensor                 | true     | false    |
 
-<sup>1</sup> Used for compatibility with SeaDataNet data file format
-<sup>2</sup> Used for compatibility with OceanSITES format
+<sup>8</sup> Used for compatibility with SeaDataNet data file format
+<sup>9</sup> Used for compatibility with OceanSITES format
 
 
 ### Platform Variables ###
@@ -349,8 +351,6 @@ the [NERC Vocabulary Service](https://vocab.nerc.ac.uk) among others
   in [EDMO database](https://edmo.seadatanet.org/) (European Directory of Marine Organizations).
 * **coordinate#type**: Checks if a coordinate is correct. The 'type' argument must be one of the following: '
   latitude', 'longitude' or 'depths'
-* **emso_facility**: A valid name for an EMSO Regional Facility (EMSO_codes.md)
-* **emso_site_code**: A valid name for an EMSO Site Code.
 * **email**: valid email
 * **oceansites_sensor_orientation**: A valid value from sensor_orientation table (OceanSites_codes.md)
 * **oceansites_sensor_mount**: A valid value from sensor_orientation table (OceanSites_codes.md)
@@ -359,5 +359,5 @@ the [NERC Vocabulary Service](https://vocab.nerc.ac.uk) among others
   L22 (devices), etc.
 * **sdn_vocab_preflabel#vocab_id**: Preferred label from a SDN vocabulary
 * **sdn_vocab_uri#vocab_id**: Resolvable URI for a SDN vocabulary Term
-* * **datacite_contr**: Complies with the DataCite's metadata kernel contributor roles
-  
+* * **contributor_types**: Complies with the DataCite's metadata kernel contributor roles
+* * **contributor_names**: Makes sure that for every contributor name there is a contributor type
