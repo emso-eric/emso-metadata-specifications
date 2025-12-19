@@ -1,7 +1,4 @@
-
-
 [![DOI](https://zenodo.org/badge/670238977.svg)](https://zenodo.org/doi/10.5281/zenodo.10669878)
-
 
 # EMSO ERIC Metadata Specifications #
 
@@ -12,11 +9,9 @@ The specifications are composed by the following:
 * **[EMSO Metadata Specifications](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/EMSO_metadata.md)**: Specifications main document
 * **[EMSO Codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/EMSO_codes.md)**: List EMSO codes, including Regional Facilities and sites. 
 * **[OceanSITES codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/OceanSites_codes.md)**: List of conventions taken from the OceanSITES specifications. 
-* **[OceanSITES codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/OceanSites_codes.md)**: List of conventions taken from the DataCite Metadata Schema. 
- 
+* **[OceanSITES codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/OceanSites_codes.md)**: List of conventions taken from the DataCite Metadata Schema.
 
 ## Summary ##
-
 
 ### Core Principles:
 * **Standards-Based**: Built upon and extends widely adopted community standards, primarily the Climate and Forecast (CF) conventions,  OceanSITES and Copernicus. This ensures compatibility with international data systems and tools.
@@ -32,12 +27,16 @@ The specifications are composed by the following:
 ### Benefits:
 * **Interoperability**: Enables seamless integration of EMSO data with other marine data repositories and analysis platforms.
 * **Discoverability**: Rich, standardised metadata improves search and discovery across scientific disciplines.
-* **Traceability**: Clear attribution of data sources, sensors, and funding projects.
+* **Traceability**: Clear attribution of data sources, sensors, platforms and funding projects.
 * **Automation**: Structured metadata supports automated data ingestion, validation, and processing workflows.
 
+<p align="center">
+  <img height="1000x" src="https://files.obsea.es/other/sea-infographic.jpg" alt="infographic">
+</p>
 
-### Contact info ###
-* **version**: v0.4.2
+
+# Contact info #
+* **version**: v1.0.0-draft
 * **author**: Enoc Martínez  
 * **contributors**: Enoc Martínez 
 * **organization**: Universitat Politècnica de Catalunya (UPC)

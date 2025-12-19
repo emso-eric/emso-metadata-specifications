@@ -1,5 +1,7 @@
 # ERDDAP Metadata Specification #
 
+
+
 ## Introduction ##
 
 The EMSO Metadata Specification for ERDDAP defines the essential metadata elements required for datasets to achieve 
@@ -25,14 +27,22 @@ exposes the contents of NetCDF files via standardized web services and user-frie
 allows users to either download complete files or access data subsets and metadata dynamically through ERDDAP’s RESTful 
 API.
 
+The structure of EMSO-compliant datasets is depicted in the following picture:
+
 <p align="center">
-  <img height="500x" src="https://files.obsea.es/other/specs/overview.png" alt="logo">
+  <img height="500x" src="https://files.obsea.es/other/specs/summary.jpg" alt="summary">
 </p>
 
+### Target audience  ###
+This specification is intended for:
 
-**Version**: 1.0  
-**Creation Date** 2025-03-06    
-**Last modification** 2025-06-25  
+* Data providers preparing EMSO datasets for publication in ERDDAP
+* Software developers implementing metadata validation or ingestion pipelines
+* End users who need to understand the structure and semantics of EMSO datasets
+
+Data providers should focus primarily on the Global Attributes, Coordinate Variables, and the variable type relevant
+to their data. End users may consult the variable definitions and controlled vocabularies to interpret datasets.
+
 
 
 ### General conventions ###
@@ -125,13 +135,19 @@ tests go to Implemented tests section). The mandatory column.
 <sup>3</sup> Used for compatibility with OceanSITES
 
 # Variables #
-Variables in a EMSO-compliant dataset may have different purposes and have different rules. To clearly identify the role of each variable, the attribute `variable_type` should be set with one of the values listed in the following table.
-
+This section describes the different types of variables used in EMSO-compliant datasets and how they work together to 
+represent observations in a structured, interoperable way. Variables are the core building blocks of the data model and 
+include coordinate variables, data variables, quality control variables, and metadata variables. Each variable type has
+a clearly defined role: coordinates establish the spatio-temporal and contextual reference frame, data variables contain
+observed or derived values, quality control variables describe data reliability, and metadata variables provide sensor
+and platform context. The following figure summarizes the different variable types:
 
 <p align="center">
-  <img height="350" src="https://files.obsea.es/other/specs/emso-variables.png" alt="logo">
+  <img height="350" src="https://files.obsea.es/other/specs/variables.jpg" alt="variables">
 </p>
 
+In order to unambiguously classify variables, all variable should include the `variable_type` attribute. The valid 
+values of this attribute is can be found in the following table.
 
 | variable type   | Description                                                                                      |
 |-----------------|--------------------------------------------------------------------------------------------------| 
@@ -231,7 +247,7 @@ semantic clarity and interoperability with climate analysis tools, forecast syst
 the use of CF standard names, well-defined units, and controlled vocabularies, enabling automated processing, 
 comparison, and integration of EMSO observations within operational oceanography and long-term climate applications.
  
-Environmental data variable follow the OceanSITES 4-letter naming conventions odes for variables, e.g. "TEMP" for 
+Environmental data variable follow the OceanSITES 4-letter naming conventions codes for variables, e.g. "TEMP" for 
 temperature. If OceanSITES does not provide a definition for a certain variable, the [NVS P02](http://vocab.nerc.ac.uk/collection/P02) shall be used. 
 If the variable is not present in OceanSITES nor in P02, then a code from
 [Copernicus Marine in situ TAC - physical parameters list](https://archimer.ifremer.fr/doc/00422/53381/) shall be used. If the variable is not properly described
@@ -377,8 +393,8 @@ The following attributes are expected in `sensor` variables:
 Platforms represent the physical structures or systems that host one or more sensors and enable the collection of
 observations, such as fixed observatories, moorings, buoys, landers, or mobile platforms. In the EMSO metadata 
 specification, platform information is captured through dedicated platform metadata variables that uniquely identify 
-the observing platform and describe its type, configuration, and reference properties. Platforms variables provide
-should be linkd to the OSO ontology.  
+the observing platform and describe its type, configuration, and reference properties. Platform variables provide
+should be linked to the OSO ontology.  
 
 The following attributes are expected in `platform` variables:
 
@@ -397,7 +413,7 @@ The following attributes are expected in `platform` variables:
 | platform_reference  | Link to additional information                                    | data_type#uri              | false    | false    |
 | comment             | free-text to add additional comments                              | data_type#str              | false    | false    |
 | latitude            | nominal latitude (for fixed-point platforms only)                 | data_type#float            | false    | false    |
-| longitude           | nominal lontigude (for fixed-point platforms only)                | data_type#float            | false    | false    |
+| longitude           | nominal longitude (for fixed-point platforms only)                | data_type#float            | false    | false    |
 | depth               | nominal depth (for fixed-point platforms with one depth level)    | data_type#float            | false    | false    |
 
 
