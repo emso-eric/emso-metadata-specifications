@@ -146,11 +146,27 @@ Variables in a EMSO-compliant dataset may have different purposes and have diffe
  
  
 ## Coordinate Variables ##
-Coordinate variables are defined following the CF conventions and should be in lower case (as defined in CF). The following attribute are mandatory in all coordinate datasets:
+In the EMSO ERIC metadata specification, coordinate variables are variables whose primary role is to describe the 
+spatio-temporal, vertical, and contextual reference frame of the observations contained in a dataset. They do not 
+represent measured environmental phenomena themselves, but instead provide the essential axes and identifiers that 
+allow data values to be unambiguously located in space, time, and observational context. Coordinate variables follow 
+the Climate and Forecast (CF) conventions, meaning they define independent coordinates (e.g. time, depth, latitude, 
+longitude) or auxiliary coordinates (e.g. sensor or platform identifiers) that are referenced by data variables through
+the coordinates attribute.
+
+From a Climate and Forecast (CF) and operational compatibility perspective, coordinate variables are fundamental to 
+machine-readable geophysical datasets. In EMSO datasets, coordinate variables explicitly define the dimensional
+structure of observations and establish traceability to the observing platform and sensor. This design supports both 
+CF Discrete Sampling Geometries (e.g. fixed time series) and more realistic observational scenarios (e.g. slight 
+positional drift or multi-sensor deployments), while preserving full compatibility with CF-compliant tools and 
+downstream applications.
+
+The following attributes are mandatory in all coordinate:
 
 | Variable Attributes       | Description                                                         | Compliance test          | Required         | Multiple |
 |---------------------------|---------------------------------------------------------------------|--------------------------|------------------|----------|
 | $name<sup>4</sup>         | variable name                                                       | is_coordinate            | true             | false    |
+| variable_type             | Attribute indicating the variable type                              | equals#coordinate        | true             | false    |
 | long_name                 | human-readable label for the variable                               | data_type#str            | true             | false    |
 | standard_name<sup>2</sup> | Climate and Forecast (CF) standard name                             | cf_standard_name         | true<sup>2</sup> | false    |
 | units<sup>5</sup>         | units symbol, alternative label from P06 definition                 | data_type#str            | true<sup>3</sup> | false    |
@@ -163,7 +179,6 @@ Coordinate variables are defined following the CF conventions and should be in l
 | sdn_uom_urn<sup>6</sup>   | Units identifier from SeaDataNet P06 vocabulary                     | sdn_vocab_urn#P06        | true<sup>3</sup> | false    |
 | sdn_uom_uri<sup>6</sup>   | Units URI from SeaDataNet P06 vocabulary                            | sdn_vocab_uri#P06        | false            | false    |
 | cf_role<sup>7</sup>       | Special CF attribute                                                | data_type#str            | false            | false    |
-| variable_type             | Attribute indicating the variable type                              | equals#coordinate        | true             | false    |
 
 
 <sup>4</sup> `$name` is not an attribute, but the variable name inside the NetCDF file or ERDDAP dataset  
@@ -192,13 +207,35 @@ ocean surface mooring measurements, in which the precise position of the observa
 recorded using the  `precise_latitude` and `precise_longitude` optional coordinate variables.    
 
 ## Data Variables ##
+In the EMSO ERIC metadata specification, data variables are variables that contain the actual observed or derived values 
+describing environmental, biological, or technical properties of the ocean system. Unlike coordinate variables, data
+variables represent measurable phenomena or attributes and are defined as functions of one or more coordinate variables.
+Each data variable must explicitly reference its associated coordinate variables through the coordinates attribute, 
+thereby establishing its position in space, time, depth, and observational context in a machine-readable and 
+standards-compliant manner.
+
+Data variables are classified into `environmental`, `biological` and `technical`. Each data variable type has different
+required attributes and may follow different standards. For instance, environmental variable must follow CF conventions 
+while biological variables have to be aligned with Darwin Core. Technical variables may be used for those types of data
+that do not fall under the scope of CF and DwC standards, such as operational data (battery level, input voltage...) or
+even links to data files hydrophone recordings.
+
 ### Environmental Variables ###
-Variables are data variables related Spatio-temporal coordinates follow the CF conventions and should have the following attributes:
-Note that `platform_id` is 
-For variable codes (or variable names) it is mandatory to use OceanSITES 4-letter codes for variables, e.g. "TEMP" for temperature. If OceanSITES does not provide 
-a definition for a certain variable, the [NVS P02](http://vocab.nerc.ac.uk/collection/P02) shall be used. If the variable is not present in OceanSITES nor in P02, 
-then a code from [Copernicus Marine in situ TAC - physical parameters list](https://archimer.ifremer.fr/doc/00422/53381/) shall be used. If the variable is not 
-properly described in any of the previous conventions, then a user-defined 4-letter code may be used. 
+An `environmental` data variable is a data variable that contains measured or derived values describing the physical, 
+chemical, meteorological, or biogeochemical state of the ocean or atmosphere. Environmental data variables represent 
+geophysical phenomena (e.g. temperature, salinity, oxygen concentration, currents) and are defined as functions of 
+coordinate variables.
+
+Environmental data variables follow the Climate and Forecast (CF) conventions and related community standards to ensure
+semantic clarity and interoperability with climate analysis tools, forecast systems, and data services. This includes 
+the use of CF standard names, well-defined units, and controlled vocabularies, enabling automated processing, 
+comparison, and integration of EMSO observations within operational oceanography and long-term climate applications.
+ 
+Environmental data variable follow the OceanSITES 4-letter naming conventions odes for variables, e.g. "TEMP" for 
+temperature. If OceanSITES does not provide a definition for a certain variable, the [NVS P02](http://vocab.nerc.ac.uk/collection/P02) shall be used. 
+If the variable is not present in OceanSITES nor in P02, then a code from
+[Copernicus Marine in situ TAC - physical parameters list](https://archimer.ifremer.fr/doc/00422/53381/) shall be used. If the variable is not properly described
+in any of the previous conventions, then a user-defined 4-letter code may be used. 
 
 The naming convention hierarchy is defined as: 
 
@@ -207,28 +244,38 @@ The naming convention hierarchy is defined as:
 3. If the parameter is not defined in P02, use the [Copernicus Marine in situ TAC - physical parameters list](https://archimer.ifremer.fr/doc/00422/53381/)
 4. If the parameter is not defined in any of the above, use any user-defined 4-letter code. 
 
-The following table defines the attributes expected in an environmental variable. 
+The following table defines the attributes expected in `environmental` variables. 
 
-| Variable Attributes | Description                                                                      | Compliance test          | Required | Multiple |
-|---------------------|----------------------------------------------------------------------------------|--------------------------|----------|----------|
-| $name               | Variable name is compliant with the naming rules, see 'Variable Codes' section   | check_variable_name      | true     | false    |
-| long_name           | human-readable label for the variable                                            | data_type#str            | true     | false    |
-| standard_name       | Climate and Forecast (CF) standard name                                          | cf_standard_name         | true     | false    |
-| units               | units symbol, alternative label from P06 definition                              | sdn_vocab_alt_label#P06  | true     | false    |
-| comment             | free-text to add comments on the variable                                        | data_type#str            | false    | false    |
-| coordinates         | Variable coordinates, e.g. `time depth latitude longitude sensor_id platform_id` | data_type#str            | true     | true     |
-| ancillary_variables | Related variables such as quality control vars and sensor_id/platform_id         | data_type#str            | True     | true     |
-| reference_scale     | reference scale of the variable (e.g. ITS-90 for temperature)                    | data_type#str            | false    | false    |
-| sdn_parameter_name  | variable name (should be the preferred label from the P01 term)                  | sdn_vocab_pref_label#P01 | true     | false    |
-| sdn_parameter_urn   | variable code (should be an identifier from P01)                                 | sdn_vocab_urn#P01        | true     | false    |
-| sdn_parameter_uri   | URI for the P01 term                                                             | sdn_vocab_uri#P01        | false    | false    |
-| sdn_uom_name        | Variable units, should be the preferred label from a P06 definition              | data_type#str            | true     | false    |
-| sdn_uom_urn         | Units identifier from SeaDataNet P06 vocabulary                                  | sdn_vocab_urn#P06        | true     | false    |
-| sdn_uom_uri         | Units URI from SeaDataNet P06 vocabulary                                         | sdn_vocab_uri#P06        | false    | false    |
-| variable_type       | Attribute indicating the variable type                                           | equals#environmental     | true     | false    |
+| Variable Attributes | Description                                                                         | Compliance test          | Required | Multiple |
+|---------------------|-------------------------------------------------------------------------------------|--------------------------|----------|----------|
+| $name               | Variable name is compliant with the naming rules, see 'Variable Codes' section      | check_variable_name      | true     | false    |
+| variable_type       | Attribute indicating the variable type                                              | equals#environmental     | true     | false    |
+| long_name           | human-readable label for the variable                                               | data_type#str            | true     | false    |
+| standard_name       | Climate and Forecast (CF) standard name                                             | cf_standard_name         | true     | false    |
+| units               | units symbol, alternative label from P06 definition                                 | sdn_vocab_alt_label#P06  | true     | false    |
+| comment             | free-text to add comments on the variable                                           | data_type#str            | false    | false    |
+| coordinates         | Variable coordinates, usually `time depth latitude longitude sensor_id platform_id` | data_type#str            | true     | true     |
+| ancillary_variables | Related variables such as quality control vars                                      | data_type#str            | True     | true     |
+| reference_scale     | reference scale of the variable (e.g. ITS-90 for temperature)                       | data_type#str            | false    | false    |
+| sdn_parameter_name  | variable name (should be the preferred label from the P01 term)                     | sdn_vocab_pref_label#P01 | true     | false    |
+| sdn_parameter_urn   | variable code (should be an identifier from P01)                                    | sdn_vocab_urn#P01        | true     | false    |
+| sdn_parameter_uri   | URI for the P01 term                                                                | sdn_vocab_uri#P01        | false    | false    |
+| sdn_uom_name        | Variable units, should be the preferred label from a P06 definition                 | data_type#str            | true     | false    |
+| sdn_uom_urn         | Units identifier from SeaDataNet P06 vocabulary                                     | sdn_vocab_urn#P06        | true     | false    |
+| sdn_uom_uri         | Units URI from SeaDataNet P06 vocabulary                                            | sdn_vocab_uri#P06        | false    | false    |
 
  ### Biological Variables ###
-Biological variables comply with [Darwin Core](https://dwc.tdwg.org) (DwC) rather than Climate and Forecast (CF). Any biological variable name must be a term defined in the
+
+A biological data variable is a data variable that contains observed or derived information describing biological, 
+ecological, or biodiversity-related aspects of the marine environment. Biological data variables represent attributes 
+such as species occurrence, abundance, biomass, life stage, or taxonomic identification and are defined in relation 
+to spatio-temporal coordinate variables (e.g. time, depth, latitude, longitude).
+
+Biological data variables follow the [Darwin Core](https://dwc.tdwg.org) (DwC) standard rather than Climate and Forecast
+(CF) conventions, using controlled DwC terms and identifiers to ensure semantic consistency and interoperability with 
+biodiversity information systems. When combined with CF-compliant coordinate variables, biological data variables 
+remain fully compatible with ERDDAP and multidisciplinary workflows, enabling integrated analyses across physical, 
+biogeochemical, and biological domains. Any biological variable name must be a term defined in the
 [DwC terms](https://dwc.tdwg.org/terms/), following its camelCase nomenclature.
 
 The following table lists the expected attributes from a biological variable:
@@ -236,39 +283,59 @@ The following table lists the expected attributes from a biological variable:
 | Variable Attributes | Description                                                                      | Compliance test   | Required | Multiple |
 |---------------------|----------------------------------------------------------------------------------|-------------------|----------|----------|
 | $name               | Variable should be a Darwin Core term                                            | dwc_term_name     | true     | false    |
+| variable_type       | Attribute indicating the variable type                                           | equals#biological | true     | false    |
 | long_name           | human-readable label for the variable                                            | data_type#str     | true     | false    |
 | coordinates         | Variable coordinates, e.g. `time depth latitude longitude sensor_id platform_id` | data_type#str     | true     | true     |
 | dwc_term_uri        | Link to Darwin Core list of terms                                                | dwc_term_uri      | true     | true     |
-| variable_type       | Attribute indicating the variable type                                           | equals#biological | true     | false    |
 | comment             | free-text to add comments                                                        | data_type#str     | false    | false    |
 
 
 ### Technical Variables ###
 
+Technical variables are data variables that contain auxiliary or operational information related to the functioning,
+status, or performance of sensors, platforms, or data acquisition systems, rather than describing environmental or 
+biological phenomena. Typical examples include battery level, error codes, sampling status, or internal diagnostics.
+
+Technical variables are explicitly designed to accommodate information that does not fit within the environmental or 
+biological variable categories, while remaining linked to the same spatio-temporal coordinate framework.
+
 The following table contains technical variable attributes:
 
 | Variable Attributes | Description                                                                      | Compliance test      | Required | Multiple |
 |---------------------|----------------------------------------------------------------------------------|----------------------|----------|----------|
+| variable_type       | Attribute indicating the variable type                                           | equals#technical     | true     | false    |
 | long_name           | human-readable label for the variable                                            | data_type#str        | true     | false    |
 | coordinates         | Variable coordinates, e.g. `time depth latitude longitude sensor_id platform_id` | data_type#str        | true     | true     |
 | comment             | free-text to add comments                                                        | data_type#str        | false    | false    |
-| variable_type       | Attribute indicating the variable type                                           | equals#technical     | true     | false    | 
+ 
 
 ## Quality Control Variables ##
+Quality control variables are auxiliary variables that provide standardized information on the validity, reliability, 
+or processing status of associated data variables. They encode quality assessments using controlled flag values and
+meanings, allowing users and automated systems to identify good, suspect, corrected, or missing data.
+
 Quality control variables, providing information about the quality of a related variable. The following attributes are expected.
 
 | QC Attributes  | Description                                                                                                                   | Compliance test        | Required | Multiple |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------|------------------------|----------|----------|
 | $name          | Variable name is compliant with the naming rules, see 'Variable Codes' section                                                | qc_variable_name       | true     | false    |
+| variable_type  | Attribute indicating the variable type                                                                                        | equals#quality_control | true     | false    |
 | long_name      | human-readable label, it is suggested to use parameter long_label and add "quality control flags" at the end                  | data_type#str          | true     | false    |
 | conventions    | OceanSITES QC Flags                                                                                                           | data_type#str          | true     | false    |
 | flag_values    | 0 1 2 3 4 7 8 9                                                                                                               | qc_flag_values         | true     | true     |
 | flag_meanings  | unknown good_data probably_good_data potentially_correctable_bad_data bad_data nominal_value interpolated_value missing_value | qc_flag_meanings       | true     | true     |
-| variable_type  | Attribute indicating the variable type                                                                                        | equals#quality_control | true     | false    |
 | comment        | free-text to add comments                                                                                                     | data_type#str          | false    | false    |
 
 
 ## Metadata Variables ##
+Metadata variables are auxiliary variables used to store structured information describing the sensors and platforms 
+responsible for acquiring the observations in an EMSO dataset. Rather than representing measured values, these variables
+provide contextual metadata—such as instrument type, model, manufacturer, deployment configuration, or platform 
+identity—that are required to correctly interpret, compare, and reuse the data.
+
+By hosting sensor and platform metadata as variables within the NetCDF file and/or ERDDAP datasets, it is ensured that 
+this information remains tightly coupled to the observations. This approach supports traceability, interoperability 
+and observational provenance across multidisciplinary and multi-platform datasets.
 
 ### Sensor Variables ###
 
@@ -277,9 +344,12 @@ document the word sensor and instrument are used indistinctively to refers to in
 Although within this document the preferred word is sensor, to maintain compatibility with other standards, instrument
 term might also be used. 
 
+The following attributes are expected in `sensor` variables:
+
 | Variable Attributes                | Description                                                              | Compliance test               | Required | Multiple |
 |------------------------------------|--------------------------------------------------------------------------|-------------------------------|----------|----------|
 | $name                              | Sensor name, should be unique                                            | data_type#str                 | true     | false    |
+| variable_type                      | Attribute indicating the variable type                                   | equals#sensor                 | true     | false    |
 | long_name                          | human-readable label for the variable                                    | data_type#str                 | true     | false    |
 | sensor_id                          | identifier of the sensor used within the `sensor_id` variable            | data_type#str                 | true     | false    |
 | sdn_instrument_name<sup>8</sup>    | Sensor model, L22 preferred label                                        | sdn_vocab_pref_label#L22      | true     | false    |
@@ -297,7 +367,6 @@ term might also be used.
 | sensor_orientation                 | One of the possible sensor orientation from OceanSITES reference table 8 | oceansites_sensor_orientation | false    | false    |
 | sensor_reference                   | Link to additional information,e.g. sensor datasheet                     | data_type#str                 | false    | false    |
 | comment                            | free-text to add additional comments                                     | data_type#str                 | false    | false    |
-| variable_type                      | Attribute indicating the variable type                                   | equals#sensor                 | true     | false    |
 
 <sup>8</sup> Used for compatibility with SeaDataNet data file format
 <sup>9</sup> Used for compatibility with OceanSITES format
@@ -305,7 +374,13 @@ term might also be used.
 
 ### Platform Variables ###
 
-Platform are umbrella variables to store platform metadata. 
+Platforms represent the physical structures or systems that host one or more sensors and enable the collection of
+observations, such as fixed observatories, moorings, buoys, landers, or mobile platforms. In the EMSO metadata 
+specification, platform information is captured through dedicated platform metadata variables that uniquely identify 
+the observing platform and describe its type, configuration, and reference properties. Platforms variables provide
+should be linkd to the OSO ontology.  
+
+The following attributes are expected in `platform` variables:
 
 | Variable Attributes | Description                                                       | Compliance test            | Required | Multiple |
 |---------------------|-------------------------------------------------------------------|----------------------------|----------|----------|
