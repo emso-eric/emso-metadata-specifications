@@ -362,30 +362,30 @@ term might also be used.
 
 The following attributes are expected in `sensor` variables:
 
-| Variable Attributes                | Description                                                              | Compliance test               | Required | Multiple |
-|------------------------------------|--------------------------------------------------------------------------|-------------------------------|----------|----------|
-| $name                              | Sensor name, should be unique                                            | data_type#str                 | true     | false    |
-| variable_type                      | Attribute indicating the variable type                                   | equals#sensor                 | true     | false    |
-| long_name                          | human-readable label for the variable                                    | data_type#str                 | true     | false    |
-| sensor_id                          | identifier of the sensor used within the `sensor_id` variable            | data_type#str                 | true     | false    |
-| sdn_instrument_name<sup>8</sup>    | Sensor model, L22 preferred label                                        | sdn_vocab_pref_label#L22      | true     | false    |
-| sdn_instrument_urn<sup>8</sup>     | Sensor model, L22 URN                                                    | sdn_vocab_urn#L22             | true     | false    |
-| sdn_instrument_uri<sup>8</sup>     | Sensor model, L22 uri                                                    | sdn_vocab_uri#L22             | true     | false    |
-| sensor_SeaVoX_L22_code<sup>9</sup> | Same as `sdn_instrument_urn`                                             | sdn_vocab_urn#L22             | true     | false    |
-| sensor_type_name                   | Sensor type,  L05 preferred label                                        | sdn_vocab_pref_label#L05      | true     | false    |
-| sensor_type_urn                    | Sensor type L05 URN                                                      | sdn_vocab_urn#L05             | true     | false    |
-| sensor_type_uri                    | Sensor type L05 URI                                                      | sdn_vocab_uri#L05             | true     | false    |
-| sensor_manufacturer_name           | Sensor model, L35 preferred label                                        | sdn_vocab_pref_label#L35      | true     | false    |
-| sensor_manufacturer_uri            | Sensor model (URI from the L35 term)                                     | sdn_vocab_uri#L35             | true     | false    |
-| sensor_manufacturer_urn            | Sensor model (should be preferred label from the L35 term)               | sdn_vocab_urn#L35             | true     | false    |
-| sensor_serial_number               | Unique identifier for the sensor                                         | data_type#str                 | true     | false    |
-| sensor_mount                       | One of the possible sensor mounts from OceanSITES reference table 7      | oceansites_sensor_mount       | true     | false    |
-| sensor_orientation                 | One of the possible sensor orientation from OceanSITES reference table 8 | oceansites_sensor_orientation | false    | false    |
-| sensor_reference                   | Link to additional information,e.g. sensor datasheet                     | data_type#str                 | false    | false    |
-| comment                            | free-text to add additional comments                                     | data_type#str                 | false    | false    |
+| Variable Attributes                 | Description                                                              | Compliance test               | Required | Multiple |
+|-------------------------------------|--------------------------------------------------------------------------|-------------------------------|----------|----------|
+| $name                               | Sensor name, should be unique                                            | data_type#str                 | true     | false    |
+| variable_type                       | Attribute indicating the variable type                                   | equals#sensor                 | true     | false    |
+| long_name                           | human-readable label for the variable                                    | data_type#str                 | true     | false    |
+| sensor_id                           | identifier of the sensor used within the `sensor_id` variable            | data_type#str                 | true     | false    |
+| sdn_instrument_name<sup>9</sup>     | Sensor model, L22 preferred label                                        | sdn_vocab_pref_label#L22      | true     | false    |
+| sdn_instrument_urn<sup>9</sup>      | Sensor model, L22 URN                                                    | sdn_vocab_urn#L22             | true     | false    |
+| sdn_instrument_uri<sup>9</sup>      | Sensor model, L22 uri                                                    | sdn_vocab_uri#L22             | true     | false    |
+| sensor_SeaVoX_L22_code<sup>10</sup> | Same as `sdn_instrument_urn`                                             | sdn_vocab_urn#L22             | true     | false    |
+| sensor_type_name                    | Sensor type,  L05 preferred label                                        | sdn_vocab_pref_label#L05      | true     | false    |
+| sensor_type_urn                     | Sensor type L05 URN                                                      | sdn_vocab_urn#L05             | true     | false    |
+| sensor_type_uri                     | Sensor type L05 URI                                                      | sdn_vocab_uri#L05             | true     | false    |
+| sensor_manufacturer_name            | Sensor model, L35 preferred label                                        | sdn_vocab_pref_label#L35      | true     | false    |
+| sensor_manufacturer_uri             | Sensor model (URI from the L35 term)                                     | sdn_vocab_uri#L35             | true     | false    |
+| sensor_manufacturer_urn             | Sensor model (should be preferred label from the L35 term)               | sdn_vocab_urn#L35             | true     | false    |
+| sensor_serial_number                | Unique identifier for the sensor                                         | data_type#str                 | true     | false    |
+| sensor_mount                        | One of the possible sensor mounts from OceanSITES reference table 7      | oceansites_sensor_mount       | true     | false    |
+| sensor_orientation                  | One of the possible sensor orientation from OceanSITES reference table 8 | oceansites_sensor_orientation | false    | false    |
+| sensor_reference                    | Link to additional information,e.g. sensor datasheet                     | data_type#str                 | false    | false    |
+| comment                             | free-text to add additional comments                                     | data_type#str                 | false    | false    |
 
-<sup>8</sup> Used for compatibility with SeaDataNet data file format
-<sup>9</sup> Used for compatibility with OceanSITES format
+<sup>9</sup> Used for compatibility with SeaDataNet data file format  
+<sup>10</sup> Used for compatibility with OceanSITES format
 
 
 ### Platform Variables ###
