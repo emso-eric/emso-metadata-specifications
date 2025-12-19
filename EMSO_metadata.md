@@ -184,23 +184,23 @@ The following attributes are mandatory in all coordinate:
 | $name<sup>4</sup>         | variable name                                                       | is_coordinate            | true             | false    |
 | variable_type             | Attribute indicating the variable type                              | equals#coordinate        | true             | false    |
 | long_name                 | human-readable label for the variable                               | data_type#str            | true             | false    |
-| standard_name<sup>2</sup> | Climate and Forecast (CF) standard name                             | cf_standard_name         | true<sup>2</sup> | false    |
-| units<sup>5</sup>         | units symbol, alternative label from P06 definition                 | data_type#str            | true<sup>3</sup> | false    |
+| standard_name<sup>5</sup> | Climate and Forecast (CF) standard name                             | cf_standard_name         | true<sup>2</sup> | false    |
+| units<sup>6</sup>         | units symbol, alternative label from P06 definition                 | data_type#str            | true<sup>3</sup> | false    |
 | comment                   | free-text to add comments on the variable                           | data_type#str            | false            | false    |
 | ancillary_variables       | Related variables, e.g. quality control flags                       | data_type#str            | false            | true     |
 | sdn_parameter_name        | variable name (should be the preferred label from the P01 term)     | sdn_vocab_pref_label#P01 | true             | false    |
 | sdn_parameter_urn         | variable code (should be an identifier from P01)                    | sdn_vocab_urn#P01        | true             | false    |
 | sdn_parameter_uri         | URI for the P01 term                                                | sdn_vocab_uri#P01        | true             | false    |
-| sdn_uom_name<sup>6</sup>  | Variable units, should be the preferred label from a P06 definition | data_type#str            | true<sup>3</sup> | false    |
-| sdn_uom_urn<sup>6</sup>   | Units identifier from SeaDataNet P06 vocabulary                     | sdn_vocab_urn#P06        | true<sup>3</sup> | false    |
-| sdn_uom_uri<sup>6</sup>   | Units URI from SeaDataNet P06 vocabulary                            | sdn_vocab_uri#P06        | false            | false    |
-| cf_role<sup>7</sup>       | Special CF attribute                                                | data_type#str            | false            | false    |
+| sdn_uom_name<sup>7</sup>  | Variable units, should be the preferred label from a P06 definition | data_type#str            | true<sup>3</sup> | false    |
+| sdn_uom_urn<sup>7</sup>   | Units identifier from SeaDataNet P06 vocabulary                     | sdn_vocab_urn#P06        | true<sup>3</sup> | false    |
+| sdn_uom_uri<sup>7</sup>   | Units URI from SeaDataNet P06 vocabulary                            | sdn_vocab_uri#P06        | false            | false    |
+| cf_role<sup>8</sup>       | Special CF attribute                                                | data_type#str            | false            | false    |
 
 
-<sup>4</sup> `$name` is not an attribute, but the variable name inside the NetCDF file or ERDDAP dataset  
+<sup>4</sup> `$name` is not an attribute, but the variable name inside the NetCDF file or ERDDAP dataset. It can be safely ignored.
 <sup>5</sup> `standard_name` is not required for `sensor_id` since there is not an appropriate term in [CF Standard Name Table](https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table).  
 <sup>6</sup> `units`, `sdn_uom_urn` and `sdn_uom_urn` is mandatory for all coordinate variables except for `sensor_id` and `platform_id`.  
-<sup>7</sup> `cf_role` is a special field as stated on [CF conventions](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#coordinates-metadata), whose only permitted values are `timeseries_id`, `profile_id`, and `trajectory_id`. Only required for 'platform_id'
+<sup>8</sup> `cf_role` is a special field as stated on [CF conventions](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#coordinates-metadata), whose only permitted values are `timeseries_id`, `profile_id`, and `trajectory_id`. Only required for 'platform_id'
 
 ### Valid Coordinates ###
 
