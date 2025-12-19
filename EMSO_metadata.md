@@ -183,7 +183,7 @@ Unlike other variables, the coordinate variables are limited to the following ta
 | longitude         | longitude            | true      | float                    | longitude of the measurement, nominal value          | [ALONZZ01](https://vocab.nerc.ac.uk/collection/P01/current/ALONZZ01/) |
 | precise_latitude  | deployment_latitude  | false     | float                    | accurate latitude for the measurement                | [ALATGP01](https://vocab.nerc.ac.uk/collection/P01/current/ALATGP01/) |
 | precise_longitude | deployment_longitude | false     | float                    | accurate lontidue of the measurement                 | [ALONGP01](https://vocab.nerc.ac.uk/collection/P01/current/ALONGP01/) |
-| sensor_id         | n/a                  | true      | string                   | identifier of the sensor that took the measurement   | [ADEPZZ01](https://vocab.nerc.ac.uk/collection/P01/current/NMSPINST/) |
+| sensor_id         | n/a                  | true      | string                   | identifier of the sensor that took the measurement   | [NMSPINST](https://vocab.nerc.ac.uk/collection/P01/current/NMSPINST/) |
 | platform_id       | platform_id          | true      | string                   | identifier of the platform that took the measurement | [NMSPPF01](https://vocab.nerc.ac.uk/collection/P01/current/NMSPPF01/) |
 
 
