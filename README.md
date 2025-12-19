@@ -31,7 +31,7 @@ The specifications are composed by the following:
 * **Automation**: Structured metadata supports automated data ingestion, validation, and processing workflows.
 
 <p align="center">
-  <img height="1000x" src="https://files.obsea.es/other/sea-infographic.jpg" alt="infographic">
+  <img height="800x" src="https://files.obsea.es/other/sea-infographic.jpg" alt="infographic">
 </p>
 
 
