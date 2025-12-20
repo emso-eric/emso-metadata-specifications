@@ -346,7 +346,7 @@ if __name__ == "__main__":
     sdn_vocabs_related = {}
 
 
-    source_url = "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/"
+    source_url = "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/"
 
 
     #======== Process SeaDataNet / BODC Vocabularies ========#
