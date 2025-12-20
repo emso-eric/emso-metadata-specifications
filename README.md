@@ -11,6 +11,13 @@ The specifications are composed by the following:
 * **[OceanSITES codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/OceanSites_codes.md)**: List of conventions taken from the OceanSITES specifications. 
 * **[OceanSITES codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/OceanSites_codes.md)**: List of conventions taken from the DataCite Metadata Schema.
 
+Check our [ERDDAP](https://netcdf-dev.obsea.es/erddap/index.html) with some example datasets following this specifications.
+
+<p align="center">
+  <img height="800x" src="https://files.obsea.es/other/sea-infographic.jpg" alt="infographic">
+</p>
+
+
 ## Summary ##
 
 ### Core Principles:
@@ -29,10 +36,6 @@ The specifications are composed by the following:
 * **Discoverability**: Rich, standardised metadata improves search and discovery across scientific disciplines.
 * **Traceability**: Clear attribution of data sources, sensors, platforms and funding projects.
 * **Automation**: Structured metadata supports automated data ingestion, validation, and processing workflows.
-
-<p align="center">
-  <img height="800x" src="https://files.obsea.es/other/sea-infographic.jpg" alt="infographic">
-</p>
 
 
 # Contact info #

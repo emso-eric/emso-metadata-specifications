@@ -450,5 +450,5 @@ the [NERC Vocabulary Service](https://vocab.nerc.ac.uk) among others
   L22 (devices), etc.
 * **sdn_vocab_preflabel#vocab_id**: Preferred label from a SDN vocabulary
 * **sdn_vocab_uri#vocab_id**: Resolvable URI for a SDN vocabulary Term
-* * **contributor_types**: Complies with the DataCite's metadata kernel contributor roles
-* * **contributor_names**: Makes sure that for every contributor name there is a contributor type
+* **contributor_types**: Complies with the DataCite's metadata kernel contributor roles
+* **contributor_names**: Makes sure that for every contributor name there is a contributor type
