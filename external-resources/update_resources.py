@@ -371,7 +371,7 @@ if __name__ == "__main__":
 
         resources[vocab]["csv"] = source_url + filename
         for relation in ["narrower", "related", "broader"]:
-            resources[vocab][relation] = os.path.join("sdn", f"{vocab}.{relation}.json")
+            resources[vocab][relation] = source_url + f"sdn/{vocab}.{relation}.json"
 
     #======== Process EDMO Codes ========#
     edmo_codes = get_edmo_codes(edmo_codes_jsonld)
