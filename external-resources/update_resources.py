@@ -15,7 +15,6 @@ import hashlib
 
 def get_file_md5(filename):
     md5_hash = hashlib.md5()
-
     with open(filename, 'rb') as f:
         for chunk in iter(lambda: f.read(65536), b""):
             md5_hash.update(chunk)
@@ -252,7 +251,6 @@ if __name__ == "__main__":
     resources = {}
 
     args = argparser.parse_args()
-    os.makedirs("relations", exist_ok=True)
     os.makedirs(".temp", exist_ok=True)
 
     emso_version = "develop"
@@ -285,17 +283,41 @@ if __name__ == "__main__":
 
     edmo_codes_jsonld = ".temp/edmo_codes_jsonld.json"
 
+    oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/refs/heads/main/docs/ontology.ttl"
+
+    copernicus_params_file = os.path.join(".temp", "copernicus_param_list.xlsx")
+    cf_std_name_units_file = os.path.join(".temp", "standard_name_units.xml")
+    dwc_terms_file = os.path.join(".temp", "dwc_terms.csv")
+    oso_ontology_file = os.path.join(".temp", "oso.ttl")
+    spdx_licenses_file = os.path.join(".temp", "spdx_licenses.md")
+    
+    
+    sdn_vocab_p01_file = os.path.join(".temp", "sdn_vocab_p01.json")
+    sdn_vocab_p02_file = os.path.join(".temp", "sdn_vocab_p02.json")
+    sdn_vocab_p06_file = os.path.join(".temp", "sdn_vocab_p06.json")
+    sdn_vocab_p07_file = os.path.join(".temp", "sdn_vocab_p07.json")
+    sdn_vocab_l05_file = os.path.join(".temp", "sdn_vocab_l05.json")
+    sdn_vocab_l06_file = os.path.join(".temp", "sdn_vocab_l06.json")
+    sdn_vocab_l22_file = os.path.join(".temp", "sdn_vocab_l22.json")
+    sdn_vocab_l35_file = os.path.join(".temp", "sdn_vocab_l35.json")
+
     rich.print("Setting up the download tasks...", end="")
     tasks = [  # list of resources (URL, temp_file, csv_file)
         #"EDMO": ["emso_codes_url", "EDMO_codes.csv"]
-        [sdn_vocab_p01_url, ".temp/sdn_vocab_p01.json", "P01.csv"],
-        [sdn_vocab_p02_url, ".temp/sdn_vocab_p02.json", "P02.csv"],
-        [sdn_vocab_p06_url, ".temp/sdn_vocab_p06.json", "P06.csv"],
-        [sdn_vocab_p07_url, ".temp/sdn_vocab_p07.json", "P07.csv"],
-        [sdn_vocab_l05_url, ".temp/sdn_vocab_l05.json", "L05.csv"],
-        [sdn_vocab_l06_url, ".temp/sdn_vocab_l06.json", "L06.csv"],
-        [sdn_vocab_l22_url, ".temp/sdn_vocab_l22.json", "L22.csv"],
-        [sdn_vocab_l35_url, ".temp/sdn_vocab_l35.json", "L35.csv"],
+        [sdn_vocab_p01_url, sdn_vocab_p01_file, "P01.csv"],
+        [sdn_vocab_p02_url, sdn_vocab_p02_file, "P02.csv"],
+        [sdn_vocab_p06_url, sdn_vocab_p06_file, "P06.csv"],
+        [sdn_vocab_p07_url, sdn_vocab_p07_file, "P07.csv"],
+        [sdn_vocab_l05_url, sdn_vocab_l05_file, "L05.csv"],
+        [sdn_vocab_l06_url, sdn_vocab_l06_file, "L06.csv"],
+        [sdn_vocab_l22_url, sdn_vocab_l22_file, "L22.csv"],
+        [sdn_vocab_l35_url, sdn_vocab_l35_file, "L35.csv"],
+        [copernicus_param_list, copernicus_params_file, "spdx licenses"],
+        [cf_standard_name_units_url, cf_std_name_units_file, "CF units"],
+        [dwc_terms_url, dwc_terms_file, "DwC terms"],
+        [oso_ontology_url, oso_ontology_file, "OSO"],
+        [spdx_licenses_github, spdx_licenses_file, "spdx licenses"]
+
     ]
     rich.print(f"[green]done")
     download_files(tasks, force_download=args.force_download)
@@ -305,14 +327,14 @@ if __name__ == "__main__":
     rich.print(f"[green]done")
 
     sdn_vocabs = {
-        "P01": ".temp/sdn_vocab_p01.json",
-        "P02": ".temp/sdn_vocab_p02.json",
-        "P06": ".temp/sdn_vocab_p06.json",
-        "P07": ".temp/sdn_vocab_p07.json",
-        "L05": ".temp/sdn_vocab_l05.json",
-        "L06": ".temp/sdn_vocab_l06.json",
-        "L22": ".temp/sdn_vocab_l22.json",
-        "L35": ".temp/sdn_vocab_l35.json",
+        "P01": sdn_vocab_p01_file,
+        "P02": sdn_vocab_p02_file,
+        "P06": sdn_vocab_p06_file,
+        "P07": sdn_vocab_p07_file,
+        "L05": sdn_vocab_l05_file,
+        "L06": sdn_vocab_l06_file,
+        "L22": sdn_vocab_l22_file,
+        "L35": sdn_vocab_l35_file,
     }
 
     sdn_vocabs_ids = {}
@@ -323,13 +345,20 @@ if __name__ == "__main__":
     sdn_vocabs_broader = {}
     sdn_vocabs_related = {}
 
-    t = time.time()
+
+    source_url = "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/"
+
+
+    #======== Process SeaDataNet / BODC Vocabularies ========#
     # Process raw SeaDataNet JSON-ld files and store them sliced in short JSON files
+    os.makedirs("sdn", exist_ok=True)
     for vocab, jsonld_file in sdn_vocabs.items():
-        csv_filename = os.path.join(f"{vocab}.csv")
-        frelated = os.path.join("relations", f"{vocab}.related.json")
-        fnarrower = os.path.join("relations", f"{vocab}.narrower.json")
-        fbroader = os.path.join("relations", f"{vocab}.broader.json")
+        resources[vocab] = {}
+        resources[vocab]["hash"] = get_file_md5(jsonld_file)
+        csv_filename = os.path.join("sdn", f"{vocab}.csv")
+        frelated = os.path.join("sdn", f"{vocab}.related.json")
+        fnarrower = os.path.join("sdn", f"{vocab}.narrower.json")
+        fbroader = os.path.join("sdn", f"{vocab}.broader.json")
 
         rich.print(f"Loading SDN {vocab}...", end="")
         df, narrower, broader, related = load_sdn_vocab(jsonld_file)
@@ -338,32 +367,37 @@ if __name__ == "__main__":
             with open(filename, "w") as f:
                 json.dump(values, f)
 
-        # for vocab, df in sdn_vocabs.items():
-        # Storing to CSV to make it easier to search
-        filename = os.path.join(f"{vocab}.csv")
         df.to_csv(filename, index=False)
-        resources[vocab] = filename
+
+        resources[vocab]["csv"] = source_url + filename
         for relation in ["narrower", "related", "broader"]:
-            resources[f"{vocab}.{relation}"] = os.path.join("relations", f"{vocab}.{relation}.json")
+            resources[vocab][relation] = os.path.join("sdn", f"{vocab}.{relation}.json")
 
-    # Add EDMO
+    #======== Process EDMO Codes ========#
     edmo_codes = get_edmo_codes(edmo_codes_jsonld)
-    edmo_codes.to_csv("EDMO.csv", index=False)
-    resources["EDMO"] = "EDMO.csv"
+    os.makedirs("edmo", exist_ok=True)
+    edmo_codes.to_csv("edmo/EDMO.csv", index=False)
+    resources["EDMO"] = {"csv": source_url + "edmo/EDMO.csv", "hash": get_file_md5(edmo_codes_jsonld)}
 
-
-    source_url = "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/"
-
-    for key, value in resources.items():
-        hash = get_file_md5(value)
-        resources[key] = {
-            "url": source_url + value,
-            "hash": hash
-        }
+    #======== Process EDMO Codes ========#
+    # Copernicus parameter list
+    df = pd.read_excel(copernicus_params_file, sheet_name="Parameters", keep_default_na=False, header=1)
+    variables = df["variable name"].dropna().values
+    variables = [v.split(" (")[0] for v in variables]  # remove citations
+    copernicus_variables = [v for v in variables if len(v) > 1]  # remove empty lines
+    rich.print(copernicus_variables)
+    os.makedirs("copernicus", exist_ok=True)
+    filename = "copernicus/codes.json"
+    with open(filename, "w") as f:
+        f.write(json.dumps(copernicus_variables, indent=2))
+    resources["Copernicus Parameters"]= {
+        "json": source_url + "copernicus/codes.json",
+        "hash": get_file_md5(filename)
+    }
 
     rich.print(resources)
-    with open("manifest.json", "w") as f:
-        f.write(json.dumps(resources, indent=2))
 
+    with open("resources.json", "w") as f:
+        f.write(json.dumps(resources, indent=2))
 
 
