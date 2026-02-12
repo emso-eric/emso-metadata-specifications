@@ -1,7 +1,5 @@
 # ERDDAP Metadata Specification #
 
-
-
 ## Introduction ##
 
 The EMSO Metadata Specification for ERDDAP defines the essential metadata elements required for datasets to achieve 
@@ -44,7 +42,6 @@ Data providers should focus primarily on the Global Attributes, Coordinate Varia
 to their data. End users may consult the variable definitions and controlled vocabularies to interpret datasets.
 
 
-
 ### General conventions ###
 
 #### Multiple Attributes
@@ -78,7 +75,6 @@ provides a resolvable identifier while the URN in other conventions like [SeaDat
 
 Although it might be a bit verbose, this way of encoding metadata is human-readable, resolvable and backwards compatible
 with other standards. 
-
 
 
 ## Global Attributes ##
@@ -126,8 +122,8 @@ tests go to Implemented tests section). The mandatory column.
 | contributors<sup>1</sup>     | comma-separated list of author names                                                                                                                                                 | data_type#str            | true     | true     |
 | contributor_types            | role for each author following the [DataCite contributor type](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/datacite/DataCite_codes.md) | contributor_types        | true     | true     |
 | doi                          | Digital Object Identifier (DOI) list of the dataset.                                                                                                                                 | valid_doi                | false    | true     |
-| license                      | license name (SPDX short identifier), use of `CC-BY-4.0` is strongly recommended                                                                                                       | spdx_license_name        | true     | false    |
-| license_uri                  | URI pointing to a SPDX license, use of `CC-BY-4.0` is strongly recommended                                                                                                             | spdx_license_uri         | true     | false    |
+| license                      | license name (SPDX short identifier), use of `CC-BY-4.0` is strongly recommended                                                                                                     | spdx_license_name        | true     | false    |
+| license_uri                  | URI pointing to a SPDX license, use of `CC-BY-4.0` is strongly recommended                                                                                                           | spdx_license_uri         | true     | false    |
 | featureType<sup>2</sup>      | Special field used by CF Discrete Sampling Geometries                                                                                                                                | cf_dsg_types             | true     | false    |
 
 <sup>1</sup> Since the values may contain spaces, use comma as separator instead of the usual blank space, e.g. `Homer Simpson, Rick Sánchez`   
@@ -443,12 +439,12 @@ Description of the compliance tests:
 
 * **data_type#type**: The parameter type is of a certain type. Possible arguments are `float`, `str`, `int`, `date`, `datetime` and `uri`.
 * **edmo_code**: The parameter is an integer number representing an organization listed
-* **ror_uri**: valid instance of ROR vocabulary
+* **ror_uri**: valid instance of [ROR](https://ror.org) vocabulary
   in [EDMO database](https://edmo.seadatanet.org/) (European Directory of Marine Organizations).
 * **coordinate#type**: Checks if a coordinate is correct, see coordinates section for more info.
 * **email**: valid email
-* **oceansites_sensor_orientation**: A valid value from sensor_orientation table (OceanSites_codes.md)
-* **oceansites_sensor_mount**: A valid value from sensor_orientation table (OceanSites_codes.md)
+* **oceansites_sensor_orientation**: A valid value from [OceanSITES sensor_orientation table](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/oceansites/OceanSites_codes.md)
+* **oceansites_sensor_mount**: A valid value from [OceanSITES sensor_mount table](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/oceansites/OceanSites_codes.md)
 * **sdn_vocab_urn#vocab_id**: The parameter is a urn in a SeaDataNet vocabulary. Possible values are P01 (parameters),
   P02 (parameter codes), P06 (units), L05 (sensor types), L06 platform types) and L22 (sensor models)   P06 (units),
   L22 (devices), etc.
@@ -458,9 +454,9 @@ Description of the compliance tests:
 * **contributor_names**: Makes sure that for every contributor name there is a contributor type
 * **oso_ontology_uri#type**: Valid URI from the OSO ontology. Possible arguments are `rf` (Regional Facility), `site` and `platform`.
 * **oso_ontology_name#type**: Valid preferred label from the OSO ontology. Possible arguments are `rf` (Regional Facility), `site` and `platform`.
-* **equals#value**: Checks if the attribute equals to the exepcted value (any string)
-* **oceansites_data_type**: Valid OceanSITES data type value.
-* **oceansites_data_mode**: Valid OceanSITES data mode value (R, P, D, M).
+* **equals#value**: Checks if the attribute equals to the expected value (any string)
+* **oceansites_data_type**: Valid [OceanSITES data type](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/oceansites/OceanSites_codes.md) value.
+* **oceansites_data_mode**: Valid [OceanSITES data mode](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/oceansites/OceanSites_codes.md) value (R, P, D, M).
 * **valid_doi**: Valid Digital Object Identifier.
 * **spdx_license_name**: Valid SPDX license short identifier.
 * **spdx_license_uri**: Valid URI pointing to a SPDX license.
