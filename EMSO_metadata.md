@@ -30,7 +30,7 @@ API.
 The structure of EMSO-compliant datasets is depicted in the following picture:
 
 <p align="center">
-  <img height="500x" src="https://files.obsea.es/other/specs/summary.jpg" alt="summary">
+  <img height="500x" src="https://github.com/emso-eric/emso-metadata-specifications/blob/develop/images/infographics.png?raw=true" alt="summary">
 </p>
 
 ### Target audience  ###
@@ -145,7 +145,7 @@ observed or derived values, quality control variables describe data reliability,
 and platform context. The following figure summarizes the different variable types:
 
 <p align="center">
-  <img height="350" src="https://files.obsea.es/other/specs/variables.jpg" alt="variables">
+  <img height="350" src="https://github.com/emso-eric/emso-metadata-specifications/blob/develop/images/variables.jpg?raw=true" alt="variables">
 </p>
 
 In order to unambiguously classify variables, all variable should include the `variable_type` attribute. The valid 

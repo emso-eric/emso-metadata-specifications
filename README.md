@@ -13,7 +13,7 @@ This repository also contains a machine actionable lists of [OceanSITES codes](h
 
 
 <p align="center">
-  <img height="800x" src="https://files.obsea.es/other/sea-infographic.jpg" alt="infographic">
+  <img height="800x" src="https://github.com/emso-eric/emso-metadata-specifications/blob/develop/images/sea-infographic.jpg?raw=true" alt="infographic">
 </p>
 
 
