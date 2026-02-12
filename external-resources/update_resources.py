@@ -12,7 +12,7 @@ import pandas as pd
 
 import hashlib
 
-emso_branch = "develop"
+emso_branch = "main"
 
 
 sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
@@ -350,6 +350,7 @@ if __name__ == "__main__":
 
 
     source_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/{emso_branch}/external-resources/"
+    base_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/{emso_branch}/"
 
 
     #======== Process SeaDataNet / BODC Vocabularies ========#
@@ -415,8 +416,16 @@ if __name__ == "__main__":
     }
     rich.print("[green]done!")
 
+    #======== DataCite codes =========#
+    rich.print("Adding EMSO_Metadata_Specifications codes...", end="")
+    filename = "EMSO_Metadata_Specifications.md"
+    resources["EMSO_Metadata_Specifications"]= {
+        "md": base_url + filename ,
+        "hash": get_file_md5("../" + filename)
+    }
+    rich.print("[green]done!")
+
     with open("resources.json", "w") as f:
         f.write(json.dumps(resources, indent=2))
-
 
     rich.print(f"[green]Resources updated!")
