@@ -388,7 +388,6 @@ if __name__ == "__main__":
     variables = df["variable name"].dropna().values
     variables = [v.split(" (")[0] for v in variables]  # remove citations
     copernicus_variables = [v for v in variables if len(v) > 1]  # remove empty lines
-    rich.print(copernicus_variables)
     os.makedirs("copernicus", exist_ok=True)
     filename = "copernicus/codes.json"
     with open(filename, "w") as f:
@@ -399,25 +398,25 @@ if __name__ == "__main__":
     }
 
     #======== OeanSITES Codes =========#
-    rich.print("Adding OceanSITES codes...")
+    rich.print("Adding OceanSITES codes...", end="")
     filename = "datacite/DataCite_codes.md"
     resources["OceanSites_codes"]= {
         "md": source_url + filename,
         "hash": get_file_md5(filename)
     }
+    rich.print("[green]done!")
 
     #======== DataCite codes =========#
-    rich.print("Adding DataCite codes...")
-    filename = "datacite/DataCite_codes.md"
+    rich.print("Adding DataCite codes...", end="")
+    filename = "oceansites/OceanSites_codes.md"
     resources["DataCite_codes"]= {
         "md": source_url + filename ,
         "hash": get_file_md5(filename)
     }
-
-
-    rich.print(resources)
+    rich.print("[green]done!")
 
     with open("resources.json", "w") as f:
         f.write(json.dumps(resources, indent=2))
 
 
+    rich.print(f"[green]Resources updated!")
