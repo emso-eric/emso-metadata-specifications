@@ -411,7 +411,7 @@ The following attributes are expected in `platform` variables:
 | emso_platform_uri   | Link to the platform entry in OSO ontology                        | oso_ontology_uri#platform  | true     | false    |
 | wmo_platform_code   | World Meteorological Organization (WMO) platform code             | data_type#str              | false    | false    |
 | platform_reference  | Link to additional information                                    | data_type#uri              | false    | false    |
-| comment             | free-text to add additional comments                              | data_type#str              | false    | false    |
+| comment             | free-text to add additional comment s                             | data_type#str              | false    | false    |
 | latitude            | nominal latitude (for fixed-point platforms only)                 | data_type#float            | false    | false    |
 | longitude           | nominal longitude (for fixed-point platforms only)                | data_type#float            | false    | false    |
 | depth               | nominal depth (for fixed-point platforms with one depth level)    | data_type#float            | false    | false    |

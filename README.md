@@ -2,16 +2,15 @@
 
 # EMSO ERIC Metadata Specifications #
 
-This repository defines the EMSO Metadata Specification for scientific datasets. Its primary goal is to establish a consistent, interoperable, and machine-actionable metadata framework for all data within the EMSO research infrastructure, ensuring long-term usability and broad discoverability. This specification provides the foundational metadata layer for the EMSO data ecosystem, guiding data providers to create compliant, high-quality datasets that are FAIR (Findable, Accessible, Interoperable, and Reusable).
+This repository defines the EMSO Metadata Specifications for scientific datasets. Its primary goal is to establish a consistent, interoperable, and machine-actionable metadata framework for all data within the EMSO research infrastructure, ensuring long-term usability and broad discoverability. This specification provides the foundational metadata layer for the EMSO data ecosystem, guiding data providers to create compliant, high-quality datasets that are FAIR (Findable, Accessible, Interoperable, and Reusable).
 
-The specifications are composed by the following:
-
-* **[EMSO Metadata Specifications](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/EMSO_metadata.md)**: Specifications main document
-* **[EMSO Codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/EMSO_codes.md)**: List EMSO codes, including Regional Facilities and sites. 
-* **[OceanSITES codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/OceanSites_codes.md)**: List of conventions taken from the OceanSITES specifications. 
-* **[OceanSITES codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/OceanSites_codes.md)**: List of conventions taken from the DataCite Metadata Schema.
+Access the [EMSO Metadata Specifications here](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/EMSO_metadata.md).
 
 Check our [ERDDAP](https://netcdf-dev.obsea.es/erddap/index.html) with some example datasets following this specifications.
+
+
+This repository also contains a machine actionable lists of [OceanSITES codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/OceanSites_codes.md) and [DataCite codes](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/DataCite_codes.md).
+
 
 <p align="center">
   <img height="800x" src="https://files.obsea.es/other/sea-infographic.jpg" alt="infographic">
@@ -27,9 +26,9 @@ Check our [ERDDAP](https://netcdf-dev.obsea.es/erddap/index.html) with some exam
 
 ### Key Specifications:
 * **Global Attributes**: Defines a comprehensive set of mandatory and optional global attributes for every dataset. These cover critical information such as spatio-temporal coverage, responsible institutions, projects, licensing, and EMSO-specific identifiers (Regional Facility, Site).
-* **Variable Typing & Structure**: Introduces a variable_type attribute to categorise variables (e.g., coordinate, environmental, biological, quality_control, sensor, platform). Each type has a tailored set of required attributes, ensuring appropriate metadata for different kinds of data.
+* **Variable Typing & Structure**: Introduces a `variable_type` attribute to categorise variables (e.g., coordinate, environmental, biological, quality_control, sensor, platform). Each type has a tailored set of required attributes, ensuring appropriate metadata for different kinds of data.
 * **Controlled Vocabularies**: Mandates the use of specific controlled vocabularies for parameters, units, platform types, sensor models, and institutions. Metadata must include the human-readable name, URI, and URN for relevant terms.
-* **Compliance & Validation**: The specification is designed to be validatable. Each attribute is associated with a compliance test (e.g., data_type#str, cf_standard_name, edmo_code), enabling automated checks to ensure dataset conformity.
+* **Compliance & Validation**: The specification is designed to be validatable. Each attribute is associated with a compliance test (e.g., `data_type#str`, `cf_standard_name`, `edmo_code`), enabling automated checks to ensure dataset conformity.
 
 ### Benefits:
 * **Interoperability**: Enables seamless integration of EMSO data with other marine data repositories and analysis platforms.
@@ -39,7 +38,7 @@ Check our [ERDDAP](https://netcdf-dev.obsea.es/erddap/index.html) with some exam
 
 
 # Contact info #
-* **version**: v1.0.0-draft
+* **version**: v1.0.0
 * **author**: Enoc Martínez  
 * **contributors**: Enoc Martínez 
 * **organization**: Universitat Politècnica de Catalunya (UPC)
