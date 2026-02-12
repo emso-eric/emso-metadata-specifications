@@ -1,74 +1,78 @@
 {
   "P01": {
     "hash": "8bc58bb51520ccc7222c2b2a566713a0",
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P01.related.json",
-    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P01.narrower.json",
-    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P01.related.json",
-    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P01.broader.json"
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P01.related.json",
+    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P01.narrower.json",
+    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P01.related.json",
+    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P01.broader.json"
   },
   "P02": {
     "hash": "a6614139a94d0766d60c6734ad91db0a",
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P02.related.json",
-    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P02.narrower.json",
-    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P02.related.json",
-    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P02.broader.json"
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P02.related.json",
+    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P02.narrower.json",
+    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P02.related.json",
+    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P02.broader.json"
   },
   "P06": {
     "hash": "57362cb6bd4859d1d90be08eba21d1bf",
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P06.related.json",
-    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P06.narrower.json",
-    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P06.related.json",
-    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P06.broader.json"
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P06.related.json",
+    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P06.narrower.json",
+    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P06.related.json",
+    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P06.broader.json"
   },
   "P07": {
     "hash": "2f56e0d9c225ebd92fc19988294b20f2",
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P07.related.json",
-    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P07.narrower.json",
-    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P07.related.json",
-    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P07.broader.json"
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P07.related.json",
+    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P07.narrower.json",
+    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P07.related.json",
+    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/P07.broader.json"
   },
   "L05": {
     "hash": "60da9b4fa2c9f2a6c084f8b36405daf3",
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L05.related.json",
-    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L05.narrower.json",
-    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L05.related.json",
-    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L05.broader.json"
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L05.related.json",
+    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L05.narrower.json",
+    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L05.related.json",
+    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L05.broader.json"
   },
   "L06": {
     "hash": "0f7895ed7ded1710c7f0f8110a37d088",
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L06.related.json",
-    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L06.narrower.json",
-    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L06.related.json",
-    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L06.broader.json"
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L06.related.json",
+    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L06.narrower.json",
+    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L06.related.json",
+    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L06.broader.json"
   },
   "L22": {
     "hash": "a3badfd94f39c226c41761f85b652882",
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L22.related.json",
-    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L22.narrower.json",
-    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L22.related.json",
-    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L22.broader.json"
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L22.related.json",
+    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L22.narrower.json",
+    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L22.related.json",
+    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L22.broader.json"
   },
   "L35": {
     "hash": "eff16ebd48322782e65a7ba0b2c6c838",
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L35.related.json",
-    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L35.narrower.json",
-    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L35.related.json",
-    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/L35.broader.json"
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L35.related.json",
+    "narrower": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L35.narrower.json",
+    "related": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L35.related.json",
+    "broader": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/sdn/L35.broader.json"
   },
   "EDMO": {
-    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/edmo/EDMO.csv",
+    "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/edmo/EDMO.csv",
     "hash": "b80c160a684343346c3bcb9361cb8e45"
   },
   "Copernicus Parameters": {
-    "json": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/copernicus/codes.json",
+    "json": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/copernicus/codes.json",
     "hash": "eadc4c41e92a3013bbc8940a6aa4cba3"
   },
   "OceanSites_codes": {
-    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/datacite/DataCite_codes.md",
+    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/datacite/DataCite_codes.md",
     "hash": "52cce684303d132e6feccf96a4b249d0"
   },
   "DataCite_codes": {
-    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/datacite/DataCite_codes.md",
-    "hash": "52cce684303d132e6feccf96a4b249d0"
+    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/oceansites/OceanSites_codes.md",
+    "hash": "0b328b43740db5b924e4cbb55277eb72"
+  },
+  "EMSO_Metadata_Specifications": {
+    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/EMSO_Metadata_Specifications.md",
+    "hash": "615b4415f23d3d0bf1b1d4598790eb90"
   }
 }
