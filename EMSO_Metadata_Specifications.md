@@ -28,7 +28,7 @@ API.
 The structure of EMSO-compliant datasets is depicted in the following picture:
 
 <p align="center">
-  <img height="500x" src="https://github.com/emso-eric/emso-metadata-specifications/blob/develop/images/infographics.png?raw=true" alt="summary">
+  <img height="500x" src="https://github.com/emso-eric/emso-metadata-specifications/blob/main/images/infographics.png?raw=true" alt="summary">
 </p>
 
 ### Target audience  ###
@@ -120,7 +120,7 @@ tests go to Implemented tests section). The mandatory column.
 | principal_investigator       | Name of the principal investigator                                                                                                                                                   | data_type#str            | true     | true     |
 | principal_investigator_email | email of the principal investigator                                                                                                                                                  | email                    | true     | true     |
 | contributors<sup>1</sup>     | comma-separated list of author names                                                                                                                                                 | data_type#str            | true     | true     |
-| contributor_types            | role for each author following the [DataCite contributor type](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/datacite/DataCite_codes.md) | contributor_types        | true     | true     |
+| contributor_types            | role for each author following the [DataCite contributor type](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/datacite/DataCite_codes.md) | contributor_types        | true     | true     |
 | doi                          | Digital Object Identifier (DOI) list of the dataset.                                                                                                                                 | valid_doi                | false    | true     |
 | license                      | license name (SPDX short identifier), use of `CC-BY-4.0` is strongly recommended                                                                                                     | spdx_license_name        | true     | false    |
 | license_uri                  | URI pointing to a SPDX license, use of `CC-BY-4.0` is strongly recommended                                                                                                           | spdx_license_uri         | true     | false    |
@@ -141,7 +141,7 @@ observed or derived values, quality control variables describe data reliability,
 and platform context. The following figure summarizes the different variable types:
 
 <p align="center">
-  <img height="350" src="https://github.com/emso-eric/emso-metadata-specifications/blob/develop/images/variables.jpg?raw=true" alt="variables">
+  <img height="350" src="https://github.com/emso-eric/emso-metadata-specifications/blob/main/images/variables.jpg?raw=true" alt="variables">
 </p>
 
 In order to unambiguously classify variables, all variable should include the `variable_type` attribute. The valid 
@@ -443,8 +443,8 @@ Description of the compliance tests:
   in [EDMO database](https://edmo.seadatanet.org/) (European Directory of Marine Organizations).
 * **coordinate#type**: Checks if a coordinate is correct, see coordinates section for more info.
 * **email**: valid email
-* **oceansites_sensor_orientation**: A valid value from [OceanSITES sensor_orientation table](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/oceansites/OceanSites_codes.md)
-* **oceansites_sensor_mount**: A valid value from [OceanSITES sensor_mount table](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/oceansites/OceanSites_codes.md)
+* **oceansites_sensor_orientation**: A valid value from [OceanSITES sensor_orientation table](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/oceansites/OceanSites_codes.md)
+* **oceansites_sensor_mount**: A valid value from [OceanSITES sensor_mount table](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/oceansites/OceanSites_codes.md)
 * **sdn_vocab_urn#vocab_id**: The parameter is a urn in a SeaDataNet vocabulary. Possible values are P01 (parameters),
   P02 (parameter codes), P06 (units), L05 (sensor types), L06 platform types) and L22 (sensor models)   P06 (units),
   L22 (devices), etc.
@@ -455,8 +455,8 @@ Description of the compliance tests:
 * **oso_ontology_uri#type**: Valid URI from the OSO ontology. Possible arguments are `rf` (Regional Facility), `site` and `platform`.
 * **oso_ontology_name#type**: Valid preferred label from the OSO ontology. Possible arguments are `rf` (Regional Facility), `site` and `platform`.
 * **equals#value**: Checks if the attribute equals to the expected value (any string)
-* **oceansites_data_type**: Valid [OceanSITES data type](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/oceansites/OceanSites_codes.md) value.
-* **oceansites_data_mode**: Valid [OceanSITES data mode](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/oceansites/OceanSites_codes.md) value (R, P, D, M).
+* **oceansites_data_type**: Valid [OceanSITES data type](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/oceansites/OceanSites_codes.md) value.
+* **oceansites_data_mode**: Valid [OceanSITES data mode](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/oceansites/OceanSites_codes.md) value (R, P, D, M).
 * **valid_doi**: Valid Digital Object Identifier.
 * **spdx_license_name**: Valid SPDX license short identifier.
 * **spdx_license_uri**: Valid URI pointing to a SPDX license.
