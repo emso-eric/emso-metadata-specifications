@@ -88,51 +88,53 @@ datasets in ERDDAP. The 'global attribute' column is the name of the attribute. 
 test mechanism used to ensure that the attribute is compliant with the specifications (to see a list of all implemented
 tests go to Implemented tests section). The mandatory column.
 
-| Global Attributes            | Description                                                                    | Compliance test          | Required | Multiple | 
-|------------------------------|--------------------------------------------------------------------------------|--------------------------|----------|----------|
-| date_created                 | Creation date                                                                  | data_type#str            | true     | false    |
-| Conventions                  | conventions used in the dataset  (e.g. OceanSITES, ACDD, etc.)                 | data_type#str            | false    | true     |
-| institution                  | Creator's organization in free-text                                            | data_type#str            | true     | true     |
-| institution_edmo_code        | EDMO code of the creator's organization                                        | edmo_code                | true     | true     |
-| institution_edmo_uri         | URI pointing to the EDMO page de of the creator's organization                 | edmo_uri                 | true     | true     |
-| institution_ror_uri          | URI pointing to the ROR page de of the creator's organization                  | ror_uri                  | true     | true     |
-| geospatial_lat_min           | The southernmost latitude, a value between -90 and 90 degrees                  | coordinate#latitude      | true     | false    |
-| geospatial_lat_max           | The northernmost latitude, a value between -90 and 90 degrees                  | coordinate#latitude      | true     | false    |
-| geospatial_lon_min           | The westernmost longitude between -180 and 180                                 | coordinate#longitude     | true     | false    |
-| geospatial_lon_max           | The easternmost longitude between -180 and 180                                 | coordinate#longitude     | true     | false    |
-| geospatial_vertical_min      | Minimum depth of measurements in metres (negative for above sea level)         | coordinate#depth         | true     | false    |
-| geospatial_vertical_max      | Maximum depth of measurements in metres (negative for above sea level)         | coordinate#depth         | true     | false    |
-| time_coverage_start          | Start date of the data in UTC                                                  | data_type#datetime       | true     | false    |
-| time_coverage_end            | End date of the data in UTC                                                    | data_type#datetime       | false    | false    |
-| update_interval              | Update interval (following ISO 8601), if not applicable `void`                 | data_type#str            | true     | false    |
-| emso_regional_facility_uri   | EMSO Regional Facility URI, required for EMSO data                             | oso_ontology_uri#rf      | true     | false    |
-| emso_regional_facility_name  | EMSO Regional Facility name, required for EMSO data                            | oso_ontology_name#rf     | true     | false    |
-| emso_site_uri                | site code used, required for EMSO data                                         | oso_ontology_uri#site    | true     | true     |
-| emso_site_name               | site code used, required for EMSO data                                         | oso_ontology_name#site   | true     | true     |
-| source                       | Platform type name, should be a L06 preferred label (prefLabel)                | sdn_vocab_pref_label#L06 | false    | false    |
-| data_type                    | Type of data, in most cases 'OceanSITES data time-series data'                 | oceansites_data_type     | false    | false    |
-| network                      | List of the networks                                                           | data_type#str            | true     | true     |
-| format_version<sup>3</sup>   | OceanSITES format version                                                      | equals#1.4               | false    | false    |
-| data_mode<sup>3</sup>        | Data mode from OceanSITES table 4, possible values are R, P D or M             | oceansites_data_mode     | false    | false    |
-| site_code<sup>3</sup>        | OceanSITES site code (only applicable for platforms members of OceanSITES)     | data_type#str            | false    | true     |
-| title                        | Free-format text describing the dataset, for use by human readers              | data_type#str            | true     | false    |
-| summary                      | Longer free-format text describing the dataset                                 | data_type#str            | true     | false    |
-| keywords                     | Please use 'SeaDataNet Parameter Discovery Vocabulary'                         | data_type#str            | false    | true     |
-| keywords_vocabulary          | URI of the keywords vocabulary used                                            | data_type#str            | false    | false    |
-| projects                     | Acronyms of the projects funding the dataset                                   | data_type#str            | false    | true     |
-| project_codes                | List of the project identifiers by ID                                          | data_type#str            | false    | true     |
-| principal_investigator       | Name of the principal investigator                                             | data_type#str            | true     | true     |
-| principal_investigator_email | email of the principal investigator                                            | email                    | true     | true     |
-| contributors<sup>1</sup>     | comma-separated list of author names                                           | data_type#str            | true     | true     |
-| contributor_types            | role for each author in the list                                               | contributor_types        | true     | true     |
-| doi                          | Digital Object Identifier (DOI) list of the dataset                            | valid_doi                | false    | true     |
-| license                      | license name (SPDX short identifier), use of CC-BY-4.0 is strongly recommended | spdx_license_name        | true     | false    |
-| license_uri                  | URI pointing to a SPDX license, use of CC-BY-4.0 is strongly recommended       | spdx_license_uri         | true     | false    |
-| featureType<sup>2</sup>      | Special field used by CF Discrete Sampling Geometries                          | cf_dsg_types             | true     | false    |
+| Global Attributes            | Description                                                                                                                                                                          | Compliance test          | Required | Multiple | 
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|----------|----------|
+| date_created                 | Creation date                                                                                                                                                                        | data_type#str            | true     | false    |
+| Conventions                  | conventions used in the dataset  (e.g. OceanSITES, ACDD, etc.)                                                                                                                       | data_type#str            | false    | true     |
+| institution                  | Creator's organization in free-text                                                                                                                                                  | data_type#str            | true     | true     |
+| institution_edmo_code        | EDMO code of the creator's organization                                                                                                                                              | edmo_code                | true     | true     |
+| institution_edmo_uri         | URI pointing to the EDMO page de of the creator's organization                                                                                                                       | edmo_uri                 | true     | true     |
+| institution_ror_uri          | URI pointing to the ROR page de of the creator's organization                                                                                                                        | ror_uri                  | true     | true     |
+| geospatial_lat_min           | The southernmost latitude, a value between -90 and 90 degrees                                                                                                                        | coordinate#latitude      | true     | false    |
+| geospatial_lat_max           | The northernmost latitude, a value between -90 and 90 degrees                                                                                                                        | coordinate#latitude      | true     | false    |
+| geospatial_lon_min           | The westernmost longitude between -180 and 180                                                                                                                                       | coordinate#longitude     | true     | false    |
+| geospatial_lon_max           | The easternmost longitude between -180 and 180                                                                                                                                       | coordinate#longitude     | true     | false    |
+| geospatial_vertical_min      | Minimum depth of measurements in metres (negative for above sea level)                                                                                                               | coordinate#depth         | true     | false    |
+| geospatial_vertical_max      | Maximum depth of measurements in metres (negative for above sea level)                                                                                                               | coordinate#depth         | true     | false    |
+| time_coverage_start          | Start date of the data in UTC                                                                                                                                                        | data_type#datetime       | true     | false    |
+| time_coverage_end            | End date of the data in UTC                                                                                                                                                          | data_type#datetime       | false    | false    |
+| update_interval              | Update interval (following ISO 8601), if not applicable `void`                                                                                                                       | data_type#str            | true     | false    |
+| emso_regional_facility_uri   | EMSO Regional Facility URI, required for EMSO data                                                                                                                                   | oso_ontology_uri#rf      | true     | false    |
+| emso_regional_facility_name  | EMSO Regional Facility name, required for EMSO data                                                                                                                                  | oso_ontology_name#rf     | true     | false    |
+| emso_site_uri                | site code used, required for EMSO data                                                                                                                                               | oso_ontology_uri#site    | true     | true     |
+| emso_site_name               | site code used, required for EMSO data                                                                                                                                               | oso_ontology_name#site   | true     | true     |
+| source                       | Platform type name, should be a L06 preferred label (prefLabel)                                                                                                                      | sdn_vocab_pref_label#L06 | false    | false    |
+| data_type                    | Type of data, in most cases 'OceanSITES data time-series data'                                                                                                                       | oceansites_data_type     | false    | false    |
+| network                      | List of the networks                                                                                                                                                                 | data_type#str            | true     | true     |
+| format_version<sup>3</sup>   | OceanSITES format version                                                                                                                                                            | equals#1.4               | false    | false    |
+| data_mode<sup>3</sup>        | Data mode from OceanSITES table 4, possible values are R, P D or M                                                                                                                   | oceansites_data_mode     | false    | false    |
+| site_code<sup>3</sup>        | OceanSITES site code (only applicable for platforms members of OceanSITES)                                                                                                           | data_type#str            | false    | true     |
+| title                        | Free-format text describing the dataset, for use by human readers                                                                                                                    | data_type#str            | true     | false    |
+| summary                      | Longer free-format text describing the dataset                                                                                                                                       | data_type#str            | true     | false    |
+| keywords                     | Please use 'SeaDataNet Parameter Discovery Vocabulary'                                                                                                                               | data_type#str            | false    | true     |
+| keywords_vocabulary          | URI of the keywords vocabulary used                                                                                                                                                  | data_type#str            | false    | false    |
+| projects                     | Acronyms of the projects funding the dataset                                                                                                                                         | data_type#str            | false    | true     |
+| project_codes                | List of the project identifiers by ID                                                                                                                                                | data_type#str            | false    | true     |
+| principal_investigator       | Name of the principal investigator                                                                                                                                                   | data_type#str            | true     | true     |
+| principal_investigator_email | email of the principal investigator                                                                                                                                                  | email                    | true     | true     |
+| contributors<sup>1</sup>     | comma-separated list of author names                                                                                                                                                 | data_type#str            | true     | true     |
+| contributor_types            | role for each author following the [DataCite contributor type](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/external-resources/datacite/DataCite_codes.md) | contributor_types        | true     | true     |
+| doi                          | Digital Object Identifier (DOI) list of the dataset.                                                                                                                                 | valid_doi                | false    | true     |
+| license                      | license name (SPDX short identifier), use of `CC-BY-4.0` is strongly recommended                                                                                                       | spdx_license_name        | true     | false    |
+| license_uri                  | URI pointing to a SPDX license, use of `CC-BY-4.0` is strongly recommended                                                                                                             | spdx_license_uri         | true     | false    |
+| featureType<sup>2</sup>      | Special field used by CF Discrete Sampling Geometries                                                                                                                                | cf_dsg_types             | true     | false    |
 
-<sup>1</sup> Since the values may contain spaces, use comma a list separator instead of the usual blank space.  
-<sup>2</sup> See CF Discrete Sampling Geometries  
+<sup>1</sup> Since the values may contain spaces, use comma as separator instead of the usual blank space, e.g. `Homer Simpson, Rick Sánchez`   
+<sup>2</sup> See [CF Discrete Sampling Geometries](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.13/cf-conventions.html#discrete-sampling-geometries)  
 <sup>3</sup> Used for compatibility with OceanSITES
+
+
 
 # Variables #
 This section describes the different types of variables used in EMSO-compliant datasets and how they work together to 
@@ -423,25 +425,27 @@ the [NERC Vocabulary Service](https://vocab.nerc.ac.uk) among others
 
 | vocab ID | description                               | URL                                                                       | 
 |----------|-------------------------------------------|---------------------------------------------------------------------------|
+| P01      | NVS parameter vocabulary                  | [P01](http://vocab.nerc.ac.uk/collection/P01)                             |
+| P02      | NVS parameter codes                       | [P02](http://vocab.nerc.ac.uk/collection/P02)                             |
+| P06      | NVS units                                 | [P06](http://vocab.nerc.ac.uk/collection/P06)                             |
+| L05      | NVS sensor types                          | [L05](http://vocab.nerc.ac.uk/collection/L05)                             |
+| L06      | NVS platform types                        | [L06](http://vocab.nerc.ac.uk/collection/L06)                             |
+| L22      | NVS sensor models                         | [L22](http://vocab.nerc.ac.uk/collection/L22)                             |
+| L35      | NVS sensor manufacturers                  | [L35](http://vocab.nerc.ac.uk/collection/L35)                             |
 | EDMO     | European Database of Marine Organizations | [EDMO](https://edmo.seadatanet.org/)                                      |
 | ROR      | Research Organization Registry            | [ROR](https://ror.org)                                                    |
-| P01      | parameter vocabulary                      | [P01](http://vocab.nerc.ac.uk/collection/P01)                             |
-| P02      | parameter codes                           | [P02](http://vocab.nerc.ac.uk/collection/P02)                             |
-| P06      | units                                     | [P06](http://vocab.nerc.ac.uk/collection/P06)                             |
-| L05      | sensor types                              | [L05](http://vocab.nerc.ac.uk/collection/L05)                             |
-| L06      | platform types                            | [L06](http://vocab.nerc.ac.uk/collection/L06)                             |
-| L22      | sensor models                             | [L22](http://vocab.nerc.ac.uk/collection/L22)                             |
-| L35      | sensor manufacturers                      | [L35](http://vocab.nerc.ac.uk/collection/L35)                             |
 | SPDX     | software licenses                         | [github](https://github.com/spdx/license-list-data/blob/main/licenses.md) |
+| OSO      | Observatories of Seas Ontology            | [OSO](https://earthportal.eu/ontologies/OSO)                              |
 
 ## Compliance Tests ##
 
-* **data_type#type**: The parameter type is of a certain type. Possible arguments are 'float', 'str', 'int', 'date'
-  and 'datetime'
+Description of the compliance tests:
+
+* **data_type#type**: The parameter type is of a certain type. Possible arguments are `float`, `str`, `int`, `date`, `datetime` and `uri`.
 * **edmo_code**: The parameter is an integer number representing an organization listed
+* **ror_uri**: valid instance of ROR vocabulary
   in [EDMO database](https://edmo.seadatanet.org/) (European Directory of Marine Organizations).
-* **coordinate#type**: Checks if a coordinate is correct. The 'type' argument must be one of the following: '
-  latitude', 'longitude' or 'depths'
+* **coordinate#type**: Checks if a coordinate is correct, see coordinates section for more info.
 * **email**: valid email
 * **oceansites_sensor_orientation**: A valid value from sensor_orientation table (OceanSites_codes.md)
 * **oceansites_sensor_mount**: A valid value from sensor_orientation table (OceanSites_codes.md)
@@ -452,3 +456,21 @@ the [NERC Vocabulary Service](https://vocab.nerc.ac.uk) among others
 * **sdn_vocab_uri#vocab_id**: Resolvable URI for a SDN vocabulary Term
 * **contributor_types**: Complies with the DataCite's metadata kernel contributor roles
 * **contributor_names**: Makes sure that for every contributor name there is a contributor type
+* **oso_ontology_uri#type**: Valid URI from the OSO ontology. Possible arguments are `rf` (Regional Facility), `site` and `platform`.
+* **oso_ontology_name#type**: Valid preferred label from the OSO ontology. Possible arguments are `rf` (Regional Facility), `site` and `platform`.
+* **equals#value**: Checks if the attribute equals to the exepcted value (any string)
+* **oceansites_data_type**: Valid OceanSITES data type value.
+* **oceansites_data_mode**: Valid OceanSITES data mode value (R, P, D, M).
+* **valid_doi**: Valid Digital Object Identifier.
+* **spdx_license_name**: Valid SPDX license short identifier.
+* **spdx_license_uri**: Valid URI pointing to a SPDX license.
+* **cf_dsg_types**: Valid CF Discrete Sampling Geometries featureType.
+* **is_coordinate**: Verifies that the variable is a coordinate variable.
+* **cf_standard_name**: Valid Climate and Forecast (CF) standard name.
+* **sdn_vocab_alt_label#P06**: Alternative label from the SDN vocabulary.
+* **check_variable_name**: Valid variable name according to naming rules.
+* **dwc_term_name**: Valid Darwin Core term name.
+* **dwc_term_uri**: Valid URI pointing to a Darwin Core term.
+* **qc_variable_name**: Valid quality control variable name according to naming rules.
+* **qc_flag_values**: Valid OceanSITES QC flag values (0,1,2,3,4,7,8,9).
+* **qc_flag_meanings**: Valid OceanSITES QC flag meanings.

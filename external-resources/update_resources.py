@@ -12,6 +12,39 @@ import pandas as pd
 
 import hashlib
 
+emso_branch = "develop"
+
+
+sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
+sdn_vocab_p02_url = "https://vocab.nerc.ac.uk/collection/P02/current/?_profile=nvs&_mediatype=application/ld+json"
+sdn_vocab_p06_url = "https://vocab.nerc.ac.uk/collection/P06/current/?_profile=nvs&_mediatype=application/ld+json"
+sdn_vocab_p07_url = "https://vocab.nerc.ac.uk/collection/P07/current/?_profile=nvs&_mediatype=application/ld+json"
+sdn_vocab_l05_url = "https://vocab.nerc.ac.uk/collection/L05/current/?_profile=nvs&_mediatype=application/ld+json"
+sdn_vocab_l06_url = "https://vocab.nerc.ac.uk/collection/L06/current/?_profile=nvs&_mediatype=application/ld+json"
+sdn_vocab_l22_url = "https://vocab.nerc.ac.uk/collection/L22/current/?_profile=nvs&_mediatype=application/ld+json"
+sdn_vocab_l35_url = "https://vocab.nerc.ac.uk/collection/L35/current/?_profile=nvs&_mediatype=application/ld+json"
+# standard_names = "https://vocab.nerc.ac.uk/standard_name/?_profile=nvs&_mediatype=application/ld+json"
+
+edmo_codes_url = "https://edmo.seadatanet.org/sparql/sparql?query=SELECT%20%3Fs%20%3Fp%20%3Fo%20WHERE%20%7B%20%0D%0A%0" \
+                 "9%3Fs%20%3Fp%20%3Fo%20%0D%0A%7D%20LIMIT%201000000&accept=application%2Fjson"
+
+# EDMO SPARQL endpoints fails, so use instead static CSV at github
+
+spdx_licenses_github = "https://raw.githubusercontent.com/spdx/license-list-data/main/licenses.md"
+
+# Copernicus INS TAC Parameter list v3.2
+copernicus_param_list = "https://archimer.ifremer.fr/doc/00422/53381/108480.xlsx"
+
+cf_standard_name_units_url = "https://cfconventions.org/Data/cf-standard-names/90/src/cf-standard-name-table.xml"
+
+dwc_terms_url = "https://raw.githubusercontent.com/tdwg/dwc/refs/heads/master/vocabulary/term_versions.csv"
+
+edmo_codes_jsonld = ".temp/edmo_codes_jsonld.json"
+
+oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/refs/heads/main/docs/ontology.ttl"
+
+oceansites_codes_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/{emso_branch}/external-resources/oceansites/OceanSites_codes.md"
+datacite_codes_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/{emso_branch}/external-resources/datacite/DataCite_codes.md"
 
 def get_file_md5(filename):
     md5_hash = hashlib.md5()
@@ -253,38 +286,6 @@ if __name__ == "__main__":
     args = argparser.parse_args()
     os.makedirs(".temp", exist_ok=True)
 
-    emso_version = "develop"
-
-    sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
-    sdn_vocab_p02_url = "https://vocab.nerc.ac.uk/collection/P02/current/?_profile=nvs&_mediatype=application/ld+json"
-    sdn_vocab_p06_url = "https://vocab.nerc.ac.uk/collection/P06/current/?_profile=nvs&_mediatype=application/ld+json"
-    sdn_vocab_p07_url = "https://vocab.nerc.ac.uk/collection/P07/current/?_profile=nvs&_mediatype=application/ld+json"
-    sdn_vocab_l05_url = "https://vocab.nerc.ac.uk/collection/L05/current/?_profile=nvs&_mediatype=application/ld+json"
-    sdn_vocab_l06_url = "https://vocab.nerc.ac.uk/collection/L06/current/?_profile=nvs&_mediatype=application/ld+json"
-    sdn_vocab_l22_url = "https://vocab.nerc.ac.uk/collection/L22/current/?_profile=nvs&_mediatype=application/ld+json"
-    sdn_vocab_l35_url = "https://vocab.nerc.ac.uk/collection/L35/current/?_profile=nvs&_mediatype=application/ld+json"
-    # standard_names = "https://vocab.nerc.ac.uk/standard_name/?_profile=nvs&_mediatype=application/ld+json"
-
-    edmo_codes_url = "https://edmo.seadatanet.org/sparql/sparql?query=SELECT%20%3Fs%20%3Fp%20%3Fo%20WHERE%20%7B%20%0D%0A%0" \
-                 "9%3Fs%20%3Fp%20%3Fo%20%0D%0A%7D%20LIMIT%201000000&accept=application%2Fjson"
-
-
-
-    # EDMO SPARQL endpoints fails, so use instead static CSV at github
-
-    spdx_licenses_github = "https://raw.githubusercontent.com/spdx/license-list-data/main/licenses.md"
-
-    # Copernicus INS TAC Parameter list v3.2
-    copernicus_param_list = "https://archimer.ifremer.fr/doc/00422/53381/108480.xlsx"
-
-    cf_standard_name_units_url = "https://cfconventions.org/Data/cf-standard-names/90/src/cf-standard-name-table.xml"
-
-    dwc_terms_url = "https://raw.githubusercontent.com/tdwg/dwc/refs/heads/master/vocabulary/term_versions.csv"
-
-    edmo_codes_jsonld = ".temp/edmo_codes_jsonld.json"
-
-    oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/refs/heads/main/docs/ontology.ttl"
-
     copernicus_params_file = os.path.join(".temp", "copernicus_param_list.xlsx")
     cf_std_name_units_file = os.path.join(".temp", "standard_name_units.xml")
     dwc_terms_file = os.path.join(".temp", "dwc_terms.csv")
@@ -301,9 +302,11 @@ if __name__ == "__main__":
     sdn_vocab_l22_file = os.path.join(".temp", "sdn_vocab_l22.json")
     sdn_vocab_l35_file = os.path.join(".temp", "sdn_vocab_l35.json")
 
+    oceansites_file = os.path.join(".temp", "oceansites.md")
+    datacite_file = os.path.join(".temp", "datacite.md")
+
     rich.print("Setting up the download tasks...", end="")
     tasks = [  # list of resources (URL, temp_file, csv_file)
-        #"EDMO": ["emso_codes_url", "EDMO_codes.csv"]
         [sdn_vocab_p01_url, sdn_vocab_p01_file, "P01.csv"],
         [sdn_vocab_p02_url, sdn_vocab_p02_file, "P02.csv"],
         [sdn_vocab_p06_url, sdn_vocab_p06_file, "P06.csv"],
@@ -346,7 +349,7 @@ if __name__ == "__main__":
     sdn_vocabs_related = {}
 
 
-    source_url = "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/"
+    source_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/{emso_branch}/external-resources/"
 
 
     #======== Process SeaDataNet / BODC Vocabularies ========#
@@ -394,6 +397,23 @@ if __name__ == "__main__":
         "json": source_url + "copernicus/codes.json",
         "hash": get_file_md5(filename)
     }
+
+    #======== OeanSITES Codes =========#
+    rich.print("Adding OceanSITES codes...")
+    filename = "datacite/DataCite_codes.md"
+    resources["OceanSites_codes"]= {
+        "md": source_url + filename,
+        "hash": get_file_md5(filename)
+    }
+
+    #======== DataCite codes =========#
+    rich.print("Adding DataCite codes...")
+    filename = "datacite/DataCite_codes.md"
+    resources["DataCite_codes"]= {
+        "md": source_url + filename ,
+        "hash": get_file_md5(filename)
+    }
+
 
     rich.print(resources)
 

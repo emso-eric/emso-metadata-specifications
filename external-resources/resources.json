@@ -62,5 +62,13 @@
   "Copernicus Parameters": {
     "json": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/copernicus/codes.json",
     "hash": "eadc4c41e92a3013bbc8940a6aa4cba3"
+  },
+  "OceanSites_codes": {
+    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/datacite/DataCite_codes.md",
+    "hash": "52cce684303d132e6feccf96a4b249d0"
+  },
+  "DataCite_codes": {
+    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/datacite/DataCite_codes.md",
+    "hash": "52cce684303d132e6feccf96a4b249d0"
   }
 }
