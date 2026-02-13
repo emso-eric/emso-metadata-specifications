@@ -12,7 +12,7 @@ import pandas as pd
 
 import hashlib
 
-emso_branch = "develop"
+emso_branch = "main"
 
 sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
 sdn_vocab_p02_url = "https://vocab.nerc.ac.uk/collection/P02/current/?_profile=nvs&_mediatype=application/ld+json"
