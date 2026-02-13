@@ -1,4 +1,7 @@
-## version 1.0.0 ##
+## version 1.0.2 ##
+* Fixing overwriting issues in resources.json, now CSV files are properly stored and related.json files are correctly produced
+
+## version 1.0.1 ##
 * Adding EMSO_Metadata_Specifications.md to the resources.json manifest file
 
 ## version 1.0.0 ##
