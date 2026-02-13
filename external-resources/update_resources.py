@@ -14,7 +14,6 @@ import hashlib
 
 emso_branch = "main"
 
-
 sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
 sdn_vocab_p02_url = "https://vocab.nerc.ac.uk/collection/P02/current/?_profile=nvs&_mediatype=application/ld+json"
 sdn_vocab_p06_url = "https://vocab.nerc.ac.uk/collection/P06/current/?_profile=nvs&_mediatype=application/ld+json"
@@ -46,6 +45,7 @@ oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/ref
 oceansites_codes_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/{emso_branch}/external-resources/oceansites/OceanSites_codes.md"
 datacite_codes_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/{emso_branch}/external-resources/datacite/DataCite_codes.md"
 
+
 def get_file_md5(filename):
     md5_hash = hashlib.md5()
     with open(filename, 'rb') as f:
@@ -53,6 +53,7 @@ def get_file_md5(filename):
             md5_hash.update(chunk)
 
     return md5_hash.hexdigest()
+
 
 def __threadify_index_handler(index, handler, args):
     """
@@ -98,6 +99,7 @@ def threadify(arg_list, handler, max_threads=10):
             final_results.append(result[1])
         return final_results
 
+
 def download_files(tasks, force_download=False):
     if len(tasks) == 1:
         return None
@@ -124,13 +126,14 @@ def download_file(url, file):
         rich.print(f"[red]Could not download from {url} to file {file}")
         raise e
 
+
 def download_edmo(url, file, force_download=False):
     """
     EMDO endpoint is a bit picky, so we will create some custom user agent
     """
 
     headers = {
-#        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        #        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'User-Agent': 'Custom agent',
     }
 
@@ -254,6 +257,7 @@ def parse_sdn_jsonld(filename):
 
     return data, narrower, broader, related
 
+
 def get_edmo_codes(file):
     with open(file, encoding="utf-8") as f:
         data = json.load(f)
@@ -263,7 +267,6 @@ def get_edmo_codes(file):
     names = []
     for element in data["results"]["bindings"]:
         if element["p"]["value"] == "http://www.w3.org/ns/org#name":
-
             code = int(element["s"]["value"].split("/")[-1])
             uris.append(element["s"]["value"])
             codes.append(code)
@@ -279,7 +282,8 @@ def get_edmo_codes(file):
 
 if __name__ == "__main__":
     argparser = ArgumentParser()
-    argparser.add_argument("-f", "--force-download", action="store_true", help="Force file download even if exists locally")
+    argparser.add_argument("-f", "--force-download", action="store_true",
+                           help="Force file download even if exists locally")
 
     resources = {}
 
@@ -291,8 +295,7 @@ if __name__ == "__main__":
     dwc_terms_file = os.path.join(".temp", "dwc_terms.csv")
     oso_ontology_file = os.path.join(".temp", "oso.ttl")
     spdx_licenses_file = os.path.join(".temp", "spdx_licenses.md")
-    
-    
+
     sdn_vocab_p01_file = os.path.join(".temp", "sdn_vocab_p01.json")
     sdn_vocab_p02_file = os.path.join(".temp", "sdn_vocab_p02.json")
     sdn_vocab_p06_file = os.path.join(".temp", "sdn_vocab_p06.json")
@@ -348,12 +351,10 @@ if __name__ == "__main__":
     sdn_vocabs_broader = {}
     sdn_vocabs_related = {}
 
-
     source_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/{emso_branch}/external-resources/"
     base_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/{emso_branch}/"
 
-
-    #======== Process SeaDataNet / BODC Vocabularies ========#
+    # ======== Process SeaDataNet / BODC Vocabularies ========#
     # Process raw SeaDataNet JSON-ld files and store them sliced in short JSON files
     os.makedirs("sdn", exist_ok=True)
     for vocab, jsonld_file in sdn_vocabs.items():
@@ -371,19 +372,19 @@ if __name__ == "__main__":
             with open(filename, "w") as f:
                 json.dump(values, f)
 
-        df.to_csv(filename, index=False)
+        df.to_csv(csv_filename, index=False)
 
-        resources[vocab]["csv"] = source_url + filename
+        resources[vocab]["csv"] = source_url + csv_filename
         for relation in ["narrower", "related", "broader"]:
             resources[vocab][relation] = source_url + f"sdn/{vocab}.{relation}.json"
 
-    #======== Process EDMO Codes ========#
+    # ======== Process EDMO Codes ========#
     edmo_codes = get_edmo_codes(edmo_codes_jsonld)
     os.makedirs("edmo", exist_ok=True)
     edmo_codes.to_csv("edmo/EDMO.csv", index=False)
     resources["EDMO"] = {"csv": source_url + "edmo/EDMO.csv", "hash": get_file_md5(edmo_codes_jsonld)}
 
-    #======== Process EDMO Codes ========#
+    # ======== Process EDMO Codes ========#
     # Copernicus parameter list
     df = pd.read_excel(copernicus_params_file, sheet_name="Parameters", keep_default_na=False, header=1)
     variables = df["variable name"].dropna().values
@@ -393,34 +394,34 @@ if __name__ == "__main__":
     filename = "copernicus/codes.json"
     with open(filename, "w") as f:
         f.write(json.dumps(copernicus_variables, indent=2))
-    resources["Copernicus Parameters"]= {
+    resources["Copernicus Parameters"] = {
         "json": source_url + "copernicus/codes.json",
         "hash": get_file_md5(filename)
     }
 
-    #======== OeanSITES Codes =========#
+    # ======== OeanSITES Codes =========#
     rich.print("Adding OceanSITES codes...", end="")
     filename = "datacite/DataCite_codes.md"
-    resources["OceanSites_codes"]= {
+    resources["OceanSites_codes"] = {
         "md": source_url + filename,
         "hash": get_file_md5(filename)
     }
     rich.print("[green]done!")
 
-    #======== DataCite codes =========#
+    # ======== DataCite codes =========#
     rich.print("Adding DataCite codes...", end="")
     filename = "oceansites/OceanSites_codes.md"
-    resources["DataCite_codes"]= {
-        "md": source_url + filename ,
+    resources["DataCite_codes"] = {
+        "md": source_url + filename,
         "hash": get_file_md5(filename)
     }
     rich.print("[green]done!")
 
-    #======== DataCite codes =========#
+    # ======== DataCite codes =========#
     rich.print("Adding EMSO_Metadata_Specifications codes...", end="")
     filename = "EMSO_Metadata_Specifications.md"
-    resources["EMSO_Metadata_Specifications"]= {
-        "md": base_url + filename ,
+    resources["EMSO_Metadata_Specifications"] = {
+        "md": base_url + filename,
         "hash": get_file_md5("../" + filename)
     }
     rich.print("[green]done!")
