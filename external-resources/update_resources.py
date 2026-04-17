@@ -12,7 +12,7 @@ import pandas as pd
 
 import hashlib
 
-emso_branch = "main"
+emso_branch = "develop"
 
 sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
 sdn_vocab_p02_url = "https://vocab.nerc.ac.uk/collection/P02/current/?_profile=nvs&_mediatype=application/ld+json"
@@ -280,6 +280,27 @@ def get_edmo_codes(file):
     return df
 
 
+def dataframe_to_markdown(df, title, markdown_file):
+    # 1. Create the Header Row
+    headers = "| " + " | ".join(map(str, df.columns)) + " |"
+
+    # 2. Create the Separator Row (the --- | --- part)
+    separator = "| " + " | ".join(["---"] * len(df.columns)) + " |"
+
+    # 3. Create Data Rows using iterrows
+    body = []
+    for _, row in df.iterrows():
+        # Convert each element to string and join with pipes
+        row_str = "| " + " | ".join(map(str, row.values)) + " |"
+        body.append(row_str)
+
+    # 4. Combine everything
+    markdown_table = "\n".join([f"# {title}", "", headers, separator] + body)
+
+    # 5. Write to file
+    with open(markdown_file, "w", encoding="utf-8") as f:
+        f.write(markdown_table)
+
 if __name__ == "__main__":
     argparser = ArgumentParser()
     argparser.add_argument("-f", "--force-download", action="store_true",
@@ -386,16 +407,22 @@ if __name__ == "__main__":
 
     # ======== Process EDMO Codes ========#
     # Copernicus parameter list
+    print(copernicus_params_file)
     df = pd.read_excel(copernicus_params_file, sheet_name="Parameters", keep_default_na=False, header=1)
-    variables = df["variable name"].dropna().values
+    df = df[["variable name", "long_name","CF standard_name", "unit", "SDN Param", "SDN UoM"]]
+    df = df[df["variable name"] !=  ""]
+    df["variable name"] = df["variable name"].str.split(" (", regex=False).str[0]
+
+    variables = df["variable name"].dropna().values # remove blank lines produced by parsing excel
     variables = [v.split(" (")[0] for v in variables]  # remove citations
-    copernicus_variables = [v for v in variables if len(v) > 1]  # remove empty lines
+
     os.makedirs("copernicus", exist_ok=True)
-    filename = "copernicus/codes.json"
-    with open(filename, "w") as f:
-        f.write(json.dumps(copernicus_variables, indent=2))
+    filename = "copernicus/copernicus_variables.md"
+    dataframe_to_markdown(df, "Copernicus variables", filename)
+
+
     resources["Copernicus Parameters"] = {
-        "json": source_url + "copernicus/codes.json",
+        "md": source_url + "copernicus/codes.csv",
         "hash": get_file_md5(filename)
     }
 
