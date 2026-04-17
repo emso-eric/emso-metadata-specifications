@@ -1,3 +1,13 @@
+## version 1.0.3 ##
+* adding `time_end` as an optional coordinate
+* adding Data Processing Levels to the specifications
+* changing doi, keywords and keywords_vocabulary from optional to mandatory
+* Changing Copernicus codes from a list in json to a human readable Markdown file
+
+## version 1.0.2 ##
+* Renaming `contributors` to `contributor_names` to make it aligned with OceanSITES
+* Adding 
+
 ## version 1.0.2 ##
 * Fixing overwriting issues in resources.json, now CSV files are properly stored and related.json files are correctly produced
 
@@ -8,7 +18,7 @@
 * 100% alignment with Climate and Forecast
 * Adding mandatory coordinates time, depth, latitude, longitude, sensor_id, platform_id
 * Adding `variable_type` to explicitly declare the role of each variable
-* Force same dataset format regardless NetCDF o ERDDAP
+* Force the same dataset format regardless of NetCDF or ERDDAP
 * Integrating OSO ontology
 * Adding `external-resources` to centralise file downloads from the metadata harmonizer
 * ... and many more changes
