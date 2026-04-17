@@ -60,7 +60,7 @@
     "hash": "b80c160a684343346c3bcb9361cb8e45"
   },
   "Copernicus Parameters": {
-    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/copernicus/codes.csv",
+    "md": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/copernicus/copernicus_variables.md",
     "hash": "b7d207e8e8b973b8c70cc96a1e62db20"
   },
   "OceanSites_codes": {

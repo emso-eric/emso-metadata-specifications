@@ -422,7 +422,7 @@ if __name__ == "__main__":
 
 
     resources["Copernicus Parameters"] = {
-        "md": source_url + "copernicus/codes.csv",
+        "md": source_url + filename,
         "hash": get_file_md5(filename)
     }
 
