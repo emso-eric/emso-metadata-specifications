@@ -113,9 +113,9 @@ tests go to Implemented tests section). The mandatory column.
 | site_code<sup>3</sup>           | OceanSITES site code (only applicable for platforms members of OceanSITES)                                                                                                        | data_type#str            | false    | true     |
 | title                           | Free-format text describing the dataset, for use by human readers                                                                                                                 | data_type#str            | true     | false    |
 | summary                         | Longer free-format text describing the dataset                                                                                                                                    | data_type#str            | true     | false    |
-| keywords<sup>1</sup>            | Keywords text                                                                                                                                                                     | data_type#str            | true     | true     |
-| keywords_vocabulary<sup>1</sup> | URI of the vocabularies used for keywords                                                                                                                                         | data_type#str            | true     | false    |
-| keywords_vocabulary_uri         | URI of the vocabularies used for keywords                                                                                                                                         | data_type#str            | true     | false    |
+| keywords<sup>1</sup>            | List of keywords, for more info check [EMSO Keywords](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/keywords.md)                                         | valid_keywords           | true     | true     |
+| keywords_vocabulary<sup>1</sup> | List of the vocabulary names used in keywords                                                                                                                                     | keyword_vocabs           | true     | false    |
+| keywords_vocabulary_uri         | URIs of the vocabularies used in keywords                                                                                                                                         | keyword_vocabs_uri       | true     | false    |
 | projects                        | Acronyms of the projects funding the dataset                                                                                                                                      | data_type#str            | false    | true     |
 | project_codes                   | List of the project identifiers by ID                                                                                                                                             | data_type#str            | false    | true     |
 | principal_investigator          | Name of the principal investigator                                                                                                                                                | data_type#str            | true     | true     |
@@ -123,8 +123,8 @@ tests go to Implemented tests section). The mandatory column.
 | contributor_name<sup>1</sup>    | comma-separated list of author names                                                                                                                                              | data_type#str            | true     | true     |
 | contributor_role                | role for each author following the [DataCite contributor type](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/datacite/DataCite_codes.md) | contributor_types        | true     | true     |
 | doi                             | Digital Object Identifier (DOI) list of the dataset.                                                                                                                              | valid_doi                | true     | true     |
-| data_processing_level           | Data processing level following [EMSO data levels](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/datacite/Data_Processing_Levels.md).    | valid_dpl                | false    | true     |
-| data_processing_sublevel        | Data processing sublevel following [EMSO data levels](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/datacite/Data_Processing_Levels.md). | valid_sdpl               | false    | true     |
+| data_processing_level           | Data processing level following [EMSO data levels](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/Data_Processing_Levels.md).                             | valid_data_level                | false    | true     |
+| data_processing_sublevel        | Data processing sublevel following [EMSO data levels](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/Data_Processing_Levels.md).                          | valid_sdpl               | false    | true     |
 | license                         | license name (SPDX short identifier), use of `CC-BY-4.0` is strongly recommended                                                                                                  | spdx_license_name        | true     | false    |
 | license_uri                     | URI pointing to a SPDX license, use of `CC-BY-4.0` is strongly recommended                                                                                                        | spdx_license_uri         | true     | false    |
 | featureType<sup>2</sup>         | Special field used by CF Discrete Sampling Geometries                                                                                                                             | cf_dsg_types             | true     | false    |
@@ -134,21 +134,6 @@ tests go to Implemented tests section). The mandatory column.
 <sup>2</sup> See [CF Discrete Sampling Geometries](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.13/cf-conventions.html#discrete-sampling-geometries)  
 <sup>3</sup> Used for compatibility with OceanSITES
 
-## Keywords
-
-Keywords are a way to categorize datasets and are used to search for datasets. Keywords are typically represented as a 
-comma-separated list of keywords. It is strongly recommended to use existing vocabularies for keywords, typically the `prefLabel` 
-from controlled vocabularies. The foll lists the recomended vocabularies to be used in keywords:
-
-* [GCMD Sciencie Keywords](https://gcmd.gsfc.nasa.gov/aboutgcmd/sciencekeywords/)
-* [GEMET]()
-* CF Standard Names
-| EMSO | [EMSO Science Keywords](https://emso.gsfc.nasa.gov/emso-science-keywords/) |
-| OGC | [OGC Science Keywords](https://www.ogc.org/standards/science-keywords) |
-| ISO | [ISO 19115](https://www.iso.org/standard/74434.html) |
-| NASA | [NASA Science Keywords](https://sciencekeywords.nasa.gov/) |
-| CSDMS | [CSDMS Science Keywords](https://csdms.colorado.edu/wiki/Science_Keywords) |
-| Climate and Forecast (CF) | [CF Conventions](https://cfconventions.org/Data/cf-conventions/cf-conventions-1.13/cf-conventions.html#science-keywords) |
 
 
 # Variables #
@@ -500,4 +485,8 @@ Description of the compliance tests:
 * **qc_variable_name**: Valid quality control variable name according to naming rules.
 * **qc_flag_values**: Valid OceanSITES QC flag values (0,1,2,3,4,7,8,9).
 * **qc_flag_meanings**: Valid OceanSITES QC flag meanings.
-* **valid_dpl**: Valid data processing level from the [Data Processing Levels](https://www.wmo.int/pages/prog/www/data/quality/quality-control-levels.html) list.
+* **valid_data_level**: Valid data processing level from the [Data Processing Levels](https://www.wmo.int/pages/prog/www/data/quality/quality-control-levels.html) list.
+* **valid_data_sublevel**: Valid data processing sublevel from the [Data Processing Levels](https://www.wmo.int/pages/prog/www/data/quality/quality-control-levels.html) list.
+* **valid_keywords**: check if the keyword is valid.
+* **keyword_vocab**: check if the keyword vocabulary is valid.
+* **keyword_vocab_uri**: check if the keyword vocabulary URI is valid.
