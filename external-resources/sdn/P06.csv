@@ -28,13 +28,14 @@ http://vocab.nerc.ac.uk/collection/P06/current/USPC/,Not specified,The units are
 http://vocab.nerc.ac.uk/collection/P06/current/UDPM/,Micromoles per disintegrations per minute,10^-6 of the SI unit of quantity of matter (the mole) per disintegrations per minute. Used to express the ratio of POC to Thorium-234.,umol/dpm,SDN:P06::UDPM
 http://vocab.nerc.ac.uk/collection/P06/current/NOPM/,Number per metre,Unavailable.,#/m,SDN:P06::NOPM
 http://vocab.nerc.ac.uk/collection/P06/current/UPCM/,per centimetre,Unavailable,/cm,SDN:P06::UPCM
-http://vocab.nerc.ac.uk/collection/P06/current/UVAY/,Number per square centimetre per thousand years,Unavailable,#/cm^2/ka,SDN:P06::UVAY
+http://vocab.nerc.ac.uk/collection/P06/current/KJPM/,Kilojoules per mole,A unit of molar energy a thousand times the derived SI unit of energy divided by the SI base unit of quantity of matter.,kJ/mol,SDN:P06::KJPM
 http://vocab.nerc.ac.uk/collection/P06/current/MGLH/,Micrograms per litre per hour,A rate of change of mass of a measurand equivalent to 10^-9 kilogram (the SI unit of mass) per litre volume of matrix over a period of 1 hour.,ug/l/h,SDN:P06::MGLH
 http://vocab.nerc.ac.uk/collection/P06/current/UPVW/,Picomoles per metre per watt per second,Unavailable,pmol/m/W/s,SDN:P06::UPVW
 http://vocab.nerc.ac.uk/collection/P06/current/MBPG/,Millibecquerels per gram,One radioactive disintegration per thousand seconds per 1000th SI unit of sample mass.,mBq/g,SDN:P06::MBPG
 http://vocab.nerc.ac.uk/collection/P06/current/UMMD/,Micromoles per litre per day,Unavailable,umol/l/d,SDN:P06::UMMD
 http://vocab.nerc.ac.uk/collection/P06/current/PMMM/,Picomoles per milligram per minute,A change in the quantity of matter of 10^-12 moles in 10^-6 of the SI unit of mass over a period of 60 seconds.,pmol/mg/min,SDN:P06::PMMM
 http://vocab.nerc.ac.uk/collection/P06/current/UCSS/,Degrees Celsius squared per second,Unavailable,degC^2/s,SDN:P06::UCSS
+http://vocab.nerc.ac.uk/collection/P06/current/UVAY/,Number per square centimetre per thousand years,Unavailable,#/cm^2/ka,SDN:P06::UVAY
 http://vocab.nerc.ac.uk/collection/P06/current/NAMP/,Nanoamperes,An SI unit of electrical current equal to 10^−9 amperes.,nA,SDN:P06::NAMP
 http://vocab.nerc.ac.uk/collection/P06/current/MRAD/,Millirads per hour,One thousandth part of an absorbed ionizing radiation dose equal to 100 ergs per gram of irradiated material received per hour.,mRad/hr,SDN:P06::MRAD
 http://vocab.nerc.ac.uk/collection/P06/current/NPMM/,Nanomoles per milligram per minute,"10^-9 of the SI unit of quantity of matter (the mole) per milligram of a substance per minute. Used to express the activity of enzymes by giving the quantity of product formed by the enzyme (in nanomoles), per mass of total protein (milligrams) in a given amount of time (minute).",nmol/mg/min,SDN:P06::NPMM
@@ -69,6 +70,7 @@ http://vocab.nerc.ac.uk/collection/P06/current/UNMD/,Nanomoles per litre per day
 http://vocab.nerc.ac.uk/collection/P06/current/NMMD/,Nanomoles per micromole per day,Unavailable.,nmol/umol/d,SDN:P06::NMMD
 http://vocab.nerc.ac.uk/collection/P06/current/UCGS/,Magnetic susceptibility cgs units,Unavailable,MScgs,SDN:P06::UCGS
 http://vocab.nerc.ac.uk/collection/P06/current/DCPY/,Degrees Celsius per year,A rate of change of temperature expressed on the Celsius scale over a period of an average calendar year (365.25 days).,degC/yr,SDN:P06::DCPY
+http://vocab.nerc.ac.uk/collection/P06/current/SMMC/,Square millimetres per cubic metre,The SI unit of area (scaled by 10^-9) per SI unit of volume.,mm^2/m^3,SDN:P06::SMMC
 http://vocab.nerc.ac.uk/collection/P06/current/NMGH/,Nanomoles per microgram per hour,Unavailable,nmol/ug/h,SDN:P06::NMGH
 http://vocab.nerc.ac.uk/collection/P06/current/UPVT/,Picomoles per cubic metre per second,Unavailable,pmol/m^3/s,SDN:P06::UPVT
 http://vocab.nerc.ac.uk/collection/P06/current/SQUM/,Square micrometres,A unit of area defined as a square of one micrometre long on each side. It has a dimension of L2 where L is length. It can be converted to the corresponding standard SI unit area by multiplying its value by a factor of 10^-12.,um^2,SDN:P06::SQUM
@@ -128,7 +130,7 @@ http://vocab.nerc.ac.uk/collection/P06/current/KIPA/,Kilopascals,A force of one 
 http://vocab.nerc.ac.uk/collection/P06/current/HPAH/,Hectopascals per hour,A change in pressure of one hundred Newtons per square metre (100 Pascals) per hour.  Equivalent to a change of one millibar per hour.,hPa/h,SDN:P06::HPAH
 http://vocab.nerc.ac.uk/collection/P06/current/UMGM/,Micromoles per milligram per minute,"10^-6 of the SI unit of quantity of matter (the mole) per milligram of a substance per minute. Used to express the activity of enzymes by giving the quantity of product formed by the enzyme (in micromoles), per mass of total protein (milligrams) in a given amount of time (minute).",umol/mg/min,SDN:P06::UMGM
 http://vocab.nerc.ac.uk/collection/P06/current/UM2S/,Micromoles per square metre per second,One part per 10^6 (million) of the SI unit of quantity of matter (the mole) per SI unit area per SI unit of time.,umol/m^2/s,SDN:P06::UM2S
-http://vocab.nerc.ac.uk/collection/P06/current/UMUB/,Micromoles per micromole per day,A change of one part per 10^6 of the SI unit of quantity of matter per one part per 10^6 of the SI unit of quantity of matter the quantity of matter over a period of 86400 seconds.,um/um/d,SDN:P06::UMUB
+http://vocab.nerc.ac.uk/collection/P06/current/UMUB/,Micromoles per micromole per day,A change of one part per 10^6 of the SI unit of quantity of matter in one part per 10^6 of the SI unit of quantity of matter over a period of 86400 seconds.,umol/umol/d,SDN:P06::UMUB
 http://vocab.nerc.ac.uk/collection/P06/current/MGPM/,MilliGals per month,A rate of change of one millionth part of a unit of gravitational acceleration equal to one centimetre per second per second over a time duration of 30.4375 days or 2629800 seconds.,mGal/mon,SDN:P06::MGPM
 http://vocab.nerc.ac.uk/collection/P06/current/NSQD/,Nanomoles per square metre per day,Unavailable,nmol/m^2/d,SDN:P06::NSQD
 http://vocab.nerc.ac.uk/collection/P06/current/MEKG/,MilliEquivalents per kilogram,The amount of substance or substances in a kilogram of solution that will react with one milligram of hydrogen.,mEquiv/kg,SDN:P06::MEKG
@@ -167,6 +169,7 @@ http://vocab.nerc.ac.uk/collection/P06/current/UWBQ/,Microbecquerels per kilogra
 http://vocab.nerc.ac.uk/collection/P06/current/USVD/,Sverdrup,One Sverdrup is a million cubic metres per second or a million cumecs.,Sv,SDN:P06::USVD
 http://vocab.nerc.ac.uk/collection/P06/current/UPHI/,phi units,"Logarithm to the base 2 of a length, generally sediment grain diameter, in millimetres as devised by Krumbein (1936).",phi units,SDN:P06::UPHI
 http://vocab.nerc.ac.uk/collection/P06/current/EQPL/,Equivalents per litre,The amount of substance or substances in a litre of solution that will react with one gram of hydrogen.,Equiv/l,SDN:P06::EQPL
+http://vocab.nerc.ac.uk/collection/P06/current/MGGH/,Milligrams per gram per hour,10^-6 of the SI unit of mass (kilogram) per 10^-3 of the SI unit of mass over 3600 times one SI standard unit of time.,mg/g/h,SDN:P06::MGGH
 http://vocab.nerc.ac.uk/collection/P06/current/UDTM/,yyyymmddhh24miss.dd,Unavailable,Date+Time,SDN:P06::UDTM
 http://vocab.nerc.ac.uk/collection/P06/current/USCM/,MicroSiemens per centimetre,One part per 10^6 (million) of the SI derived unit of electrical conductivity divided by 10^2 parts of the SI base unit of length.,uS/cm,SDN:P06::USCM
 http://vocab.nerc.ac.uk/collection/P06/current/NMCH/,Nanomoles per cubic centimetre per hour,Unavailable,nmol/cm^3/h,SDN:P06::NMCH
@@ -226,10 +229,10 @@ http://vocab.nerc.ac.uk/collection/P06/current/ULCM/,Centimetres,Unit of length 
 http://vocab.nerc.ac.uk/collection/P06/current/UXMM/,Millimetres,Unit of length which is one thousandth of a metre.,mm,SDN:P06::UXMM
 http://vocab.nerc.ac.uk/collection/P06/current/UXNM/,Nanometres,Unit of length which is one billionth (10^-9) of a metre.,nm,SDN:P06::UXNM
 http://vocab.nerc.ac.uk/collection/P06/current/NTML/,Nautical miles,"A unit of length used to measure distance at sea, equivalent to 1852 standard SI units of length (metres).",Nm,SDN:P06::NTML
-http://vocab.nerc.ac.uk/collection/P06/current/UFFU/,Fluorescein Fluorescence Units,Dimensionless scale derived in the laboratory using fluorescein as a proxy for environmental pigments.,FFU,SDN:P06::UFFU
 http://vocab.nerc.ac.uk/collection/P06/current/PSUX/,Practical salinity units,One PSU equals one gram (10^-3 of the SI unit of mass) of salt (Na+Cl-) per kilogram (SI standard unit of mass) of seawater.,PSU,SDN:P06::PSUX
 http://vocab.nerc.ac.uk/collection/P06/current/BYTE/,Bytes,Unavailable,Bytes,SDN:P06::BYTE
 http://vocab.nerc.ac.uk/collection/P06/current/UUPH/,pH units,Unavailable,pH units,SDN:P06::UUPH
+http://vocab.nerc.ac.uk/collection/P06/current/UFFU/,Fluorescein Fluorescence Units,Dimensionless scale derived in the laboratory using fluorescein as a proxy for environmental pigments.,FFU,SDN:P06::UFFU
 http://vocab.nerc.ac.uk/collection/P06/current/UPPE/,Parts per ten thousand,"Proportion of one part in 10^4 by weight, number, volume or amount (i.e. moles).",pptt,SDN:P06::UPPE
 http://vocab.nerc.ac.uk/collection/P06/current/PPTR/,Parts per trillion,"Proportion of one part in 10^12 by weight, volume or amount (i.e. moles or atoms). Nanograms per kilogram is a more explicit alternative for parts per trillion by weight.",pptr,SDN:P06::PPTR
 http://vocab.nerc.ac.uk/collection/P06/current/UCNT/,Counts,"A proprietary unit for RDI ADCP instruments, which is proportional to decibels (dB) and used to measure echo intensity. Counts are converted to dB using a coefficient (Kc) for each ADCP instrument and each beam.",counts,SDN:P06::UCNT

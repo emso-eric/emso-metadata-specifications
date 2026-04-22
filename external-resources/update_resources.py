@@ -40,7 +40,7 @@ dwc_terms_url = "https://raw.githubusercontent.com/tdwg/dwc/refs/heads/master/vo
 
 edmo_codes_jsonld = ".temp/edmo_codes_jsonld.json"
 
-oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/refs/heads/main/docs/ontology.ttl"
+oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/refs/heads/main/OSO.ttl"
 
 oceansites_codes_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/{emso_branch}/external-resources/oceansites/OceanSites_codes.md"
 datacite_codes_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/{emso_branch}/external-resources/datacite/DataCite_codes.md"
