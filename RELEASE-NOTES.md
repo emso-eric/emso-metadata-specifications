@@ -1,3 +1,7 @@
+## version 1.0.4 ##
+* Adding proper keywords and data processing levels documentation
+* fixing mess in git history
+
 ## version 1.0.3 ##
 * * changing `doi`, keywords,  `keywords_vocabulary`  and `keywords_vocabulary_uri` from optional to mandatory
 * adding `time_end` as an optional coordinate
