@@ -12,10 +12,10 @@ All keywords **must be selected from controlled vocabularies** (no free-text key
 Each dataset must define the following global attributes:
 
 | Attribute                  | Description                                                                |
-|---------------------------|-----------------------------------------------------------------------------|
-| `keywords`                | List of keyword labels (`prefLabel`)                                        |
-| `keywords_vocabulary`     | List of vocabulary names used                                               |
-| `keywords_vocabulary_uri` | List of vocabulary URIs                                                     |
+|----------------------------|----------------------------------------------------------------------------|
+| `keywords`                 | List of keyword labels (`prefLabel`)                                       |
+| `keywords_vocabulary`      | List of vocabulary names used                                              |
+| `keywords_vocabulary_uri`  | List of vocabulary URIs                                                    |
 
 - All attributes are **string lists**
 - `keywords` and `keywords_vocabulary` are **comma-separated** lists. `keywords_vocabulary_uri` is a **space-separated** list.

@@ -1,7 +1,7 @@
 ## version 1.0.3 ##
+* * changing `doi`, keywords,  `keywords_vocabulary`  and `keywords_vocabulary_uri` from optional to mandatory
 * adding `time_end` as an optional coordinate
 * adding Data Processing Levels to the specifications
-* changing doi, keywords and keywords_vocabulary from optional to mandatory
 * Changing Copernicus codes from a list in json to a human readable Markdown file
 
 ## version 1.0.2 ##
