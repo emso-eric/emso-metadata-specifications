@@ -35,7 +35,7 @@ Several example datasets compliant with the latest version of the specifications
 
 
 # Contact info #
-* **version**: v1.0.2
+* **version**: v1.0.3
 * **author**: Enoc Martínez  
 * **contributors**: Enoc Martínez 
 * **organization**: Universitat Politècnica de Catalunya (UPC)
