@@ -1,3 +1,7 @@
+## version 1.0.5 ##
+* Add `keywords_uri` and `keywords_type`
+* Adding `time_end` P01 code
+
 ## version 1.0.4 ##
 * Adding proper keywords and data processing levels documentation
 * fixing mess in git history

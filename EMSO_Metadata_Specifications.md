@@ -113,7 +113,9 @@ tests go to Implemented tests section). The mandatory column.
 | site_code<sup>3</sup>           | OceanSITES site code (only applicable for platforms members of OceanSITES)                                                                                                        | data_type#str            | false    | true     |
 | title                           | Free-format text describing the dataset, for use by human readers                                                                                                                 | data_type#str            | true     | false    |
 | summary                         | Longer free-format text describing the dataset                                                                                                                                    | data_type#str            | true     | false    |
-| keywords<sup>1</sup>            | List of keywords, for more info check [EMSO Keywords](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/keywords.md)                                         | valid_keyword            | true     | true     |
+| keywords<sup>1</sup>            | List of keywords, for more info check [EMSO Keywords](https://github.com/emso-eric/emso-metadata-specifications/blob/main/keywords.md)                                            | valid_keyword            | true     | true     |
+| keywords_uri                    | List of keywords, for more info check [EMSO Keywords](https://github.com/emso-eric/emso-metadata-specifications/blob/main/keywords.md)                                            | valid_keyword_uri        | true     | true     |
+| keywords_type<sup>1</sup>       | Human readable category of the keyword, e.g. `discipline`, `place` or`variable`                                                                                                   | data_type#str            | true     | true     |
 | keywords_vocabulary<sup>1</sup> | List of the vocabulary names used in keywords                                                                                                                                     | keyword_vocabs           | true     | true     |
 | keywords_vocabulary_uri         | URIs of the vocabularies used in keywords                                                                                                                                         | keyword_vocabs_uri       | true     | true     |
 | projects                        | Acronyms of the projects funding the dataset                                                                                                                                      | data_type#str            | false    | true     |
@@ -123,8 +125,8 @@ tests go to Implemented tests section). The mandatory column.
 | contributor_name<sup>1</sup>    | comma-separated list of author names                                                                                                                                              | data_type#str            | true     | true     |
 | contributor_role                | role for each author following the [DataCite contributor type](https://github.com/emso-eric/emso-metadata-specifications/blob/main/external-resources/datacite/DataCite_codes.md) | contributor_types        | true     | true     |
 | doi                             | Digital Object Identifier (DOI) list of the dataset.                                                                                                                              | valid_doi                | true     | false    |
-| data_processing_level           | Data processing level following [EMSO data levels](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/Data_Processing_Levels.md).                             | valid_data_level         | false    | false     |
-| data_processing_steps           | Data processing steps following [EMSO data levels](https://github.com/emso-eric/emso-metadata-specifications/blob/develop/Data_Processing_Levels.md).                             | valid_data_process       | false    | true     |
+| data_processing_level           | Data processing level following [EMSO data levels](https://github.com/emso-eric/emso-metadata-specifications/blob/main/Data_Processing_Levels.md).                                | valid_data_level         | false    | false     |
+| data_processing_steps           | Data processing steps following [EMSO data levels](https://github.com/emso-eric/emso-metadata-specifications/blob/main/Data_Processing_Levels.md).                                | valid_data_process       | false    | true     |
 | license                         | license name (SPDX short identifier), use of `CC-BY-4.0` is strongly recommended                                                                                                  | spdx_license_name        | true     | false    |
 | license_uri                     | URI pointing to a SPDX license, use of `CC-BY-4.0` is strongly recommended                                                                                                        | spdx_license_uri         | true     | false    |
 | featureType<sup>2</sup>         | Special field used by CF Discrete Sampling Geometries                                                                                                                             | cf_dsg_types             | true     | false    |
@@ -220,8 +222,8 @@ Unlike other variables, the coordinate variables are limited to the following ta
 | precise_longitude | deployment_longitude | false     | float                    | accurate lontidue of the measurement                 | [ALONGP01](https://vocab.nerc.ac.uk/collection/P01/current/ALONGP01/) |
 | sensor_id         | n/a                  | true      | string                   | identifier of the sensor that took the measurement   | [NMSPINST](https://vocab.nerc.ac.uk/collection/P01/current/NMSPINST/) |
 | platform_id       | platform_id          | true      | string                   | identifier of the platform that took the measurement | [NMSPPF01](https://vocab.nerc.ac.uk/collection/P01/current/NMSPPF01/) |
-| time_end          | n/a                  | false     | seconds since 1970-01-01 | time end of measurements                             | n/a                                                                   |
-
+| time_end          | n/a                  | false     | seconds since 1970-01-01 | time end of measurements                             | [ELTMEP01](https://vocab.nerc.ac.uk/collection/P01/current/ELTMEP01/)    |
+ 
 
 Following the CF conventions, an idealized time series is defined at a single, stable point location. However, there are examples of time series, such as cabled
 ocean surface mooring measurements, in which the precise position of the observations varies slightly from a nominal fixed point. The precise position can be
@@ -271,7 +273,7 @@ The naming convention hierarchy is defined as:
 1. Use OceanSITES naming conventions  
 2. If OceanSITES is not applicable, use a term from [NVS P02](http://vocab.nerc.ac.uk/collection/P02).
 3. If the parameter is not defined in P02, use the [Copernicus Marine in situ TAC - physical parameters list](https://archimer.ifremer.fr/doc/00422/53381/)
-4. If the parameter is not defined in any of the above, use any user-defined 4-letter code. 
+4. If the parameter is not defined in any of the above, use any user-defined 4-letter code.
 
 The following table defines the attributes expected in `environmental` variables. 
 
@@ -423,6 +425,7 @@ The following attributes are expected in `platform` variables:
 | emso_platform_name  | Link to the platform entry in OSO ontology                        | oso_ontology_name#platform | true     | false    |
 | emso_platform_uri   | Link to the platform entry in OSO ontology                        | oso_ontology_uri#platform  | true     | false    |
 | wmo_platform_code   | World Meteorological Organization (WMO) platform code             | data_type#str              | false    | false    |
+| wsi_platform_code   | (WIGOS Station Identifier)[https://community.wmo.int/wigos-station-identifiers] | data_type#str | false | false |
 | platform_reference  | Link to additional information                                    | data_type#uri              | false    | false    |
 | comment             | free-text to add additional comment s                             | data_type#str              | false    | false    |
 | latitude            | nominal latitude (for fixed-point platforms only)                 | data_type#float            | false    | false    |
@@ -487,6 +490,7 @@ Description of the compliance tests:
 * **qc_flag_meanings**: Valid OceanSITES QC flag meanings.
 * **valid_data_level**: Valid data processing level from the [Data Processing Levels](https://www.wmo.int/pages/prog/www/data/quality/quality-control-levels.html) list.
 * **valid_data_process**: Valid data processing sublevel from the [Data Processing Levels](https://www.wmo.int/pages/prog/www/data/quality/quality-control-levels.html) list.
-* **valid_keyword**: check if the keyword is valid.
+* **valid_keyword**: check if the keyword is valid against preferred labels of allowed vocabularies.
+* **valid_keyword_uri**: check if the keyword is valid against URIs of allowed vocabularies.
 * **keyword_vocabs**: check if the keyword vocabulary is valid.
 * **keyword_vocabs_uri**: check if the keyword vocabulary URI is valid.
