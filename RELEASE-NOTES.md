@@ -1,3 +1,7 @@
+## version 1.0.6 ##
+* Allow multiple DOIs for the same dataset
+
+
 ## version 1.0.5 ##
 * Add `keywords_uri` and `keywords_type`
 * Adding `time_end` P01 code
