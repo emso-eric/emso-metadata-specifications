@@ -1,6 +1,10 @@
+## version 1.0.7 ##
+* Change `projects` to `project` to align with [ACDD](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3)
+* Add `project_uri` to provide normative links to project descriptions
+* Change `project_codes` to `project_code` to maintain consistency in terms (use singular)
+
 ## version 1.0.6 ##
 * Allow multiple DOIs for the same dataset
-
 
 ## version 1.0.5 ##
 * Add `keywords_uri` and `keywords_type`
