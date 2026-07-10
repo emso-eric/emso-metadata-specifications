@@ -425,8 +425,8 @@ The following attributes are expected in `platform` variables:
 | platform_type_uri   | Platform type L06 URI                                             | sdn_vocab_uri#L06          | true     | false    |
 | emso_platform_name  | Link to the platform entry in OSO ontology                        | oso_ontology_name#platform | true     | false    |
 | emso_platform_uri   | Link to the platform entry in OSO ontology                        | oso_ontology_uri#platform  | true     | false    |
+| goos_passport_id    | Global Ocean Observing System (GOOS) Passport identifier          | data_type#str              | true     | false    |
 | wmo_platform_code   | World Meteorological Organization (WMO) platform code             | data_type#str              | false    | false    |
-| wsi_platform_code   | (WIGOS Station Identifier)[https://community.wmo.int/wigos-station-identifiers] | data_type#str | false | false |
 | platform_reference  | Link to additional information                                    | data_type#uri              | false    | false    |
 | comment             | free-text to add additional comment s                             | data_type#str              | false    | false    |
 | latitude            | nominal latitude (for fixed-point platforms only)                 | data_type#float            | false    | false    |
