@@ -1,0 +1,258 @@
+{
+  "schema": "emso-vocabularies/1",
+  "title": "EMSO Metadata Specifications - external vocabulary snapshot",
+  "description": "Pre-processed snapshot of externally governed vocabularies mirrored by EMSO ERIC. These vocabularies are maintained by third parties (NVS/SeaDataNet, Copernicus) and are refreshed on their own cadence, independently of the EMSO Metadata Specifications version. There is exactly one current snapshot: it is NOT selectable per specification version.",
+  "canonical_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/vocabularies.json",
+  "ref": "refs/heads/develop",
+  "mutable": true,
+  "snapshot_date": "2026-09-23",
+  "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/",
+  "notes": [
+    "Resolve a file as base_url + resources.<key>.files.<name>.path",
+    "This snapshot always tracks the tip of develop. It applies to every specification version; do not cache it under a version-specific key.",
+    "md5 values describe the snapshot at the time this file was generated. Because the ref is mutable, a download whose md5 does not match means the snapshot moved: re-fetch this file. Clients should treat a mismatch as a cache-refresh signal, not an error.",
+    "Re-check policy: compare this file's md5 values against the local cache; a 24h staleness window is sufficient given the refresh cadence (a few times per year)."
+  ],
+  "resources": {
+    "P01": {
+      "title": "BODC Parameter Usage Vocabulary",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/P01/current/",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/P01.csv",
+          "md5": "c86a88358d082ddca48d8e069790fbd7",
+          "bytes": 16549899
+        },
+        "narrower": {
+          "path": "external-resources/sdn/P01.narrower.json",
+          "md5": "d8d9c79b3131617994470039b020cbcb",
+          "bytes": 3323200
+        },
+        "broader": {
+          "path": "external-resources/sdn/P01.broader.json",
+          "md5": "15e5b6f4fe722f5fe558254dcfd8e71e",
+          "bytes": 16150280
+        },
+        "related": {
+          "path": "external-resources/sdn/P01.related.json",
+          "md5": "61837a626674434ad2c8d2bc7fd69e92",
+          "bytes": 11126925
+        }
+      }
+    },
+    "P02": {
+      "title": "SeaDataNet Parameter Discovery Vocabulary",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/P02/current/",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/P02.csv",
+          "md5": "08aa81d9fc67a418d8f05ac51330d757",
+          "bytes": 131575
+        },
+        "narrower": {
+          "path": "external-resources/sdn/P02.narrower.json",
+          "md5": "57d04deba59e6a38e507a7c68c6c6d04",
+          "bytes": 3254596
+        },
+        "broader": {
+          "path": "external-resources/sdn/P02.broader.json",
+          "md5": "f8df380d151df20503a3631e5f17f3a4",
+          "bytes": 217705
+        },
+        "related": {
+          "path": "external-resources/sdn/P02.related.json",
+          "md5": "2830c7f2e6c4de39c835c59c39edd916",
+          "bytes": 90572
+        }
+      }
+    },
+    "P06": {
+      "title": "BODC-approved data storage units",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/P06/current/",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/P06.csv",
+          "md5": "4bad43784c4f59b296f04924e3aba6e9",
+          "bytes": 63016
+        },
+        "narrower": {
+          "path": "external-resources/sdn/P06.narrower.json",
+          "md5": "6d4aa7b281febd726c228fbebb5eea14",
+          "bytes": 24600
+        },
+        "broader": {
+          "path": "external-resources/sdn/P06.broader.json",
+          "md5": "0b935ed28d3f9162b41d3a372a44342b",
+          "bytes": 38531
+        },
+        "related": {
+          "path": "external-resources/sdn/P06.related.json",
+          "md5": "6be5cfd96db8eb6467be3f23c7e51048",
+          "bytes": 3498169
+        }
+      }
+    },
+    "P07": {
+      "title": "Climate and Forecast Standard Names",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/P07/current/",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/P07.csv",
+          "md5": "98f4b5b76847b058ef467ddb3b3f8002",
+          "bytes": 4582483
+        },
+        "narrower": {
+          "path": "external-resources/sdn/P07.narrower.json",
+          "md5": "fb2ee1c3cee1ac6d227f6efc6a820007",
+          "bytes": 368898
+        },
+        "broader": {
+          "path": "external-resources/sdn/P07.broader.json",
+          "md5": "536a887aff21b062160dd97796afc892",
+          "bytes": 665402
+        },
+        "related": {
+          "path": "external-resources/sdn/P07.related.json",
+          "md5": "06b924bb11bfd71a6ea5d236f1e82952",
+          "bytes": 713554
+        }
+      }
+    },
+    "L05": {
+      "title": "SeaDataNet device categories",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/L05/current/",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/L05.csv",
+          "md5": "11358717ef0bf017c417f95533f7fd27",
+          "bytes": 77972
+        },
+        "narrower": {
+          "path": "external-resources/sdn/L05.narrower.json",
+          "md5": "f56ba906d66fdb9f0975df1418766d0e",
+          "bytes": 245571
+        },
+        "broader": {
+          "path": "external-resources/sdn/L05.broader.json",
+          "md5": "d704c7456dbff934895cb36c472f1b12",
+          "bytes": 72443
+        },
+        "related": {
+          "path": "external-resources/sdn/L05.related.json",
+          "md5": "2c504d325c42419a09e6376f5a26c3b0",
+          "bytes": 25952
+        }
+      }
+    },
+    "L06": {
+      "title": "SeaVoX Platform Categories",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/L06/current/",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/L06.csv",
+          "md5": "e42a3e84b0774a68916a88029759a2c3",
+          "bytes": 18059
+        },
+        "narrower": {
+          "path": "external-resources/sdn/L06.narrower.json",
+          "md5": "66357c81fe6aafac72605fe9697bfd6f",
+          "bytes": 425316
+        },
+        "broader": {
+          "path": "external-resources/sdn/L06.broader.json",
+          "md5": "9706d86e63c0898dd6c0d5dd00282c69",
+          "bytes": 18788
+        },
+        "related": {
+          "path": "external-resources/sdn/L06.related.json",
+          "md5": "ec9054194efa97e68a4e8319dfe26625",
+          "bytes": 8579
+        }
+      }
+    },
+    "L22": {
+      "title": "SeaVoX Device Catalogue",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/L22/current/",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/L22.csv",
+          "md5": "eadcf670fe28d12cf5f19f40d1fba25a",
+          "bytes": 1837352
+        },
+        "narrower": {
+          "path": "external-resources/sdn/L22.narrower.json",
+          "md5": "2b1c9cc4b01319bce4cdc8711a7099fe",
+          "bytes": 157567
+        },
+        "broader": {
+          "path": "external-resources/sdn/L22.broader.json",
+          "md5": "c1b21d69702f6493adfb382150a8f24e",
+          "bytes": 434392
+        },
+        "related": {
+          "path": "external-resources/sdn/L22.related.json",
+          "md5": "05ecd3e012d73f84aae71920ae0fde20",
+          "bytes": 373766
+        }
+      }
+    },
+    "L35": {
+      "title": "SenseOcean device developers and manufacturers",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/L35/current/",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/L35.csv",
+          "md5": "86f22abbaeb78f32af2e0c2455e8f587",
+          "bytes": 144170
+        },
+        "narrower": {
+          "path": "external-resources/sdn/L35.narrower.json",
+          "md5": "d9eada4280c2f223755f379cdd56484c",
+          "bytes": 25326
+        },
+        "broader": {
+          "path": "external-resources/sdn/L35.broader.json",
+          "md5": "d9eada4280c2f223755f379cdd56484c",
+          "bytes": 25326
+        },
+        "related": {
+          "path": "external-resources/sdn/L35.related.json",
+          "md5": "ccd29e39e7d855bb5e015cfd938407da",
+          "bytes": 98592
+        }
+      }
+    },
+    "EDMO": {
+      "title": "European Directory of Marine Organisations",
+      "governed_by": "SeaDataNet",
+      "source": "https://edmo.seadatanet.org/",
+      "files": {
+        "csv": {
+          "path": "external-resources/edmo/EDMO.csv",
+          "md5": "437c72b55105570cece739c1604b0e9a",
+          "bytes": 525274
+        }
+      }
+    },
+    "Copernicus Parameters": {
+      "title": "Copernicus Marine In Situ TAC parameter list",
+      "governed_by": "Copernicus Marine Service / Ifremer",
+      "source": "https://archimer.ifremer.fr/doc/00422/53381/108480.xlsx",
+      "files": {
+        "md": {
+          "path": "external-resources/copernicus/copernicus_variables.md",
+          "md5": "b7d207e8e8b973b8c70cc96a1e62db20",
+          "bytes": 13814
+        }
+      }
+    }
+  }
+}

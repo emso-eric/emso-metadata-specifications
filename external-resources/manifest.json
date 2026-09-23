@@ -1,0 +1,292 @@
+{
+  "schema": "emso-specs-manifest/1",
+  "title": "EMSO Metadata Specifications - normative document index",
+  "description": "Index of every published version of the EMSO Metadata Specifications and the normative Markdown documents belonging to each. These documents are authored by EMSO ERIC and change only when EMSO makes a decision; they are versioned with the repository tags. Externally governed vocabularies (SeaDataNet/NVS, EDMO, Copernicus) are NOT listed here - see vocabularies.json.",
+  "canonical_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/main/external-resources/manifest.json",
+  "latest": "v1.0.7",
+  "default": "v1.0.7",
+  "notes": [
+    "Always fetch this file from canonical_url (a mutable ref). Copies of this file inside tags are frozen at tagging time and cannot list versions released later.",
+    "Resolve a file as base_url + files.<key>.path",
+    "Entries with mutable=true have md5=null: the content behind the ref can change at any time. Clients should apply a staleness policy (e.g. re-check after 24h) instead of trusting a hash.",
+    "Entries with mutable=false are immutable: verify md5 once, then cache indefinitely.",
+    "Versions before v1.0.4 have no Data_Processing_Levels; before v1.0.3 the OceanSITES tables were not yet split out. Clients must tolerate missing keys.",
+    "Key names are fixed: OceanSites_codes maps to OceanSites_codes.md and DataCite_codes maps to DataCite_codes.md. This corrects a crossed mapping present in the legacy resources.json.",
+    "Versions older than v1.0.0 are not indexed and are not supported."
+  ],
+  "versions": {
+    "v1.0.0": {
+      "ref": "refs/tags/v1.0.0",
+      "released": "2026-02-12",
+      "status": "stable",
+      "mutable": false,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/tags/v1.0.0/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": "615b4415f23d3d0bf1b1d4598790eb90",
+          "bytes": 50736,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": "0b328b43740db5b924e4cbb55277eb72",
+          "bytes": 2273,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": "52cce684303d132e6feccf96a4b249d0",
+          "bytes": 7121,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        }
+      }
+    },
+    "v1.0.1": {
+      "ref": "refs/tags/v1.0.1",
+      "released": "2026-02-12",
+      "status": "stable",
+      "mutable": false,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/tags/v1.0.1/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": "615b4415f23d3d0bf1b1d4598790eb90",
+          "bytes": 50736,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": "0b328b43740db5b924e4cbb55277eb72",
+          "bytes": 2273,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": "52cce684303d132e6feccf96a4b249d0",
+          "bytes": 7121,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        }
+      }
+    },
+    "v1.0.2": {
+      "ref": "refs/tags/v1.0.2",
+      "released": "2026-02-13",
+      "status": "stable",
+      "mutable": false,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/tags/v1.0.2/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": "615b4415f23d3d0bf1b1d4598790eb90",
+          "bytes": 50736,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": "0b328b43740db5b924e4cbb55277eb72",
+          "bytes": 2273,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": "52cce684303d132e6feccf96a4b249d0",
+          "bytes": 7121,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        }
+      }
+    },
+    "v1.0.3": {
+      "ref": "refs/tags/v1.0.3",
+      "released": "2026-04-17",
+      "status": "stable",
+      "mutable": false,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/tags/v1.0.3/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": "fd4dface3f72ea40f77c9272d8df4da6",
+          "bytes": 52449,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": "0096ca58c9eef8ee96e9128a619e0e75",
+          "bytes": 5716,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": "52cce684303d132e6feccf96a4b249d0",
+          "bytes": 7121,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        }
+      }
+    },
+    "v1.0.4": {
+      "ref": "refs/tags/v1.0.4",
+      "released": "2026-04-23",
+      "status": "stable",
+      "mutable": false,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/tags/v1.0.4/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": "5ff9d33cd371874c1e1cd0e825d7e483",
+          "bytes": 53170,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": "0096ca58c9eef8ee96e9128a619e0e75",
+          "bytes": 5716,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": "52cce684303d132e6feccf96a4b249d0",
+          "bytes": 7121,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        },
+        "Data_Processing_Levels": {
+          "path": "Data_Processing_Levels.md",
+          "md5": "b5d46acde4903dea42defa3a114e7ce6",
+          "bytes": 4494,
+          "description": "Normative data processing levels and steps."
+        }
+      }
+    },
+    "v1.0.5": {
+      "ref": "refs/tags/v1.0.5",
+      "released": "2026-05-13",
+      "status": "stable",
+      "mutable": false,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/tags/v1.0.5/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": "bd5bf2cb89178bf0aa5493fd5d57ebb6",
+          "bytes": 53983,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": "0096ca58c9eef8ee96e9128a619e0e75",
+          "bytes": 5716,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": "52cce684303d132e6feccf96a4b249d0",
+          "bytes": 7121,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        },
+        "Data_Processing_Levels": {
+          "path": "Data_Processing_Levels.md",
+          "md5": "b5d46acde4903dea42defa3a114e7ce6",
+          "bytes": 4494,
+          "description": "Normative data processing levels and steps."
+        }
+      }
+    },
+    "v1.0.6": {
+      "ref": "refs/tags/v1.0.6",
+      "released": "2026-05-14",
+      "status": "stable",
+      "mutable": false,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/tags/v1.0.6/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": "1ee96c2d485fb0e72a85c2af4ebff550",
+          "bytes": 53982,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": "0096ca58c9eef8ee96e9128a619e0e75",
+          "bytes": 5716,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": "52cce684303d132e6feccf96a4b249d0",
+          "bytes": 7121,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        },
+        "Data_Processing_Levels": {
+          "path": "Data_Processing_Levels.md",
+          "md5": "b5d46acde4903dea42defa3a114e7ce6",
+          "bytes": 4494,
+          "description": "Normative data processing levels and steps."
+        }
+      }
+    },
+    "v1.0.7": {
+      "ref": "refs/tags/v1.0.7",
+      "released": "2026-05-15",
+      "status": "stable",
+      "mutable": false,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/tags/v1.0.7/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": "8bf9d157e74461000c949649cee8b864",
+          "bytes": 54247,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": "0096ca58c9eef8ee96e9128a619e0e75",
+          "bytes": 5716,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": "52cce684303d132e6feccf96a4b249d0",
+          "bytes": 7121,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        },
+        "Data_Processing_Levels": {
+          "path": "Data_Processing_Levels.md",
+          "md5": "b5d46acde4903dea42defa3a114e7ce6",
+          "bytes": 4494,
+          "description": "Normative data processing levels and steps."
+        }
+      }
+    },
+    "develop": {
+      "ref": "refs/heads/develop",
+      "released": null,
+      "status": "development",
+      "mutable": true,
+      "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/",
+      "files": {
+        "EMSO_Metadata_Specifications": {
+          "path": "EMSO_Metadata_Specifications.md",
+          "md5": null,
+          "bytes": null,
+          "description": "Normative global/variable attribute tables and valid coordinates."
+        },
+        "OceanSites_codes": {
+          "path": "external-resources/oceansites/OceanSites_codes.md",
+          "md5": null,
+          "bytes": null,
+          "description": "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, parameter codes)."
+        },
+        "DataCite_codes": {
+          "path": "external-resources/datacite/DataCite_codes.md",
+          "md5": null,
+          "bytes": null,
+          "description": "EMSO-curated subset of DataCite contributor types."
+        },
+        "Data_Processing_Levels": {
+          "path": "Data_Processing_Levels.md",
+          "md5": null,
+          "bytes": null,
+          "description": "Normative data processing levels and steps."
+        }
+      }
+    }
+  }
+}

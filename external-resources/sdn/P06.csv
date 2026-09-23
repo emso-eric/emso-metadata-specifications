@@ -43,7 +43,6 @@ http://vocab.nerc.ac.uk/collection/P06/current/MPGH/,Moles per gram per hour,SI 
 http://vocab.nerc.ac.uk/collection/P06/current/UMLV/,Parts per million by volume,Unavailable,ppmv,SDN:P06::UMLV
 http://vocab.nerc.ac.uk/collection/P06/current/UMDX/,Millimoles per square metre per day,Unavailable,mmol/m^2/d,SDN:P06::UMDX
 http://vocab.nerc.ac.uk/collection/P06/current/UMAA/,Nanoteslas,Unavailable,nT,SDN:P06::UMAA
-http://vocab.nerc.ac.uk/collection/P06/current/UUMV/,Millivolts,Unavailable,mV,SDN:P06::UUMV
 http://vocab.nerc.ac.uk/collection/P06/current/MMOM/,Millimoles per mole,Unavailable,mmol/mol,SDN:P06::MMOM
 http://vocab.nerc.ac.uk/collection/P06/current/JCMH/,Joules per square centimetre per day,Radiant energy per 10^-4 SI unit area over a period of one day.,J/cm^2/d,SDN:P06::JCMH
 http://vocab.nerc.ac.uk/collection/P06/current/CCPM/,Millilitres per minute,Unavailable,ml/min,SDN:P06::CCPM
@@ -145,6 +144,7 @@ http://vocab.nerc.ac.uk/collection/P06/current/USUM/,Square microns per millilit
 http://vocab.nerc.ac.uk/collection/P06/current/PIXY/,Pixels,The smallest resolvable element of a digital image and a unit of measure in image analysis.,px,SDN:P06::PIXY
 http://vocab.nerc.ac.uk/collection/P06/current/UWCN/,Microwatts per square centimetre per nanometre,The power (scaled by 10^-6) per SI unit of area (scaled by 10^-4) produced per SI unit of length (scaled by 10^-9).,uW/cm^2/nm,SDN:P06::UWCN
 http://vocab.nerc.ac.uk/collection/P06/current/UNBQ/,Nanobecquerels per litre,Unavailable,nBq/l,SDN:P06::UNBQ
+http://vocab.nerc.ac.uk/collection/P06/current/GMCD/,Grams per cubic metre per day,10^-3 of the SI unit of mass (kilogram) per standard SI unit of volume in an elapsed time of one day (86400 seconds).,g/m^3/d,SDN:P06::GMCD
 http://vocab.nerc.ac.uk/collection/P06/current/UECH/,MicroEinsteins per square centimetre per hour,Energy of 10^-6 moles of photons per 10^-4 SI unit area over a period of one hour.,uE/cm^2/h,SDN:P06::UECH
 http://vocab.nerc.ac.uk/collection/P06/current/UMNX/,per metre per nanometre,Unavailable,/m/nm,SDN:P06::UMNX
 http://vocab.nerc.ac.uk/collection/P06/current/MGPF/,Milligrams per milligram per hour per (micromole per square metre per second),10^-6 of the SI unit of mass (kilogram) per 10^-6 of the SI unit of mass over 3600 times one SI standard unit of time per (one part per 10^6 of the SI unit of quantity of matter (the mole) per SI unit area per SI unit of time). The units in brackets are units for photosynthetic photon flux density (PPFD).,mg/mg/h/(umol/m^2/s),SDN:P06::MGPF
@@ -177,6 +177,7 @@ http://vocab.nerc.ac.uk/collection/P06/current/PWAV/,Picowatts per square centim
 http://vocab.nerc.ac.uk/collection/P06/current/UVP5/,Volts multiplied by 100000,Voltage expressed as volts scaled by multiplying by one hundred thousand.,V*10^5,SDN:P06::UVP5
 http://vocab.nerc.ac.uk/collection/P06/current/HPAX/,Hectopascals,A pressure of one hundred Newtons per square metre (100 Pascals).  Equivalent to a millibar.,hPa,SDN:P06::HPAX
 http://vocab.nerc.ac.uk/collection/P06/current/UMES/,MicroEinsteins per square metre per second,Unavailable,uE/m^2/s,SDN:P06::UMES
+http://vocab.nerc.ac.uk/collection/P06/current/UUMV/,Millivolts,Unavailable,mV,SDN:P06::UUMV
 http://vocab.nerc.ac.uk/collection/P06/current/UPBB/,Millibars,Unavailable,mBar,SDN:P06::UPBB
 http://vocab.nerc.ac.uk/collection/P06/current/USEC/,Microseconds,A time interval of one millionth of a second.,us,SDN:P06::USEC
 http://vocab.nerc.ac.uk/collection/P06/current/UVLT/,Volts,Unavailable,V,SDN:P06::UVLT
@@ -311,7 +312,6 @@ http://vocab.nerc.ac.uk/collection/P06/current/PPS2/,Pascal squared per second s
 http://vocab.nerc.ac.uk/collection/P06/current/UECA/,Siemens per metre,The SI derived unit of electrical conductivity divided by the SI base unit of length.,S/m,SDN:P06::UECA
 http://vocab.nerc.ac.uk/collection/P06/current/UWCM/,Watts per cubic metre,Unavailable,W/m^3,SDN:P06::UWCM
 http://vocab.nerc.ac.uk/collection/P06/current/PMPS/,per metre per second,Unavailable,/m/s,SDN:P06::PMPS
-http://vocab.nerc.ac.uk/collection/P06/current/NTPM/,Newtons per metre,Derived SI unit for expressing surface tension.,N/m,SDN:P06::NTPM
 http://vocab.nerc.ac.uk/collection/P06/current/UPPT/,Parts per thousand,"Proportion of one part in 10^3 by weight, number, volume or amount (i.e. moles).",ppt,SDN:P06::UPPT
 http://vocab.nerc.ac.uk/collection/P06/current/SQM3/,Square metres per second cubed,"The SI unit of area, defined as a square of one metre long on each side, per cubic SI unit of time (seconds).",m^2/s^3,SDN:P06::SQM3
 http://vocab.nerc.ac.uk/collection/P06/current/JOUL/,Joule,"A derived unit of energy in the International System of Units. It is equal to the energy transferred (or work done) when applying a force of one newton through a distance of one metre (1 newton metre or Nm), or in passing an electric current of one ampere through a resistance of one ohm for one second. It is named after the English physicist James Prescott Joule (1818-1889).",J,SDN:P06::JOUL
@@ -344,7 +344,7 @@ http://vocab.nerc.ac.uk/collection/P06/current/M2SX/,Square metre seconds,Unavai
 http://vocab.nerc.ac.uk/collection/P06/current/M4S1/,Metres to the power four per second,Unavailable,m^4/s,SDN:P06::M4S1
 http://vocab.nerc.ac.uk/collection/P06/current/WAPK/,Watts per metre per Kelvin,Unavailable,W/m/K,SDN:P06::WAPK
 http://vocab.nerc.ac.uk/collection/P06/current/PAPM/,Pascals per metre,Unavailable,Pa/m,SDN:P06::PAPM
-http://vocab.nerc.ac.uk/collection/P06/current/UGMC/,Grams per cubic metre,Unavailable,g/m^3,SDN:P06::UGMC
+http://vocab.nerc.ac.uk/collection/P06/current/NTPM/,Newtons per metre,Derived SI unit for expressing surface tension.,N/m,SDN:P06::NTPM
 http://vocab.nerc.ac.uk/collection/P06/current/PMSQ/,per square metre,Unavailable,/m^2,SDN:P06::PMSQ
 http://vocab.nerc.ac.uk/collection/P06/current/M2MM/,Moles per square metre per second per metre,Unavailable,mol/m^2/s/m,SDN:P06::M2MM
 http://vocab.nerc.ac.uk/collection/P06/current/PAMS/,Pascal metres per second,Unavailable,Pa.m/s,SDN:P06::PAMS
@@ -358,12 +358,12 @@ http://vocab.nerc.ac.uk/collection/P06/current/UPSS/,per second squared,Unavaila
 http://vocab.nerc.ac.uk/collection/P06/current/KGXX/,Kilograms,The SI standard unit of mass.,kg,SDN:P06::KGXX
 http://vocab.nerc.ac.uk/collection/P06/current/KGS2/,Kilograms squared per second squared,Unavailable,kg^2/s^2,SDN:P06::KGS2
 http://vocab.nerc.ac.uk/collection/P06/current/MLKG/,Moles per kilogram,Unavailable,mol/kg,SDN:P06::MLKG
-http://vocab.nerc.ac.uk/collection/P06/current/UGMS/,Grams per square metre,Unavailable,g/m^2,SDN:P06::UGMS
 http://vocab.nerc.ac.uk/collection/P06/current/UGKG/,Grams per kilogram,One part per 10^3 (thousand) by weight of the measurand in the matrix.,g/kg,SDN:P06::UGKG
 http://vocab.nerc.ac.uk/collection/P06/current/WM2S/,Watts per square metre per metre per steradian,Unavailable,W/m^2/m/sr,SDN:P06::WM2S
 http://vocab.nerc.ac.uk/collection/P06/current/WATT/,Watts,The SI derived unit of power.,W,SDN:P06::WATT
 http://vocab.nerc.ac.uk/collection/P06/current/PMSR/,per metre per steradian,Unavailable,/m/sr,SDN:P06::PMSR
 http://vocab.nerc.ac.uk/collection/P06/current/M3SR/,Moles per square metre per second per steradian,Unavailable,mol/m^2/s/sr,SDN:P06::M3SR
+http://vocab.nerc.ac.uk/collection/P06/current/UGMC/,Grams per cubic metre,Unavailable,g/m^3,SDN:P06::UGMC
 http://vocab.nerc.ac.uk/collection/P06/current/MM3S/,Moles per cubic metre per second,SI unit of quantity of matter per SI unit volume per SI unit of time.,mol/m^3/s,SDN:P06::MM3S
 http://vocab.nerc.ac.uk/collection/P06/current/KGVM/,Kilograms per cubic metre per metre,One SI standard unit of mass per SI standard unit of volume per SI standard unit of length.,kg/m^3/m,SDN:P06::KGVM
 http://vocab.nerc.ac.uk/collection/P06/current/UTBB/,Seconds,The duration of 9192631770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom.,s,SDN:P06::UTBB
@@ -392,6 +392,7 @@ http://vocab.nerc.ac.uk/collection/P06/current/KGPS/,Kilogram per second,Unavail
 http://vocab.nerc.ac.uk/collection/P06/current/UPKA/,Kelvins,The base unit of temperature in the International System of Units.,K,SDN:P06::UPKA
 http://vocab.nerc.ac.uk/collection/P06/current/PCUM/,per cubic metre,Volume of a cube with sides of length 1 metre.,/m^3,SDN:P06::PCUM
 http://vocab.nerc.ac.uk/collection/P06/current/UTAA/,Days,A time interval of 24 hours or 86400 seconds.,d,SDN:P06::UTAA
+http://vocab.nerc.ac.uk/collection/P06/current/UGMS/,Grams per square metre,Unavailable,g/m^2,SDN:P06::UGMS
 http://vocab.nerc.ac.uk/collection/P06/current/PASX/,Pascals,The derived unit of pressure or stress in the international System of Units (SI). It is defined as one newton per square metre.,Pa,SDN:P06::PASX
 http://vocab.nerc.ac.uk/collection/P06/current/UFAA/,Watts per square metre,Unavailable,W/m^2,SDN:P06::UFAA
 http://vocab.nerc.ac.uk/collection/P06/current/MPS2/,Metres per second squared,Unavailable,m/s^2,SDN:P06::MPS2

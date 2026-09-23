@@ -1,9 +1,11 @@
 import os
+import re
 import time
 import json
 import urllib
 import urllib.request
 import urllib.error
+import subprocess
 from argparse import ArgumentParser
 import requests
 import rich
@@ -13,6 +15,53 @@ import pandas as pd
 import hashlib
 
 emso_branch = "develop"
+
+owner_repo = "emso-eric/emso-metadata-specifications"
+raw_github = f"https://raw.githubusercontent.com/{owner_repo}"
+
+# ---------------------------------------------------------------------------------------------------------------
+# Two manifests are generated, one per governance axis:
+#
+#   manifest.json      -> normative Markdown authored by EMSO ERIC. Changes only when EMSO makes a decision, so it
+#                         is versioned with the repository tags. Indexed from git, no downloads involved.
+#   vocabularies.json  -> vocabularies governed by third parties (NVS/SeaDataNet, Copernicus). Refreshed on their
+#                         own cadence, independently of the specifications version, so there is a single current
+#                         snapshot served from the develop branch.
+#
+# resources.json (legacy, v1 format) is still written for harmonizer <= 1.0.9. Do not remove it until those
+# clients are gone.
+# ---------------------------------------------------------------------------------------------------------------
+
+# Normative documents, as (manifest key, repo-relative path, description). Paths are relative to the repository
+# root, NOT to this script's working directory.
+normative_documents = [
+    ("EMSO_Metadata_Specifications", "EMSO_Metadata_Specifications.md",
+     "Normative global/variable attribute tables and valid coordinates."),
+    ("OceanSites_codes", "external-resources/oceansites/OceanSites_codes.md",
+     "EMSO-curated subset of OceanSITES reference tables (sensor mount/orientation, data modes/types, "
+     "parameter codes)."),
+    ("DataCite_codes", "external-resources/datacite/DataCite_codes.md",
+     "EMSO-curated subset of DataCite contributor types."),
+    ("Data_Processing_Levels", "Data_Processing_Levels.md",
+     "Normative data processing levels and steps."),
+]
+
+# Only tags at or above this version are indexed in manifest.json. Earlier tags predate the current layout.
+min_indexed_version = (1, 0, 0)
+
+version_regex = re.compile(r"^v?(\d+)\.(\d+)(?:\.(\d+))?$")
+
+# Provenance for the externally governed vocabularies listed in vocabularies.json
+vocabulary_provenance = {
+    "P01": ("BODC Parameter Usage Vocabulary", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+    "P02": ("SeaDataNet Parameter Discovery Vocabulary", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+    "P06": ("BODC-approved data storage units", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+    "P07": ("Climate and Forecast Standard Names", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+    "L05": ("SeaDataNet device categories", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+    "L06": ("SeaVoX Platform Categories", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+    "L22": ("SeaVoX Device Catalogue", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+    "L35": ("SenseOcean device developers and manufacturers", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+}
 
 sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
 sdn_vocab_p02_url = "https://vocab.nerc.ac.uk/collection/P02/current/?_profile=nvs&_mediatype=application/ld+json"
@@ -301,14 +350,255 @@ def dataframe_to_markdown(df, title, markdown_file):
     with open(markdown_file, "w", encoding="utf-8") as f:
         f.write(markdown_table)
 
+
+def repo_root():
+    """
+    Absolute path of the repository root. This script runs from external-resources/, but manifests store
+    repository-relative paths so that base_url + path resolves on any ref or mirror.
+    """
+    return os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+
+
+def git(*args, binary=False):
+    """
+    Run a git command in the repository. Returns None if git is unavailable or the command fails, so that a
+    missing git never breaks a vocabulary refresh.
+    """
+    try:
+        result = subprocess.run(["git", "-C", repo_root(), *args], capture_output=True, check=True)
+    except (subprocess.CalledProcessError, FileNotFoundError, OSError):
+        return None
+    return result.stdout if binary else result.stdout.decode("utf-8", "replace").strip()
+
+
+def git_blob(ref, path):
+    """
+    Contents of a repository-relative path at a given ref, or None if it does not exist there.
+    """
+    return git("show", f"{ref}:{path}", binary=True)
+
+
+def md5_bytes(data):
+    return hashlib.md5(data).hexdigest()
+
+
+def parse_version(tag):
+    """
+    Convert a tag into a sortable tuple, or None if it is not a version tag. 'v1.0.7' -> (1, 0, 7)
+    """
+    match = version_regex.match(tag)
+    if not match:
+        return None
+    major, minor, patch = match.groups()
+    return int(major), int(minor), int(patch) if patch else 0
+
+
+def list_spec_versions():
+    """
+    Version tags at or above min_indexed_version, oldest first. Sorting is numeric, so v1.10.0 > v1.9.0.
+    """
+    tags = git("tag", "--list")
+    if tags is None:
+        return []
+    versions = []
+    for tag in tags.splitlines():
+        tag = tag.strip()
+        parsed = parse_version(tag)
+        if parsed and parsed >= min_indexed_version:
+            versions.append((parsed, tag))
+    return [tag for _, tag in sorted(versions)]
+
+
+def build_manifest():
+    """
+    Index every published version of the normative documents, reading content straight out of git. Tagged
+    versions are immutable, so they carry an md5 the client can trust forever. The develop entry is mutable and
+    carries md5 = null: any hash would be stale the moment something is pushed.
+
+    Returns None if git is unavailable.
+    """
+    tags = list_spec_versions()
+    if not tags:
+        return None
+
+    versions = {}
+    for ref_name, ref, status, mutable in (
+            [(tag, f"refs/tags/{tag}", "stable", False) for tag in tags]
+            + [(emso_branch, f"refs/heads/{emso_branch}", "development", True)]):
+
+        files = {}
+        for key, path, description in normative_documents:
+            data = git_blob(ref, path)
+            if data is None:
+                continue  # document does not exist at this version, clients must tolerate missing keys
+            files[key] = {
+                "path": path,
+                "md5": None if mutable else md5_bytes(data),
+                "bytes": None if mutable else len(data),
+                "description": description,
+            }
+
+        if not files:
+            continue
+
+        versions[ref_name] = {
+            "ref": ref,
+            "released": None if mutable else git("log", "-1", "--format=%ad", "--date=short", ref),
+            "status": status,
+            "mutable": mutable,
+            "base_url": f"{raw_github}/{ref}/",
+            "files": files,
+        }
+
+    latest = tags[-1]
+    return {
+        "schema": "emso-specs-manifest/1",
+        "title": "EMSO Metadata Specifications - normative document index",
+        "description":
+            "Index of every published version of the EMSO Metadata Specifications and the normative Markdown "
+            "documents belonging to each. These documents are authored by EMSO ERIC and change only when EMSO "
+            "makes a decision; they are versioned with the repository tags. Externally governed vocabularies "
+            "(SeaDataNet/NVS, EDMO, Copernicus) are NOT listed here - see vocabularies.json.",
+        "canonical_url": f"{raw_github}/refs/heads/main/external-resources/manifest.json",
+        "latest": latest,
+        "default": latest,
+        "notes": [
+            "Always fetch this file from canonical_url (a mutable ref). Copies of this file inside tags are "
+            "frozen at tagging time and cannot list versions released later.",
+            "Resolve a file as base_url + files.<key>.path",
+            "Entries with mutable=true have md5=null: the content behind the ref can change at any time. "
+            "Clients should apply a staleness policy (e.g. re-check after 24h) instead of trusting a hash.",
+            "Entries with mutable=false are immutable: verify md5 once, then cache indefinitely.",
+            "Versions before v1.0.4 have no Data_Processing_Levels; before v1.0.3 the OceanSITES tables were "
+            "not yet split out. Clients must tolerate missing keys.",
+            "Key names are fixed: OceanSites_codes maps to OceanSites_codes.md and DataCite_codes maps to "
+            "DataCite_codes.md. This corrects a crossed mapping present in the legacy resources.json.",
+            f"Versions older than v{'.'.join(str(n) for n in min_indexed_version)} are not indexed and are "
+            "not supported.",
+        ],
+        "versions": versions,
+    }
+
+
+def vocabulary_entry(local_path, title, governed_by, source, file_key):
+    """
+    Build one vocabularies.json resource entry. local_path is relative to this script (e.g. 'sdn/P01.csv'), and
+    is converted to the repository-relative path stored in the manifest.
+    """
+    with open(local_path, "rb") as f:
+        data = f.read()
+    return {
+        "title": title,
+        "governed_by": governed_by,
+        "source": source,
+        "files": {file_key: {
+            "path": f"external-resources/{local_path}".replace(os.sep, "/"),
+            "md5": md5_bytes(data),
+            "bytes": len(data),
+        }},
+    }
+
+
+def build_vocabularies():
+    """
+    Describe the single current snapshot of externally governed vocabularies, read from the files this script
+    has just regenerated. There is deliberately no version selection here: these vocabularies are maintained by
+    third parties and apply to every specifications version.
+    """
+    resources = {}
+
+    for vocab, (title, governed_by) in vocabulary_provenance.items():
+        files = {}
+        paths = {"csv": os.path.join("sdn", f"{vocab}.csv")}
+        for relation in ["narrower", "broader", "related"]:
+            paths[relation] = os.path.join("sdn", f"{vocab}.{relation}.json")
+
+        for file_key, local_path in paths.items():
+            if not os.path.isfile(local_path):
+                continue
+            with open(local_path, "rb") as f:
+                data = f.read()
+            files[file_key] = {
+                "path": f"external-resources/{local_path}".replace(os.sep, "/"),
+                "md5": md5_bytes(data),
+                "bytes": len(data),
+            }
+
+        resources[vocab] = {
+            "title": title,
+            "governed_by": governed_by,
+            "source": f"https://vocab.nerc.ac.uk/collection/{vocab}/current/",
+            "files": files,
+        }
+
+    resources["EDMO"] = vocabulary_entry(
+        os.path.join("edmo", "EDMO.csv"), "European Directory of Marine Organisations", "SeaDataNet",
+        "https://edmo.seadatanet.org/", "csv")
+
+    resources["Copernicus Parameters"] = vocabulary_entry(
+        os.path.join("copernicus", "copernicus_variables.md"), "Copernicus Marine In Situ TAC parameter list",
+        "Copernicus Marine Service / Ifremer", copernicus_param_list, "md")
+
+    return {
+        "schema": "emso-vocabularies/1",
+        "title": "EMSO Metadata Specifications - external vocabulary snapshot",
+        "description":
+            "Pre-processed snapshot of externally governed vocabularies mirrored by EMSO ERIC. These "
+            "vocabularies are maintained by third parties (NVS/SeaDataNet, Copernicus) and are refreshed on "
+            "their own cadence, independently of the EMSO Metadata Specifications version. There is exactly "
+            "one current snapshot: it is NOT selectable per specification version.",
+        "canonical_url": f"{raw_github}/refs/heads/{emso_branch}/external-resources/vocabularies.json",
+        "ref": f"refs/heads/{emso_branch}",
+        "mutable": True,
+        "snapshot_date": time.strftime("%Y-%m-%d"),
+        "base_url": f"{raw_github}/refs/heads/{emso_branch}/",
+        "notes": [
+            "Resolve a file as base_url + resources.<key>.files.<name>.path",
+            "This snapshot always tracks the tip of develop. It applies to every specification version; do not "
+            "cache it under a version-specific key.",
+            "md5 values describe the snapshot at the time this file was generated. Because the ref is mutable, "
+            "a download whose md5 does not match means the snapshot moved: re-fetch this file. Clients should "
+            "treat a mismatch as a cache-refresh signal, not an error.",
+            "Re-check policy: compare this file's md5 values against the local cache; a 24h staleness window "
+            "is sufficient given the refresh cadence (a few times per year).",
+        ],
+        "resources": resources,
+    }
+
+
+def write_json(filename, document):
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(document, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    rich.print(f"[green]wrote {filename} ({os.path.getsize(filename)} bytes)")
+
+
 if __name__ == "__main__":
-    argparser = ArgumentParser()
+    argparser = ArgumentParser(
+        description="Refresh the external vocabularies and regenerate the resource manifests.")
     argparser.add_argument("-f", "--force-download", action="store_true",
                            help="Force file download even if exists locally")
+    argparser.add_argument("-m", "--manifest-only", action="store_true",
+                           help="Only regenerate manifest.json from the git tags. Downloads nothing. Use this "
+                                "after tagging a new specifications release.")
+    argparser.add_argument("--no-legacy", action="store_true",
+                           help="Do not write the legacy resources.json (breaks harmonizer <= 1.0.9)")
 
     resources = {}
 
     args = argparser.parse_args()
+
+    # manifest.json indexes git tags and never needs the vocabularies, so cutting a release does not require
+    # re-downloading ~115 MB from NVS.
+    if args.manifest_only:
+        manifest = build_manifest()
+        if manifest is None:
+            rich.print("[red]Could not read git tags, manifest.json not written")
+            raise SystemExit(1)
+        write_json("manifest.json", manifest)
+        rich.print(f"[green]Indexed {len(manifest['versions'])} versions, latest is {manifest['latest']}")
+        raise SystemExit(0)
+
     os.makedirs(".temp", exist_ok=True)
 
     copernicus_params_file = os.path.join(".temp", "copernicus_param_list.xlsx")
@@ -427,8 +717,12 @@ if __name__ == "__main__":
     }
 
     # ======== OeanSITES Codes =========#
+    # NOTE: until 2026 these two keys were crossed (OceanSites_codes pointed at DataCite_codes.md and vice
+    # versa). It went unnoticed because the harmonizer derives the local filename from the URL and then reads
+    # both files by hardcoded path, so the content still landed where it was expected. Fixed here and in
+    # manifest.json; old clients only see one extra 5 KB download when the hash changes.
     rich.print("Adding OceanSITES codes...", end="")
-    filename = "datacite/DataCite_codes.md"
+    filename = "oceansites/OceanSites_codes.md"
     resources["OceanSites_codes"] = {
         "md": source_url + filename,
         "hash": get_file_md5(filename)
@@ -437,7 +731,7 @@ if __name__ == "__main__":
 
     # ======== DataCite codes =========#
     rich.print("Adding DataCite codes...", end="")
-    filename = "oceansites/OceanSites_codes.md"
+    filename = "datacite/DataCite_codes.md"
     resources["DataCite_codes"] = {
         "md": source_url + filename,
         "hash": get_file_md5(filename)
@@ -453,7 +747,21 @@ if __name__ == "__main__":
     }
     rich.print("[green]done!")
 
-    with open("resources.json", "w") as f:
-        f.write(json.dumps(resources, indent=2))
+    # ======== Write the manifests =========#
+    # Legacy v1 manifest, still consumed by harmonizer <= 1.0.9. Keep writing it until those clients are gone.
+    if not args.no_legacy:
+        write_json("resources.json", resources)
+
+    # Axis B: the vocabularies just regenerated above.
+    write_json("vocabularies.json", build_vocabularies())
+
+    # Axis A: the normative documents, indexed per version straight from git.
+    manifest = build_manifest()
+    if manifest is None:
+        rich.print("[yellow]Could not read git tags, manifest.json left untouched "
+                   "(run with --manifest-only from a git checkout to regenerate it)")
+    else:
+        write_json("manifest.json", manifest)
+        rich.print(f"[green]Indexed {len(manifest['versions'])} versions, latest is {manifest['latest']}")
 
     rich.print(f"[green]Resources updated!")

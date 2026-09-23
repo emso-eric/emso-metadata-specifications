@@ -14,7 +14,7 @@ http://vocab.nerc.ac.uk/collection/L06/current/91/,ice island,A floating ice she
 http://vocab.nerc.ac.uk/collection/L06/current/92/,ice shelf,A floating ice sheet attached to the coast.,,SDN:L06::92
 http://vocab.nerc.ac.uk/collection/L06/current/93/,pack ice,Sea ice not connected to land with an ice concentration of over 70 per cent.,,SDN:L06::93
 http://vocab.nerc.ac.uk/collection/L06/current/3C/,surface gliders,"Platforms operating at a single depth near the sea surface, using a combination of solar energy and wave motion as means of propulsion.",,SDN:L06::3C
-http://vocab.nerc.ac.uk/collection/L06/current/3B/,autonomous surface water vehicle,A self-propelled vehicle operating on the sea surface with no human occupants.,,SDN:L06::3B
+http://vocab.nerc.ac.uk/collection/L06/current/3B/,autonomous surface water vehicle,A programmed or remotely controlled self-propelled vessel operating on the surface of water bodies with no human occupants; includes saildrones.,uncrewed surface vehicle (USV),SDN:L06::3B
 http://vocab.nerc.ac.uk/collection/L06/current/3D/,drillship,A drillship is a merchant vessel designed for use in exploratory offshore drilling of new oil and gas wells or for scientific drilling purposes.,,SDN:L06::3D
 http://vocab.nerc.ac.uk/collection/L06/current/3Z/,surface vessel,A mobile platform with propulsion operating on and restricted to the surface of a water body.,,SDN:L06::3Z
 http://vocab.nerc.ac.uk/collection/L06/current/36/,fishing vessel,A platform operating on the surface of the water column whose primary purpose is the commercial harvesting of fish or shellfish but may be engaged in scientific activities such as fish stock surveys or mooring deployments and recoveries.,,SDN:L06::36
@@ -24,10 +24,10 @@ http://vocab.nerc.ac.uk/collection/L06/current/10/,land or seafloor,A platform l
 http://vocab.nerc.ac.uk/collection/L06/current/69/,autogyro,"An aircraft without wings that obtains its lift from the rotation of overhead blades, but obtains forward populsion from a fixed propellor.",,SDN:L06::69
 http://vocab.nerc.ac.uk/collection/L06/current/30/,ship,"A large platform operating on the surface of the water column. Objective definitions for guidelines: >50m length (EU), >100 foot length (USA), >300 GRT weight (SOLAS). Subjective definition: a ship is a vessel big enough to carry a boat.",,SDN:L06::30
 http://vocab.nerc.ac.uk/collection/L06/current/61/,research aeroplane,"A fixed-wing self-propelled aircraft that is equipped, manned and operated for atmospheric, meteorological or oceanographic research, sometimes also called 'instrumented platform'.",research aircraft,SDN:L06::61
-http://vocab.nerc.ac.uk/collection/L06/current/66/,manned spacecraft,A vehicle operating beyond the Earth's atmosphere with human occupants.,,SDN:L06::66
-http://vocab.nerc.ac.uk/collection/L06/current/6Z/,spacecraft,A platform operating beyond the Earth's atmosphere.,,SDN:L06::6Z
 http://vocab.nerc.ac.uk/collection/L06/current/52/,free-floating balloon,"A container filled with a gas that is lighter than air, which is free to drift in the atmosphere.",,SDN:L06::52
 http://vocab.nerc.ac.uk/collection/L06/current/50/,buoyant aircraft,A platform capable of flight in the atmosphere because it is lighter than air.,,SDN:L06::50
+http://vocab.nerc.ac.uk/collection/L06/current/66/,manned spacecraft,A vehicle operating beyond the Earth's atmosphere with human occupants.,,SDN:L06::66
+http://vocab.nerc.ac.uk/collection/L06/current/6Z/,spacecraft,A platform operating beyond the Earth's atmosphere.,,SDN:L06::6Z
 http://vocab.nerc.ac.uk/collection/L06/current/26/,lowered unmanned submersible,"An unmanned platform lowered and raised vertically by a cable from the mothership.  Includes any type of profiling sensor mounting such as CTD frames, profiling radiometers and instrumented nets.",,SDN:L06::26
 http://vocab.nerc.ac.uk/collection/L06/current/20/,submersible,A platform operating within a water body.,,SDN:L06::20
 http://vocab.nerc.ac.uk/collection/L06/current/16/,offshore structure,"A fixed (for the duration of the measurements) man-made structure away from the coast to which instrumentation may be attached (e.g. oil rig, gas rig or jack-up barge).",,SDN:L06::16
@@ -46,11 +46,11 @@ http://vocab.nerc.ac.uk/collection/L06/current/35/,vessel of opportunity on fixe
 http://vocab.nerc.ac.uk/collection/L06/current/15/,land/onshore vehicle,"An instrumented vehicle or sample collector that operates on the solid surface of the Earth (e.g. mobile meteorological station, land crawler, snowmobile).",,SDN:L06::15
 http://vocab.nerc.ac.uk/collection/L06/current/63/,rocket,"A rocket is a vehicle, missile or aircraft which obtains thrust by the reaction to the ejection of fast moving exhaust gas from within a rocket engine.",,SDN:L06::63
 http://vocab.nerc.ac.uk/collection/L06/current/32/,vessel of opportunity,A platform for purpose of commerce of any size operating on the surface of the water column in unpredictable locations that regularly collects scientific (oceanographic and meteorological) data (e.g. an instrumented cargo vessel).,,SDN:L06::32
+http://vocab.nerc.ac.uk/collection/L06/current/54/,airship,A self-propelled container filled with a gas that is lighter than air.,,SDN:L06::54
+http://vocab.nerc.ac.uk/collection/L06/current/13/,beach/intertidal zone structure,A structure to which instrumentation may be attached that is either in air or under water depending on the state of the tide and weather conditions.,,SDN:L06::13
 http://vocab.nerc.ac.uk/collection/L06/current/67/,helicopter,An aircraft without wings that obtains its lift from the rotation of overhead blades.,,SDN:L06::67
 http://vocab.nerc.ac.uk/collection/L06/current/62/,aeroplane,A fixed-wing self-propelled aircraft.,airplane,SDN:L06::62
 http://vocab.nerc.ac.uk/collection/L06/current/6A/,glider,A fixed-wing aircraft with no propulsion.,,SDN:L06::6A
-http://vocab.nerc.ac.uk/collection/L06/current/13/,beach/intertidal zone structure,A structure to which instrumentation may be attached that is either in air or under water depending on the state of the tide and weather conditions.,,SDN:L06::13
-http://vocab.nerc.ac.uk/collection/L06/current/54/,airship,A self-propelled container filled with a gas that is lighter than air.,,SDN:L06::54
 http://vocab.nerc.ac.uk/collection/L06/current/24/,drifting manned submersible,A platform operating in the water column attached to a mothership by an umbilical but with no means of propulsion that has at least one human operator on board (e.g. bathysphere).,,SDN:L06::24
 http://vocab.nerc.ac.uk/collection/L06/current/22/,propelled unmanned submersible,A platform operating in the water column attached to a mothership by an umbilical with limited propulsion and no human operator on board (e.g. ROV).,,SDN:L06::22
 http://vocab.nerc.ac.uk/collection/L06/current/44/,drifting subsurface float,An unmanned instrumented platform drifting freely in the water column at a depth governed by its density (e.g. Swallow float).,,SDN:L06::44
