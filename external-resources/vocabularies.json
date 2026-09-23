@@ -18,6 +18,9 @@
       "title": "BODC Parameter Usage Vocabulary",
       "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
       "source": "https://vocab.nerc.ac.uk/collection/P01/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
       "files": {
         "csv": {
           "path": "external-resources/sdn/P01.csv",
@@ -45,6 +48,9 @@
       "title": "SeaDataNet Parameter Discovery Vocabulary",
       "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
       "source": "https://vocab.nerc.ac.uk/collection/P02/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
       "files": {
         "csv": {
           "path": "external-resources/sdn/P02.csv",
@@ -72,6 +78,9 @@
       "title": "BODC-approved data storage units",
       "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
       "source": "https://vocab.nerc.ac.uk/collection/P06/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
       "files": {
         "csv": {
           "path": "external-resources/sdn/P06.csv",
@@ -99,6 +108,9 @@
       "title": "Climate and Forecast Standard Names",
       "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
       "source": "https://vocab.nerc.ac.uk/collection/P07/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
       "files": {
         "csv": {
           "path": "external-resources/sdn/P07.csv",
@@ -126,6 +138,9 @@
       "title": "SeaDataNet device categories",
       "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
       "source": "https://vocab.nerc.ac.uk/collection/L05/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
       "files": {
         "csv": {
           "path": "external-resources/sdn/L05.csv",
@@ -153,6 +168,9 @@
       "title": "SeaVoX Platform Categories",
       "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
       "source": "https://vocab.nerc.ac.uk/collection/L06/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
       "files": {
         "csv": {
           "path": "external-resources/sdn/L06.csv",
@@ -180,6 +198,9 @@
       "title": "SeaVoX Device Catalogue",
       "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
       "source": "https://vocab.nerc.ac.uk/collection/L22/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
       "files": {
         "csv": {
           "path": "external-resources/sdn/L22.csv",
@@ -207,6 +228,9 @@
       "title": "SenseOcean device developers and manufacturers",
       "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
       "source": "https://vocab.nerc.ac.uk/collection/L35/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
       "files": {
         "csv": {
           "path": "external-resources/sdn/L35.csv",
@@ -234,6 +258,9 @@
       "title": "European Directory of Marine Organisations",
       "governed_by": "SeaDataNet",
       "source": "https://edmo.seadatanet.org/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "SPARQL JSON results converted to CSV.",
       "files": {
         "csv": {
           "path": "external-resources/edmo/EDMO.csv",
@@ -246,11 +273,94 @@
       "title": "Copernicus Marine In Situ TAC parameter list",
       "governed_by": "Copernicus Marine Service / Ifremer",
       "source": "https://archimer.ifremer.fr/doc/00422/53381/108480.xlsx",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "XLSX parameter list converted to a Markdown table, columns subset.",
       "files": {
         "md": {
           "path": "external-resources/copernicus/copernicus_variables.md",
           "md5": "b7d207e8e8b973b8c70cc96a1e62db20",
           "bytes": 13814
+        }
+      }
+    },
+    "GCMD": {
+      "title": "NASA Global Change Master Directory Science Keywords",
+      "governed_by": "NASA Earthdata",
+      "source": "https://www.earthdata.nasa.gov/data/tools/gcmd-keyword-viewer",
+      "license": "PD-US-GOV",
+      "license_url": "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies",
+      "modifications": "Paginated RDF pages merged into one graph; concepts extracted to CSV with prefLabel expanded to the full hierarchical path.",
+      "files": {
+        "csv": {
+          "path": "external-resources/keywords/gcmd/gcmd.csv",
+          "md5": "12f95ca6bd2374f84141647957cc8fc2",
+          "bytes": 628646
+        }
+      }
+    },
+    "GEMET": {
+      "title": "GEneral Multilingual Environmental Thesaurus",
+      "governed_by": "European Environment Agency / Eionet",
+      "source": "https://www.eionet.europa.eu/gemet/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "Gzipped RDF decompressed, empty xsd:dateTime literals removed, concepts extracted to CSV.",
+      "files": {
+        "csv": {
+          "path": "external-resources/keywords/gemet/gemet.csv",
+          "md5": "2b7de78bf8c8375c101e571db048537e",
+          "bytes": 356363
+        }
+      }
+    },
+    "EuroSciVoc": {
+      "title": "European Science Vocabulary",
+      "governed_by": "Publications Office of the European Union",
+      "source": "https://op.europa.eu/en/web/eu-vocabularies/euroscivoc",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "SKOS-XL RDF converted to CSV (concept URI and English preferred label).",
+      "files": {
+        "csv": {
+          "path": "external-resources/keywords/euroscivoc/euroscivoc.csv",
+          "md5": "99c2608d1f120813de0f68985b2b1691",
+          "bytes": 96703
+        }
+      }
+    },
+    "OSO": {
+      "title": "Observatories of the Seas Ontology",
+      "governed_by": "EMSO ERIC",
+      "source": "https://github.com/emso-eric/oso-ontology",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "Turtle ontology converted to CSV tables; platform/site/regional-facility relations resolved into a lookup table.",
+      "files": {
+        "csv": {
+          "path": "external-resources/oso/oso.csv",
+          "md5": "5b440270f7eeab11fc74caa850b3b2c3",
+          "bytes": 31754
+        },
+        "platforms": {
+          "path": "external-resources/oso/platforms.csv",
+          "md5": "6d8c14ba7c27f9abfca87bc08ed78371",
+          "bytes": 10684
+        },
+        "sites": {
+          "path": "external-resources/oso/sites.csv",
+          "md5": "e87293ce86c7bd3b1068e4c2570ef77a",
+          "bytes": 4347
+        },
+        "rfs": {
+          "path": "external-resources/oso/rfs.csv",
+          "md5": "fa966b78174add4d3a316ebbc88a2e35",
+          "bytes": 5921
+        },
+        "platform_metadata": {
+          "path": "external-resources/oso/platform_metadata.json",
+          "md5": "8ed36eec42525c087fefe9005f9fc28e",
+          "bytes": 11630
         }
       }
     }

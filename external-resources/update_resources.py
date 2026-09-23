@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
 import os
 import re
+import gzip
 import time
 import json
 import urllib
@@ -11,6 +13,7 @@ import requests
 import rich
 import concurrent.futures as futures
 import pandas as pd
+from rdflib import Graph
 
 import hashlib
 
@@ -51,7 +54,13 @@ min_indexed_version = (1, 0, 0)
 
 version_regex = re.compile(r"^v?(\d+)\.(\d+)(?:\.(\d+))?$")
 
-# Provenance for the externally governed vocabularies listed in vocabularies.json
+# Provenance and licensing for everything published in vocabularies.json.
+#
+# The licence is recorded per resource because most of this content is CC BY, which requires attribution and a
+# statement of what was modified. Publishing it here means the obligation travels with the data instead of
+# living only in a README, and downstream tools can surface it.
+#
+#   title, governed_by, source, licence (SPDX id), licence url, modifications
 vocabulary_provenance = {
     "P01": ("BODC Parameter Usage Vocabulary", "NERC Vocabulary Server (NVS) / SeaDataNet"),
     "P02": ("SeaDataNet Parameter Discovery Vocabulary", "NERC Vocabulary Server (NVS) / SeaDataNet"),
@@ -61,6 +70,40 @@ vocabulary_provenance = {
     "L06": ("SeaVoX Platform Categories", "NERC Vocabulary Server (NVS) / SeaDataNet"),
     "L22": ("SeaVoX Device Catalogue", "NERC Vocabulary Server (NVS) / SeaDataNet"),
     "L35": ("SenseOcean device developers and manufacturers", "NERC Vocabulary Server (NVS) / SeaDataNet"),
+}
+
+cc_by_4 = ("CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/")
+cc_by_3 = ("CC-BY-3.0", "https://creativecommons.org/licenses/by/3.0/")
+public_domain = ("PD-US-GOV", "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies")
+
+sdn_modifications = "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files."
+
+# licence per resource key: (spdx id, licence url, modifications statement)
+resource_licences = {
+    **{code: (*cc_by_4, sdn_modifications) for code in vocabulary_provenance},
+    "EDMO": (*cc_by_4, "SPARQL JSON results converted to CSV."),
+    "Copernicus Parameters": (*cc_by_4, "XLSX parameter list converted to a Markdown table, columns subset."),
+    "GCMD": (*public_domain,
+             "Paginated RDF pages merged into one graph; concepts extracted to CSV with prefLabel expanded to "
+             "the full hierarchical path."),
+    "GEMET": (*cc_by_4, "Gzipped RDF decompressed, empty xsd:dateTime literals removed, concepts extracted to CSV."),
+    "EuroSciVoc": (*cc_by_4, "SKOS-XL RDF converted to CSV (concept URI and English preferred label)."),
+    "OSO": (*cc_by_4, "Turtle ontology converted to CSV tables; platform/site/regional-facility relations "
+                      "resolved into a lookup table."),
+    "spdx_licenses": (*cc_by_3, "Redistributed verbatim."),
+    "dwc_terms": (*cc_by_4, "Columns subset to term_localName and term_iri."),
+}
+
+# Externally governed vocabularies that are NOT SeaDataNet: (title, governed_by, source)
+keyword_vocabulary_provenance = {
+    "GCMD": ("NASA Global Change Master Directory Science Keywords", "NASA Earthdata",
+             "https://www.earthdata.nasa.gov/data/tools/gcmd-keyword-viewer"),
+    "GEMET": ("GEneral Multilingual Environmental Thesaurus", "European Environment Agency / Eionet",
+              "https://www.eionet.europa.eu/gemet/"),
+    "EuroSciVoc": ("European Science Vocabulary", "Publications Office of the European Union",
+                   "https://op.europa.eu/en/web/eu-vocabularies/euroscivoc"),
+    "OSO": ("Observatories of the Seas Ontology", "EMSO ERIC",
+            "https://github.com/emso-eric/oso-ontology"),
 }
 
 sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
@@ -93,6 +136,113 @@ oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/ref
 
 oceansites_codes_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/{emso_branch}/external-resources/oceansites/OceanSites_codes.md"
 datacite_codes_url = f"https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/{emso_branch}/external-resources/datacite/DataCite_codes.md"
+
+# ---------------------------------------------------------------------------------------------------------------
+# Keyword vocabularies and OSO.
+#
+# These used to be downloaded and parsed by the harmonizer at runtime, which meant every user re-downloaded and
+# re-parsed ~20 MB of RDF on a cold cache. The RDF handling now lives here: the graphs are queried once and the
+# results published as plain CSV/JSON, so the harmonizer only ever reads pre-parsed files and does not need
+# rdflib at all.
+#
+# Raw RDF/TTL stays in .temp/ and is deliberately NOT committed: only the parsed outputs are published.
+# ---------------------------------------------------------------------------------------------------------------
+
+# GCMD is served paginated, the pages are merged into a single graph
+gcmd_urls = [
+    "https://cmr.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords/?format=rdf&page_num=1&page_size=2000",
+    "https://cmr.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords/?format=rdf&page_num=2&page_size=2000",
+]
+gcmd_alternative_urls = [
+    "https://files.obsea.es/other/vocabs/gcmd_part0.rdf",
+    "https://files.obsea.es/other/vocabs/gcmd_part1.rdf",
+]
+gcmd_concept_prefix = "https://cmr.earthdata.nasa.gov/kms/concept/"
+
+gemet_url = "https://www.eionet.europa.eu/gemet/latest/gemet.rdf.gz"
+gemet_alternative_url = "https://files.obsea.es/other/vocabs/gemet.rdf.gz"
+
+euroscivoc_url = ("https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http%3A%2F%2F"
+                  "publications.europa.eu%2Fresource%2Fdistribution%2Feuroscivoc%2F20250924-0%2Frdf%2Fskos_xl"
+                  "%2FEuroSciVoc.rdf&fileName=EuroSciVoc.rdf")
+euroscivoc_alternative_url = "https://files.obsea.es/other/vocabs/EuroSciVoc.rdf"
+
+# OSO. The harmonizer used to reference two files, OSO.ttl and docs/ontology.ttl, but only ever parsed the
+# latter: OSO.__init__ set self.graph from docs/ontology.ttl before calling load_vocab(), so the OSO.ttl
+# download was discarded without being read. Both the concepts and the instances come from this single file.
+oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/refs/heads/main/docs/ontology.ttl"
+
+oso_class_uris = {
+    "platforms": "https://w3id.org/earthsemantics/OSO#Platform",
+    "sites": "https://w3id.org/earthsemantics/OSO#Site",
+    "rfs": "https://w3id.org/earthsemantics/OSO#RegionalFacility",
+}
+
+# SPARQL used to extract concept/label pairs. Kept identical to what the harmonizer used to run at startup so
+# the published CSVs are byte-compatible with the previous in-memory results.
+sparql_generic_concepts = """
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+    SELECT ?concept ?prefLabel
+    WHERE {
+        ?concept rdf:type skos:Concept .
+        OPTIONAL {
+            ?concept skos:prefLabel ?prefLabel .
+            FILTER(lang(?prefLabel) = "en")
+        }
+    }
+    """
+
+sparql_euroscivoc_concepts = """
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+    SELECT ?concept ?prefLabel
+    WHERE {
+        ?concept rdf:type skos:Concept .
+        OPTIONAL {
+            ?concept skosxl:prefLabel/skosxl:literalForm ?prefLabel .
+            FILTER(lang(?prefLabel) = "en")
+        }
+    }
+    """
+
+sparql_gemet_concepts = """
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+    SELECT DISTINCT ?concept ?prefLabel
+    WHERE {
+        ?concept skos:prefLabel ?prefLabel .
+        FILTER(lang(?prefLabel) = "en")
+        FILTER(CONTAINS(STR(?concept), "/concept/"))
+    }
+    ORDER BY ?prefLabel
+    """
+
+sparql_oso_concepts = """
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+    SELECT DISTINCT ?concept ?prefLabel
+    WHERE {
+        ?concept skos:prefLabel ?prefLabel .
+        FILTER (lang(?prefLabel) = "en")
+    }
+    ORDER BY ?prefLabel
+    """
+
+sparql_skos_relations = """
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    SELECT ?concept ?label ?broader ?narrower ?related
+    WHERE {
+        ?concept a skos:Concept .
+        OPTIONAL { ?concept skos:prefLabel ?label . FILTER(lang(?label) = "en") }
+        OPTIONAL { ?concept skos:broader ?broader . }
+        OPTIONAL { ?concept skos:narrower ?narrower . }
+        OPTIONAL { ?concept skos:related ?related . }
+    }
+    """
 
 
 def get_file_md5(filename):
@@ -351,6 +501,266 @@ def dataframe_to_markdown(df, title, markdown_file):
         f.write(markdown_table)
 
 
+# ================================================================================================ vocabularies
+# RDF handling. Everything below used to live in the harmonizer's vocabularies.py and ran on every cold start.
+
+def as_str(value):
+    """
+    Normalise an rdflib term to a plain str.
+
+    This must be unconditional. rdflib's URIRef subclasses str but overrides __eq__ to be type-strict, so a
+    URIRef and an equal str hash the same yet compare unequal - which silently breaks every dict lookup that
+    mixes the two. A guard like `if not isinstance(a, str)` never fires for URIRef and is exactly the trap
+    that produced KeyErrors when these relations were built at runtime.
+    """
+    return str(value) if value is not None else ""
+
+
+def resolve_concept_uri(uri, concept_prefix=""):
+    """
+    Some graphs yield file:// URIs when parsed locally; rewrite them onto the vocabulary's concept prefix.
+    """
+    uri = as_str(uri)
+    if uri.startswith("file:") and concept_prefix:
+        return concept_prefix + uri.split("/")[-1]
+    return uri
+
+
+def download_with_fallback(url, file, alternative=""):
+    """
+    Download url, falling back to a mirror when the primary source refuses (several of these publishers block
+    automated downloads intermittently).
+    """
+    os.makedirs(os.path.dirname(file) or ".", exist_ok=True)
+    try:
+        download_file(url, file)
+    except Exception as e:
+        if not alternative:
+            raise
+        rich.print(f"[yellow]primary source failed ({e}), trying mirror {alternative}")
+        download_file(alternative, file)
+
+
+def download_gemet_rdf(file, force_download=False):
+    """
+    GEMET ships gzipped, and its XML contains empty dateTime literals that rdflib refuses to parse.
+    """
+    if os.path.isfile(file) and not force_download:
+        return
+    gzip_file = os.path.join(".temp", "gemet.rdf.gz")
+    rich.print("Downloading GEMET (gzip)...", end="")
+    download_with_fallback(gemet_url, gzip_file, alternative=gemet_alternative_url)
+    with gzip.open(gzip_file, "rt", encoding="utf-8") as f:
+        content = f.read()
+    for tag in ("created", "modified"):
+        content = content.replace(
+            f'rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"></dcterms:{tag}>',
+            f'></dcterms:{tag}>')
+    with open(file, "w", encoding="utf-8") as f:
+        f.write(content)
+    rich.print("[green]done!")
+
+
+def download_gcmd_rdf(file, force_download=False):
+    """
+    GCMD is served paginated; download every page and merge them into one RDF graph.
+    """
+    if os.path.isfile(file) and not force_download:
+        return
+    graph = None
+    for i, (url, alternative) in enumerate(zip(gcmd_urls, gcmd_alternative_urls)):
+        part = os.path.join(".temp", f"gcmd_part{i}.rdf")
+        rich.print(f"Downloading GCMD part {i}...", end="")
+        download_with_fallback(url, part, alternative=alternative)
+        rich.print("[green]done!")
+        part_graph = Graph()
+        part_graph.parse(part, format="xml")
+        graph = part_graph if graph is None else graph + part_graph
+    graph.serialize(destination=file, format="xml")
+
+
+def graph_concepts(graph, query, concept_prefix=""):
+    """
+    Run a concept/prefLabel query and return parallel lists of plain-str uris and labels.
+    """
+    uris, labels = [], []
+    for row in graph.query(query):
+        uris.append(resolve_concept_uri(row.concept, concept_prefix))
+        labels.append(as_str(row.prefLabel) if row.prefLabel else "")
+    return uris, labels
+
+
+def graph_relations(graph, concept_prefix=""):
+    """
+    Extract broader / narrower / related as {uri: [uri, ...]} with plain-str keys and values.
+    """
+    broader, narrower, related = {}, {}, {}
+    for row in graph.query(sparql_skos_relations):
+        c = resolve_concept_uri(row.concept, concept_prefix)
+        for target, value in ((broader, row.broader), (narrower, row.narrower), (related, row.related)):
+            target.setdefault(c, [])
+            v = resolve_concept_uri(value, concept_prefix) if value else ""
+            if v and v not in target[c]:
+                target[c].append(v)
+    return broader, narrower, related
+
+
+def gcmd_hierarchical_labels(uris, labels, broader):
+    """
+    Expand every GCMD concept into its full path, e.g.
+        "SEA CLIFFS" -> "EARTH SCIENCE > SOLID EARTH > ... > SEA CLIFFS"
+
+    Precomputing this here is what lets the harmonizer drop the recursive broader-walk (and with it the whole
+    relations machinery) from startup.
+    """
+    label_from_uri = {u: l for u, l in zip(uris, labels)}
+
+    def build_term(uri, previous=""):
+        label = label_from_uri.get(uri, "")
+        if label == "Science Keywords":  # do not include the scheme root in the path
+            return previous
+        if previous:
+            label = label + " > " + previous
+        parents = broader.get(uri, [])
+        if len(parents) == 0:
+            return label + previous
+        if len(parents) == 1:
+            return build_term(parents[0], label)
+        raise ValueError(f"Unexpected multiple broader for {uri}")
+
+    return [build_term(uri) for uri in uris]
+
+
+def write_vocab_csv(filename, uris, labels):
+    os.makedirs(os.path.dirname(filename) or ".", exist_ok=True)
+    pd.DataFrame({"uri": uris, "prefLabel": labels}).to_csv(filename, index=False)
+    return filename
+
+
+def process_keyword_vocabularies(force_download=False):
+    """
+    Download and parse GCMD, GEMET and EuroSciVoc, publishing one CSV per vocabulary.
+
+    GCMD's CSV carries the full hierarchical path in prefLabel, which is what the harmonizer used to build at
+    runtime, so its keyword matching is unchanged.
+    """
+    outputs = {}
+
+    # ======== GCMD ======== #
+    gcmd_rdf = os.path.join(".temp", "gcmd.rdf")
+    download_gcmd_rdf(gcmd_rdf, force_download=force_download)
+    rich.print("Parsing GCMD graph...", end="")
+    graph = Graph()
+    graph.parse(gcmd_rdf, format="xml")
+    uris, labels = graph_concepts(graph, sparql_generic_concepts, gcmd_concept_prefix)
+    broader, _, _ = graph_relations(graph, gcmd_concept_prefix)
+    labels = gcmd_hierarchical_labels(uris, labels, broader)
+    outputs["GCMD"] = write_vocab_csv(os.path.join("keywords", "gcmd", "gcmd.csv"), uris, labels)
+    rich.print(f"[green]done! ({len(uris)} concepts)")
+
+    # ======== GEMET ======== #
+    gemet_rdf = os.path.join(".temp", "gemet.rdf")
+    download_gemet_rdf(gemet_rdf, force_download=force_download)
+    rich.print("Parsing GEMET graph...", end="")
+    graph = Graph()
+    graph.parse(gemet_rdf, format="xml")
+    uris, labels = graph_concepts(graph, sparql_gemet_concepts)
+    outputs["GEMET"] = write_vocab_csv(os.path.join("keywords", "gemet", "gemet.csv"), uris, labels)
+    rich.print(f"[green]done! ({len(uris)} concepts)")
+
+    # ======== EuroSciVoc ======== #
+    euroscivoc_rdf = os.path.join(".temp", "euroscivoc.rdf")
+    if not os.path.isfile(euroscivoc_rdf) or force_download:
+        rich.print("Downloading EuroSciVoc...", end="")
+        download_with_fallback(euroscivoc_url, euroscivoc_rdf, alternative=euroscivoc_alternative_url)
+        rich.print("[green]done!")
+    rich.print("Parsing EuroSciVoc graph...", end="")
+    graph = Graph()
+    graph.parse(euroscivoc_rdf, format="xml")
+    uris, labels = graph_concepts(graph, sparql_euroscivoc_concepts)
+    outputs["EuroSciVoc"] = write_vocab_csv(os.path.join("keywords", "euroscivoc", "euroscivoc.csv"), uris, labels)
+    rich.print(f"[green]done! ({len(uris)} concepts)")
+
+    return outputs
+
+
+def process_oso(force_download=False):
+    """
+    Publish OSO as plain tables so the harmonizer needs no RDF at runtime:
+
+        oso.csv                SKOS concepts used for keyword validation
+        platforms/sites/rfs    instances with their labels
+        platform_metadata.json platform uri -> {site, regional facility}
+
+    The last one replaces a per-platform SPARQL query the harmonizer ran on demand. The platform set is finite,
+    so the whole mapping is resolved here in a single query.
+    """
+    outputs = {}
+
+    ontology_ttl = os.path.join(".temp", "oso_ontology.ttl")
+    if not os.path.isfile(ontology_ttl) or force_download:
+        rich.print("Downloading OSO ontology...", end="")
+        download_with_fallback(oso_ontology_url, ontology_ttl)
+        rich.print("[green]done!")
+    rich.print("Parsing OSO ontology...", end="")
+    graph = Graph().parse(ontology_ttl)
+
+    # ======== concepts ======== #
+    uris, labels = graph_concepts(graph, sparql_oso_concepts)
+    outputs["csv"] = write_vocab_csv(os.path.join("oso", "oso.csv"), uris, labels)
+
+    # ======== instances ======== #
+
+    for name, class_uri in oso_class_uris.items():
+        query = f"""
+            SELECT ?instance ?label
+            WHERE {{
+                ?instance a <{class_uri}> .
+                OPTIONAL {{ ?instance rdfs:label ?label . }}
+            }}
+            """
+        rows = [{"uri": as_str(row.instance), "label": as_str(row.label)} for row in graph.query(query)]
+        df = pd.DataFrame(rows, columns=["uri", "label"]).drop_duplicates(keep="first")
+        filename = os.path.join("oso", f"{name}.csv")
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        df.to_csv(filename, index=False)
+        outputs[name] = filename
+
+    # ======== platform -> site / regional facility ======== #
+    query = """
+        PREFIX OSO: <https://w3id.org/earthsemantics/OSO#>
+        PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+        SELECT ?platform ?siteName ?rfName WHERE {
+            ?site OSO:containsPlatform ?platform .
+            ?site skos:prefLabel ?siteName .
+            OPTIONAL {
+                ?rf OSO:containsSite ?site .
+                ?rf skos:prefLabel ?rfName .
+                FILTER (LANG(?rfName) = "en")
+            }
+            FILTER (LANG(?siteName) = "en")
+        }
+        """
+    platform_metadata = {}
+    for row in graph.query(query):
+        platform = as_str(row.platform)
+        if platform in platform_metadata:
+            continue  # the harmonizer's query used LIMIT 1, keep the first match
+        platform_metadata[platform] = {
+            "site": as_str(row.siteName),
+            "regional_facility": as_str(row.rfName) if row.rfName else "",
+        }
+
+    filename = os.path.join("oso", "platform_metadata.json")
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(platform_metadata, f, indent=2, ensure_ascii=False)
+    outputs["platform_metadata"] = filename
+    rich.print(f"[green]done! ({len(platform_metadata)} platforms mapped)")
+
+    return outputs
+
+
 def repo_root():
     """
     Absolute path of the repository root. This script runs from external-resources/, but manifests store
@@ -480,22 +890,39 @@ def build_manifest():
     }
 
 
-def vocabulary_entry(local_path, title, governed_by, source, file_key):
+def file_entry(local_path):
     """
-    Build one vocabularies.json resource entry. local_path is relative to this script (e.g. 'sdn/P01.csv'), and
-    is converted to the repository-relative path stored in the manifest.
+    Describe one published file. local_path is relative to this script (e.g. 'sdn/P01.csv') and is converted to
+    the repository-relative path stored in the manifest.
     """
     with open(local_path, "rb") as f:
         data = f.read()
     return {
+        "path": f"external-resources/{local_path}".replace(os.sep, "/"),
+        "md5": md5_bytes(data),
+        "bytes": len(data),
+    }
+
+
+def licence_fields(key):
+    """
+    Attribution block for a resource. CC BY requires credit, a link to the licence and a statement of changes,
+    so all three are published rather than only the licence id.
+    """
+    spdx, url, modifications = resource_licences[key]
+    return {"license": spdx, "license_url": url, "modifications": modifications}
+
+
+def vocabulary_entry(title, governed_by, source, key, files):
+    """
+    One vocabularies.json resource. `files` maps a file key ("csv", "md", ...) to a path relative to this script.
+    """
+    return {
         "title": title,
         "governed_by": governed_by,
         "source": source,
-        "files": {file_key: {
-            "path": f"external-resources/{local_path}".replace(os.sep, "/"),
-            "md5": md5_bytes(data),
-            "bytes": len(data),
-        }},
+        **licence_fields(key),
+        "files": {name: file_entry(path) for name, path in files.items() if os.path.isfile(path)},
     }
 
 
@@ -507,37 +934,42 @@ def build_vocabularies():
     """
     resources = {}
 
+    # ======== SeaDataNet / NVS ======== #
     for vocab, (title, governed_by) in vocabulary_provenance.items():
-        files = {}
-        paths = {"csv": os.path.join("sdn", f"{vocab}.csv")}
+        files = {"csv": os.path.join("sdn", f"{vocab}.csv")}
         for relation in ["narrower", "broader", "related"]:
-            paths[relation] = os.path.join("sdn", f"{vocab}.{relation}.json")
-
-        for file_key, local_path in paths.items():
-            if not os.path.isfile(local_path):
-                continue
-            with open(local_path, "rb") as f:
-                data = f.read()
-            files[file_key] = {
-                "path": f"external-resources/{local_path}".replace(os.sep, "/"),
-                "md5": md5_bytes(data),
-                "bytes": len(data),
-            }
-
-        resources[vocab] = {
-            "title": title,
-            "governed_by": governed_by,
-            "source": f"https://vocab.nerc.ac.uk/collection/{vocab}/current/",
-            "files": files,
-        }
+            files[relation] = os.path.join("sdn", f"{vocab}.{relation}.json")
+        resources[vocab] = vocabulary_entry(
+            title, governed_by, f"https://vocab.nerc.ac.uk/collection/{vocab}/current/", vocab, files)
 
     resources["EDMO"] = vocabulary_entry(
-        os.path.join("edmo", "EDMO.csv"), "European Directory of Marine Organisations", "SeaDataNet",
-        "https://edmo.seadatanet.org/", "csv")
+        "European Directory of Marine Organisations", "SeaDataNet", "https://edmo.seadatanet.org/", "EDMO",
+        {"csv": os.path.join("edmo", "EDMO.csv")})
 
     resources["Copernicus Parameters"] = vocabulary_entry(
-        os.path.join("copernicus", "copernicus_variables.md"), "Copernicus Marine In Situ TAC parameter list",
-        "Copernicus Marine Service / Ifremer", copernicus_param_list, "md")
+        "Copernicus Marine In Situ TAC parameter list", "Copernicus Marine Service / Ifremer",
+        copernicus_param_list, "Copernicus Parameters",
+        {"md": os.path.join("copernicus", "copernicus_variables.md")})
+
+    # ======== Keyword vocabularies ======== #
+    # Published pre-parsed so the harmonizer never needs to touch RDF
+    keyword_files = {
+        "GCMD": {"csv": os.path.join("keywords", "gcmd", "gcmd.csv")},
+        "GEMET": {"csv": os.path.join("keywords", "gemet", "gemet.csv")},
+        "EuroSciVoc": {"csv": os.path.join("keywords", "euroscivoc", "euroscivoc.csv")},
+        "OSO": {
+            "csv": os.path.join("oso", "oso.csv"),
+            "platforms": os.path.join("oso", "platforms.csv"),
+            "sites": os.path.join("oso", "sites.csv"),
+            "rfs": os.path.join("oso", "rfs.csv"),
+            "platform_metadata": os.path.join("oso", "platform_metadata.json"),
+        },
+    }
+    for key, files in keyword_files.items():
+        title, governed_by, source = keyword_vocabulary_provenance[key]
+        entry = vocabulary_entry(title, governed_by, source, key, files)
+        if entry["files"]:  # skip if this run did not regenerate them
+            resources[key] = entry
 
     return {
         "schema": "emso-vocabularies/1",
@@ -564,6 +996,108 @@ def build_vocabularies():
         ],
         "resources": resources,
     }
+
+
+readme_marker_start = "<!-- BEGIN GENERATED ATTRIBUTION TABLE -->"
+readme_marker_end = "<!-- END GENERATED ATTRIBUTION TABLE -->"
+
+
+def write_attribution_readme(vocabularies, filename="README.md"):
+    """
+    Regenerate the attribution table in README.md from vocabularies.json.
+
+    Most of this content is CC BY, which requires credit, a link to the licence and a statement of what was
+    changed. Generating the table from the manifest means the three can never drift apart from what is actually
+    published, which is the whole point of recording them per resource.
+    """
+    rows = ["| Resource | Description | Source | Licence | Modifications |",
+            "|----------|-------------|--------|---------|---------------|"]
+    for key, resource in vocabularies["resources"].items():
+        licence = f"[{resource['license']}]({resource['license_url']})"
+        rows.append(f"| `{key}` | {resource['title']} | [link]({resource['source']}) | {licence} "
+                    f"| {resource['modifications']} |")
+
+    table = "\n".join(rows)
+
+    if not os.path.isfile(filename):
+        rich.print(f"[yellow]{filename} not found, attribution table not written")
+        return
+
+    with open(filename, encoding="utf-8") as f:
+        content = f.read()
+
+    block = f"{readme_marker_start}\n\n{table}\n\n{readme_marker_end}"
+    if readme_marker_start in content and readme_marker_end in content:
+        head = content.split(readme_marker_start)[0]
+        tail = content.split(readme_marker_end)[1]
+        content = head + block + tail
+    else:
+        content = content.rstrip() + "\n\n" + block + "\n"
+
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(content)
+    rich.print(f"[green]wrote attribution table for {len(vocabularies['resources'])} resources to {filename}")
+
+
+def write_notice(vocabularies):
+    """
+    Regenerate the repository's NOTICE file.
+
+    The root LICENSE is MIT and covers what EMSO ERIC authored. It cannot cover external-resources/, which
+    redistributes third-party works under their own terms - NVS/SeaDataNet, GEMET, EuroSciVoc and Copernicus are
+    CC BY, which requires attribution and a statement of changes. NOTICE is the conventional place to record
+    that, and it sits at the repository root so it is findable without digging into subdirectories.
+    """
+    filename = os.path.join(repo_root(), "NOTICE")
+
+    lines = [
+        "EMSO Metadata Specifications",
+        "Copyright 2026 EMSO ERIC",
+        "",
+        "This repository is licensed under the MIT License (see LICENSE). That licence covers the material",
+        "authored by EMSO ERIC: the normative specifications, the reference tables under",
+        "external-resources/oceansites/ and external-resources/datacite/, and the scripts in",
+        "external-resources/.",
+        "",
+        "It does NOT cover the contents of external-resources/ that are mirrored from third parties. Those",
+        "works remain under the licences of their respective publishers and are redistributed here unmodified",
+        "in substance, reformatted as described below. Where a work is licensed CC BY, this file together with",
+        "the per-resource fields in external-resources/vocabularies.json provides the required attribution,",
+        "link to the licence, and indication of changes.",
+        "",
+        "This file is generated by external-resources/update_resources.py - do not edit it by hand.",
+        "",
+        "=" * 110,
+        "",
+    ]
+
+    for key, resource in vocabularies["resources"].items():
+        paths = sorted(f["path"] for f in resource["files"].values())
+        lines += [
+            f"{resource['title']} ({key})",
+            f"    Publisher    : {resource['governed_by']}",
+            f"    Source       : {resource['source']}",
+            f"    Licence      : {resource['license']}  <{resource['license_url']}>",
+            f"    Modifications: {resource['modifications']}",
+            f"    Files        : {paths[0]}",
+        ]
+        lines += [f"                   {p}" for p in paths[1:]]
+        lines.append("")
+
+    lines += [
+        "=" * 110,
+        "",
+        "The OceanSITES and DataCite reference tables under external-resources/ are EMSO ERIC's curated",
+        "subsets of the OceanSITES data format reference tables and the DataCite Metadata Schema",
+        "respectively, and are covered by the MIT licence above. The upstream standards are acknowledged:",
+        "    OceanSITES  <https://www.ocean-ops.org/oceansites/>",
+        "    DataCite    <https://schema.datacite.org/>",
+        "",
+    ]
+
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    rich.print(f"[green]wrote NOTICE for {len(vocabularies['resources'])} third-party resources")
 
 
 def write_json(filename, document):
@@ -747,13 +1281,22 @@ if __name__ == "__main__":
     }
     rich.print("[green]done!")
 
+    # ======== Keyword vocabularies and OSO =========#
+    # GCMD / GEMET / EuroSciVoc / OSO used to be downloaded and parsed by the harmonizer on every cold start.
+    # The RDF work happens here now and only the parsed tables are published.
+    process_keyword_vocabularies(force_download=args.force_download)
+    process_oso(force_download=args.force_download)
+
     # ======== Write the manifests =========#
     # Legacy v1 manifest, still consumed by harmonizer <= 1.0.9. Keep writing it until those clients are gone.
     if not args.no_legacy:
         write_json("resources.json", resources)
 
     # Axis B: the vocabularies just regenerated above.
-    write_json("vocabularies.json", build_vocabularies())
+    vocabularies = build_vocabularies()
+    write_json("vocabularies.json", vocabularies)
+    write_attribution_readme(vocabularies)
+    write_notice(vocabularies)
 
     # Axis A: the normative documents, indexed per version straight from git.
     manifest = build_manifest()

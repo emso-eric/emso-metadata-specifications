@@ -1,0 +1,476 @@
+uri,prefLabel
+https://w3id.org/earthsemantics/OSO#AIMSIR,AIMSIR
+https://w3id.org/earthsemantics/OSO#ALBATROSS,ALBATROSS
+https://w3id.org/earthsemantics/OSO#ANTARES,ANTARES
+https://w3id.org/earthsemantics/OSO#ARDITI,ARDITI
+https://w3id.org/earthsemantics/OSO#ARDITILogo,ARDITI logo
+https://w3id.org/earthsemantics/OSO#Alan_BERRY,Alan BERRY
+https://w3id.org/earthsemantics/OSO#Aljaz_MASLO,Aljaž MASLO
+https://w3id.org/earthsemantics/OSO#Antigonia,Antigonia
+https://w3id.org/earthsemantics/OSO#Atlantic_Whale_Deal,Atlantic Whale Deal
+https://w3id.org/earthsemantics/OSO#AtlanticWhaleDeal_bbox,Atlantic Whale Deal bounding box
+https://w3id.org/earthsemantics/OSO#Azores,Azores
+https://w3id.org/earthsemantics/OSO#Azores_EMSO_membership,Azores EMSO membership
+https://w3id.org/earthsemantics/OSO#Azores_RF_bbox,Azores Regional Facility bounding box
+https://w3id.org/earthsemantics/OSO#BB,BB
+https://w3id.org/earthsemantics/OSO#BB_Mooring,BB mooring
+https://w3id.org/earthsemantics/OSO#BILLION,BILLION
+https://w3id.org/earthsemantics/OSO#BJS,BJS
+https://w3id.org/earthsemantics/OSO#BJS_BathyBot,BJS BathyBot
+https://w3id.org/earthsemantics/OSO#BJS_BathyDock,BJS BathyDock
+https://w3id.org/earthsemantics/OSO#BJS_SeabedStation,BJS Seabed Station
+https://w3id.org/earthsemantics/OSO#BRGM,BRGM
+https://w3id.org/earthsemantics/OSO#BRGMLogo,BRGM logo
+https://w3id.org/earthsemantics/OSO#Balearic_Sea,Balearic Sea
+https://w3id.org/earthsemantics/OSO#Balearic_Sea_EMSO_membership,Balearic Sea EMSO membership
+https://w3id.org/earthsemantics/OSO#Balearic_Sea_RF_geometry,Balearic Sea Regional Facility geometry
+https://w3id.org/earthsemantics/OSO#Bay_of_Biscay_Slope,Bay of Biscay canyons
+https://w3id.org/earthsemantics/OSO#Billion_mooring,Billion Mooring
+https://w3id.org/earthsemantics/OSO#Black_Sea,Black Sea
+https://w3id.org/earthsemantics/OSO#Black_Sea_EMSO_membership,Black Sea EMSO membership
+https://w3id.org/earthsemantics/OSO#Black_Sea_RF_bbox,Black Sea Regional Facility bounding box
+https://w3id.org/earthsemantics/OSO#Boris_MARCAILLOU,Boris MARCAILLOU
+https://w3id.org/earthsemantics/OSO#BoundingBox,Bounding Box
+https://w3id.org/earthsemantics/OSO#Bénédicte_FERRÉ,Bénédicte FERRÉ
+https://w3id.org/earthsemantics/OSO#CHEREEF_OBS,CHEREEF-OBS
+https://w3id.org/earthsemantics/OSO#CLASS,CLASS
+https://w3id.org/earthsemantics/OSO#CNR,CNR
+https://w3id.org/earthsemantics/OSO#CNRLogo,CNR logo
+https://w3id.org/earthsemantics/OSO#CNRS,CNRS
+https://w3id.org/earthsemantics/OSO#CNRSLogo,CNRS logo
+https://w3id.org/earthsemantics/OSO#CONDOR,CONDOR Observatory Site
+https://w3id.org/earthsemantics/OSO#CSIC,CSIC
+https://w3id.org/earthsemantics/OSO#CSICLogo,CSIC logo
+https://w3id.org/earthsemantics/OSO#CTD,CTD
+https://w3id.org/earthsemantics/OSO#profil_CTD,CTD profile
+https://w3id.org/earthsemantics/OSO#Calipso,Calipso
+https://w3id.org/earthsemantics/OSO#Calipso_Seabed_Station,Calipso Seabed Station
+https://w3id.org/earthsemantics/OSO#Canada,Canada
+https://w3id.org/earthsemantics/OSO#Canarias,Canarias
+https://w3id.org/earthsemantics/OSO#Canarias_EMSO_membership,Canarias EMSO membership
+https://w3id.org/earthsemantics/OSO#Capelinhos,Capelinhos
+https://w3id.org/earthsemantics/OSO#Carlos_SOUSA,Carlos SOUSA
+https://w3id.org/earthsemantics/OSO#Celtic_Seas,Celtic Seas
+https://w3id.org/earthsemantics/OSO#Celtic_Seas_EMSO_membership,Celtic Seas EMSO membership
+https://w3id.org/earthsemantics/OSO#Central_Fram_Strait,Central Fram Strait
+https://w3id.org/earthsemantics/OSO#Central_Fram_Strait_mooring,Central Fram Strait Subsurface mooring
+https://w3id.org/earthsemantics/OSO#Cimendef,Cimendef
+https://w3id.org/earthsemantics/OSO#CollaborativeDevelopmentPlatform,Collaborative development platform
+https://w3id.org/earthsemantics/OSO#OntologyEngineeringWorkflow,Collaborative ontology engineering workflow
+https://w3id.org/earthsemantics/OSO#Condor_seamount,Condor Seamount
+https://w3id.org/earthsemantics/OSO#Cretan_Sea,Cretan Sea
+https://w3id.org/earthsemantics/OSO#Cretan_Sea_EMSO_membership,Cretan Sea EMSO membership
+https://w3id.org/earthsemantics/OSO#Crystal,Crystal
+https://w3id.org/earthsemantics/OSO#Cypres,Cyprès
+https://w3id.org/earthsemantics/OSO#DAS,DAS
+https://w3id.org/earthsemantics/OSO#DataTerra,DATA TERRA
+https://w3id.org/earthsemantics/OSO#DYFAMED,DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_Mugobs,DYFAMED MUGOBS
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,DYFAMED ODAS Buoy
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,DYFAMED mooring
+https://w3id.org/earthsemantics/OSO#DataTerraLogo,Data Terra logo
+https://w3id.org/earthsemantics/OSO#Davide_EMBRIACO,Davide EMBRIACO
+https://w3id.org/earthsemantics/OSO#Deployment,Deployment
+https://w3id.org/earthsemantics/OSO#dateEndDeployment,Deployment end date
+https://w3id.org/earthsemantics/OSO#Dione,Dione
+https://w3id.org/earthsemantics/OSO#Dione_Seabed_Station,Dione Seabed Station
+https://w3id.org/earthsemantics/OSO#Discipline,Discipline
+https://w3id.org/earthsemantics/OSO#Dominique_LEFEVRE,Dominique LEFEVRE
+https://w3id.org/earthsemantics/OSO#E1M3A,E1M3A
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,E1M3A mooring
+https://w3id.org/earthsemantics/OSO#E2M3A,E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,E2M3A buoy
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,E2M3A mooring
+https://w3id.org/earthsemantics/OSO#EDOKKO,EDOKKO
+https://w3id.org/earthsemantics/OSO#EMBRC,EMBRC-ERIC
+https://w3id.org/earthsemantics/OSO#EMBRCLogo,EMBRC-ERIC logo
+https://w3id.org/earthsemantics/OSO#EMBRC-France,EMBRC-France
+https://w3id.org/earthsemantics/OSO#EMSO_DMSG,EMSO Data Management Service Group
+https://w3id.org/earthsemantics/OSO#EMSO,EMSO ERIC
+https://w3id.org/earthsemantics/OSO#EMSOLogo,EMSO ERIC logo
+https://w3id.org/earthsemantics/OSO#EMSO_EVOLVE,EMSO EVOLVE
+https://w3id.org/earthsemantics/OSO#EMSO_LIGURE_OUEST,EMSO LIGURE OUEST
+https://w3id.org/earthsemantics/OSO#EMSO-PT,EMSO Portugal
+https://w3id.org/earthsemantics/OSO#EMSO-France,EMSO-France
+https://w3id.org/earthsemantics/OSO#EMSOFranceLogo,EMSO-France logo
+https://w3id.org/earthsemantics/OSO#EMSO-Italia,EMSO-Italia
+https://w3id.org/earthsemantics/OSO#EMSO_SA,EMSO-SA
+https://w3id.org/earthsemantics/OSO#ERIC,ERIC
+https://w3id.org/earthsemantics/OSO#ERICMembership,ERIC membership
+https://w3id.org/earthsemantics/OSO#ESTOC,ESTOC
+https://w3id.org/earthsemantics/OSO#ESTOC_Autonomous_Devices,ESTOC Autonomous Devices
+https://w3id.org/earthsemantics/OSO#ESTOC_Moored_Surface_Buoy,ESTOC Moored Surface Buoy
+https://w3id.org/earthsemantics/OSO#ESTOC_Subsurface_gliders,ESTOC Subsurface gliders
+https://w3id.org/earthsemantics/OSO#ESTOC_Subsurface_mooring,ESTOC Subsurface mooring
+https://w3id.org/earthsemantics/OSO#EUXINUS,EUXINUS
+https://w3id.org/earthsemantics/OSO#EarthScience,Earth science
+https://w3id.org/earthsemantics/OSO#EarthPortal,EarthPortal
+https://w3id.org/earthsemantics/OSO#EarthPortalLogo,EarthPortal logo
+https://w3id.org/earthsemantics/OSO#East_of_Gran_Canaria,East of Gran Canaria
+https://w3id.org/earthsemantics/OSO#East_of_Gran_Canaria_Autonomous_Devices,East of Gran Canaria Autonomous Devices
+https://w3id.org/earthsemantics/OSO#East_of_Gran_Canaria_Seabed_Station,East of Gran Canaria Seabed Station
+https://w3id.org/earthsemantics/OSO#EastVulcano,East vulcano
+https://w3id.org/earthsemantics/OSO#Enoc_MARTINEZ,Enoc MARTINEZ
+https://w3id.org/earthsemantics/OSO#EnvironmentalResearch,Environmental research
+https://w3id.org/earthsemantics/OSO#Eric_DELORY,Eric DELORY
+https://w3id.org/earthsemantics/OSO#European_Commission,European Commission
+https://w3id.org/earthsemantics/OSO#EuropeanCommissionLogo,European Commission logo
+https://w3id.org/earthsemantics/OSO#European_Union,European Union
+https://w3id.org/earthsemantics/OSO#EuxRo01,EuxRo01
+https://w3id.org/earthsemantics/OSO#EuxRo01_geom,EuxRo01 geometry
+https://w3id.org/earthsemantics/OSO#EuxRo01_seabed_station,EuxRo01 seabed station
+https://w3id.org/earthsemantics/OSO#EuxRo01_surface_buoy,EuxRo01 surface buoy
+https://w3id.org/earthsemantics/OSO#EuxRo02,EuxRo02
+https://w3id.org/earthsemantics/OSO#EuxRo02_seabed_station,EuxRo02 seabed station
+https://w3id.org/earthsemantics/OSO#EuxRo02_surface_buoy,EuxRo02 surface buoy
+https://w3id.org/earthsemantics/OSO#EuxRo03,EuxRo03
+https://w3id.org/earthsemantics/OSO#EuxRo03_seabed_station,EuxRo03 seabed station
+https://w3id.org/earthsemantics/OSO#EuxRo03_surface_buoy,EuxRo03 surface buoy
+https://w3id.org/earthsemantics/OSO#FAIRAssessmentTool,FAIR assessment tool
+nff0f6f407a334e579afe594e6ca2c330b1,FAIRsharing DOI for OSO
+https://w3id.org/earthsemantics/OSO#FCT,FCT
+https://w3id.org/earthsemantics/OSO#FF,FF
+https://w3id.org/earthsemantics/OSO#FF_Mooring,FF mooring
+https://w3id.org/earthsemantics/OSO#dateFirstDeployment,First deployment date
+https://w3id.org/earthsemantics/OSO#France,France
+https://w3id.org/earthsemantics/OSO#OFB,French Office for Biodiversity
+https://w3id.org/earthsemantics/OSO#French_riviera,French Riviera
+https://w3id.org/earthsemantics/OSO#FundedProject,Funded project
+https://w3id.org/earthsemantics/OSO#Galatea,Galatea
+https://w3id.org/earthsemantics/OSO#Galatea_Mooring,Galatea Mooring
+https://w3id.org/earthsemantics/OSO#GeoEcoMar,GeoEcoMar
+https://w3id.org/earthsemantics/OSO#George_PETIHAKIS,George PETIHAKIS
+https://w3id.org/earthsemantics/OSO#geosciences,Geosciences
+https://w3id.org/earthsemantics/OSO#GitHub,GitHub
+https://w3id.org/earthsemantics/OSO#GitHubPages,GitHub Pages
+https://w3id.org/earthsemantics/OSO#GitHubLogo,GitHub logo
+https://w3id.org/earthsemantics/OSO#GitHubInc,"GitHub, Inc."
+https://w3id.org/earthsemantics/OSO#Greece,Greece
+https://w3id.org/earthsemantics/OSO#PAP_H4,H4
+https://w3id.org/earthsemantics/OSO#HCMR,HCMR
+https://w3id.org/earthsemantics/OSO#HYDROMOMAR,HYDROMOMAR
+https://w3id.org/earthsemantics/OSO#Hellenic_Arc,Hellenic Arc
+https://w3id.org/earthsemantics/OSO#Hellenic_Arc_EMSO_membership,Hellenic Arc EMSO membership
+https://w3id.org/earthsemantics/OSO#IL07,IL07
+https://w3id.org/earthsemantics/OSO#INFN,INFN
+https://w3id.org/earthsemantics/OSO#INGV,INGV
+https://w3id.org/earthsemantics/OSO#IPGP,IPGP
+https://w3id.org/earthsemantics/OSO#IPMA,IPMA
+https://w3id.org/earthsemantics/OSO#IRD,IRD
+https://w3id.org/earthsemantics/OSO#IbMa-CSV,IbMa-CSV
+https://w3id.org/earthsemantics/OSO#IbMaCSV_SaoVicenteCanyon,IbMa-CSV Sao Vicente Canyon
+https://w3id.org/earthsemantics/OSO#IbMaCSV_Seabed_Station,IbMa-CSV Seabed Station
+https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_Fixed_SubSurface_Vertical_Profiler,IbMa-CSV TUPEM Fixed SubSurface Vertical Profiler
+https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_SubSurface_Mooring,IbMa-CSV TUPEM SubSurface Mooring
+https://w3id.org/earthsemantics/OSO#IbMa-N,IbMa-N
+https://w3id.org/earthsemantics/OSO#IbMaN,IbMa-N
+https://w3id.org/earthsemantics/OSO#IbMaCSV_Seabed_Station_geometry,IbMaCSV Seabed Station geometry
+https://w3id.org/earthsemantics/OSO#IbMaCSV_SaoVicenteCanyon_geometry,IbMaCSV São Vicente Canyon geometry
+https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_Fixed_SubSurface_Vertical_Profiler_geometry,IbMaCSV TUPEM fixed subsurface vertical profiler geometry
+https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_SubSurface_Mooring_geometry,IbMaCSV TUPEM subsurface mooring geometry
+https://w3id.org/earthsemantics/OSO#Iberian_Margin,Iberian Margin
+https://w3id.org/earthsemantics/OSO#Iberian_Margin_EMSO_membership,Iberian Margin EMSO membership
+https://w3id.org/earthsemantics/OSO#Ifremer,Ifremer
+https://w3id.org/earthsemantics/OSO#Ilker_FER,Ilker FER
+https://w3id.org/earthsemantics/OSO#Ingrid_PUILLAT,Ingrid PUILLAT
+https://w3id.org/earthsemantics/OSO#Ingunn_SKJELVAN,Ingunn SKJELVAN
+https://w3id.org/earthsemantics/OSO#Ireland,Ireland
+https://w3id.org/earthsemantics/OSO#Iroise,Iroise
+https://w3id.org/earthsemantics/OSO#Iroise_EMSO_membership,Iroise EMSO membership
+https://w3id.org/earthsemantics/OSO#Iroise_RF_bbox,Iroise Regional Facility bounding box
+https://w3id.org/earthsemantics/OSO#Isabel,Isabel
+https://w3id.org/earthsemantics/OSO#Italy,Italy
+https://w3id.org/earthsemantics/OSO#JAMSTEC,JAMSTEC
+https://w3id.org/earthsemantics/OSO#Japan,Japan
+https://w3id.org/earthsemantics/OSO#Joaquin_DEL_RIO,Joaquín del Río Fernández
+https://w3id.org/earthsemantics/OSO#Juanjo_DANOBEITIA,Juanjo Dañobeitia
+https://w3id.org/earthsemantics/OSO#KANADEEP_2,KANADEEP 2
+https://w3id.org/earthsemantics/OSO#KASEAOPE,KASEAOPE
+https://w3id.org/earthsemantics/OSO#KASEASPACE,KASEASPACE
+https://w3id.org/earthsemantics/OSO#Karin_SIGLOCH,Karin SIGLOCH
+https://w3id.org/earthsemantics/OSO#Karine_OLU,Karine OLU
+https://w3id.org/earthsemantics/OSO#Marha,LIFE Marha
+https://w3id.org/earthsemantics/OSO#LION,LION
+https://w3id.org/earthsemantics/OSO#LIRMM,LIRMM
+https://w3id.org/earthsemantics/OSO#LIRMMLogo,LIRMM logo
+https://w3id.org/earthsemantics/OSO#LO,LO
+https://w3id.org/earthsemantics/OSO#LUCKYDIVMIC,LUCKYDIVMIC
+https://w3id.org/earthsemantics/OSO#Lampaul_Canyon,Lampaul Canyon
+https://w3id.org/earthsemantics/OSO#Laura_DE_STEUR,Laura DE_STEUR
+https://w3id.org/earthsemantics/OSO#Laurent_COPPOLA,Laurent COPPOLA
+https://w3id.org/earthsemantics/OSO#Laurent_GAUTIER,Laurent GAUTIER
+https://w3id.org/earthsemantics/OSO#LavaLake,Lava Lake
+https://w3id.org/earthsemantics/OSO#Leonidas_PERIVOLIOTIS,Leonidas PERIVOLIOTIS
+https://w3id.org/earthsemantics/OSO#Ligurian_Sea,Ligurian Sea
+https://w3id.org/earthsemantics/OSO#Ligurian_Sea_RF_bbox,Ligurian Sea Regional Facility bounding box
+https://w3id.org/earthsemantics/OSO#Lion_mooring,Lion mooring
+https://w3id.org/earthsemantics/OSO#Louis_GELLI,Louis GELI
+https://w3id.org/earthsemantics/OSO#Lucky_Strike,Lucky Strike
+https://w3id.org/earthsemantics/OSO#Lucky_Strike_AutonomousDevices,Lucky Strike Autonomous Devices
+https://w3id.org/earthsemantics/OSO#Lucky_Strike_EGIM,Lucky Strike EGIM
+https://w3id.org/earthsemantics/OSO#Lucky_Strike_Hydrographic_Mooring,Lucky Strike Hydrographic Mooring
+https://w3id.org/earthsemantics/OSO#MARLEY,MARLEY
+https://w3id.org/earthsemantics/OSO#MARMESONET,MARMESONET
+https://w3id.org/earthsemantics/OSO#MARMOR,MARMOR
+https://w3id.org/earthsemantics/OSO#MARNAUT,MARNAUT
+https://w3id.org/earthsemantics/OSO#MARSITECRUISE,MARSITECRUISE
+https://w3id.org/earthsemantics/OSO#MAYOBS,MAYOBS
+https://w3id.org/earthsemantics/OSO#MII,MII
+https://w3id.org/earthsemantics/OSO#MNHN,MNHN
+https://w3id.org/earthsemantics/OSO#MOMARSAT,MOMARSAT
+https://w3id.org/earthsemantics/OSO#MOOSE-GE,MOOSE-GE
+https://w3id.org/earthsemantics/OSO#MUG-OBS,MUG-OBS
+https://w3id.org/earthsemantics/OSO#Marine_Institute,Marine Institute
+https://w3id.org/earthsemantics/OSO#MarineEnvironment,Marine environment
+https://w3id.org/earthsemantics/OSO#Marjolaine_MATABOS,Marjolaine MATABOS
+https://w3id.org/earthsemantics/OSO#Marmara,Marmara
+https://w3id.org/earthsemantics/OSO#Marmara_AutonomousDevices,Marmara Autonomous Devices
+https://w3id.org/earthsemantics/OSO#Marmara_Sea,Marmara Sea
+https://w3id.org/earthsemantics/OSO#Marmara_Sea_RF_bbox,Marmara Sea Regional Facility bounding box
+https://w3id.org/earthsemantics/OSO#Martin_PATRIAT,Martin PATRIAT
+https://w3id.org/earthsemantics/OSO#Mayotte,Mayotte
+https://w3id.org/earthsemantics/OSO#MayotteCCNode1,Mayotte CC Node 1
+https://w3id.org/earthsemantics/OSO#MayotteCCNode2,Mayotte CC Node 2
+https://w3id.org/earthsemantics/OSO#MayotteCCNode3,Mayotte CC Node 3
+https://w3id.org/earthsemantics/OSO#MayotteCCNode4,Mayotte CC Node 4
+https://w3id.org/earthsemantics/OSO#MayotteSite,Mayotte site
+https://w3id.org/earthsemantics/OSO#Mohn,Mohn
+https://w3id.org/earthsemantics/OSO#Mohn_Seabed_Station,Mohn Seabed Station
+https://w3id.org/earthsemantics/OSO#Mohn_Subsurface_mooring,Mohn Subsurface mooring
+https://w3id.org/earthsemantics/OSO#Molene,Molène
+https://w3id.org/earthsemantics/OSO#Molene_AutonomousDevices,Molène Autonomous Devices
+https://w3id.org/earthsemantics/OSO#Molene_SubmarinePlatform,Molène Submarine Platform
+https://w3id.org/earthsemantics/OSO#SubmarinePlatform,Molène Submarine Platform
+https://w3id.org/earthsemantics/OSO#MontSegur,Mont Segur
+https://w3id.org/earthsemantics/OSO#Munida,Munida
+https://w3id.org/earthsemantics/OSO#NOC,NOC
+https://w3id.org/earthsemantics/OSO#NORCE,NORCE
+https://w3id.org/earthsemantics/OSO#Nadine_LANTERI,Nadine LANTERI
+https://w3id.org/earthsemantics/OSO#New_Caledonia,New Caledonia
+https://w3id.org/earthsemantics/OSO#Nice,Nice
+https://w3id.org/earthsemantics/OSO#Nice_East_station,Nice East station
+https://w3id.org/earthsemantics/OSO#Nice_West_station,Nice West station
+https://w3id.org/earthsemantics/OSO#NorEMSO,NorEMSO
+https://w3id.org/earthsemantics/OSO#Nordic_Seas,Nordic Seas
+https://w3id.org/earthsemantics/OSO#Norway,Norway
+https://w3id.org/earthsemantics/OSO#OFAIRe,O'FAIRe
+https://w3id.org/earthsemantics/OSO#OBSEA,OBSEA
+https://w3id.org/earthsemantics/OSO#OBSEA_buoy,OBSEA buoy
+https://w3id.org/earthsemantics/OSO#OBSEA_seabed_station,OBSEA seabed station
+https://w3id.org/earthsemantics/OSO#ODASItalia1,ODAS Italia 1
+https://w3id.org/earthsemantics/OSO#ODATIS,ODATIS
+https://w3id.org/earthsemantics/OSO#ODATISLogo,ODATIS logo
+https://w3id.org/earthsemantics/OSO#OGS,OGS
+https://w3id.org/earthsemantics/OSO#hasORCID,ORCID
+https://w3id.org/earthsemantics/OSO#Platform,Observation Platform
+https://w3id.org/earthsemantics/OSO#SubPlatform,Observation Subplatform
+https://w3id.org/earthsemantics/OSO#Subsite,Observation Subsite
+http://www.w3.org/2003/01/geo/wgs84_pos,Observatories of the Seas Ontology
+https://w3id.org/earthsemantics/OSO#Site,Observatory Site
+https://w3id.org/earthsemantics/OSO#ObsoleteClass,Obsolete class
+https://w3id.org/earthsemantics/OSO#Ocean_Data_Acquisition_System,Ocean Data Acquisition System
+https://w3id.org/earthsemantics/OSO#Ocean_Network_Canada,Ocean Networks Canada
+https://w3id.org/earthsemantics/OSO#OceanographicCampaign,Oceanographic cruise
+https://w3id.org/earthsemantics/OSO#Oceanography,Oceanography
+https://w3id.org/earthsemantics/OSO#OntoPortal,OntoPortal
+https://w3id.org/earthsemantics/OSO#OntoPortalAlliance,OntoPortal Alliance
+https://w3id.org/earthsemantics/OSO#OntoPortalLogo,OntoPortal logo
+https://w3id.org/earthsemantics/OSO#OntologyEngineeringGroup,Ontology Engineering Group
+https://w3id.org/earthsemantics/OSO#OntologyEngineeringGroupLogo,Ontology Engineering Group logo
+https://w3id.org/earthsemantics/OSO#OntologyEditor,Ontology editor
+https://w3id.org/earthsemantics/OSO#OpenLinkSoftware,OpenLink Software
+https://w3id.org/earthsemantics/OSO#OpenLinkSoftwareLogo,OpenLink Software logo
+https://w3id.org/earthsemantics/OSO#PAP_P4,P4
+https://w3id.org/earthsemantics/OSO#PAP_Central_Site,PAP Central Site
+https://w3id.org/earthsemantics/OSO#PLOCAN,PLOCAN
+https://w3id.org/earthsemantics/OSO#PYLOS,PYLOS
+https://w3id.org/earthsemantics/OSO#PYLOS_Mooring,PYLOS Mooring
+https://w3id.org/earthsemantics/OSO#PYLOS_Platform,PYLOS Platform
+https://w3id.org/earthsemantics/OSO#Pacific_Peering,Pacific Peering
+https://w3id.org/earthsemantics/OSO#Patrice_BRETEL,Patrice BRETEL
+https://w3id.org/earthsemantics/OSO#Paulo_RELVAS,Paulo RELVAS
+nff0f6f407a334e579afe594e6ca2c330b2,Persistent IRI for OSO
+https://w3id.org/earthsemantics/OSO#physical_oceanography,Physical oceanography
+https://w3id.org/earthsemantics/OSO#Pierre_HENRY,Pierre HENRY
+https://w3id.org/earthsemantics/OSO#Planned,Planned
+https://w3id.org/earthsemantics/OSO#Porcupine_Abyssal_Plain,Porcupine Abyssal Plain
+https://w3id.org/earthsemantics/OSO#Porcupine_Abyssal_Plain_EMSO_membership,Porcupine Abyssal Plain EMSO membership
+https://w3id.org/earthsemantics/OSO#Portugal,Portugal
+https://w3id.org/earthsemantics/OSO#Poulmic,Poulmic
+https://w3id.org/earthsemantics/OSO#Poulmic_Platform,Poulmic Platform
+https://w3id.org/earthsemantics/OSO#Protege,Protégé
+https://w3id.org/earthsemantics/OSO#ProtegeLogo,Protégé logo
+https://w3id.org/earthsemantics/OSO#R1,R1
+https://w3id.org/earthsemantics/OSO#R1_SmartCable,R1 SmartCable
+https://w3id.org/earthsemantics/OSO#R2,R2
+https://w3id.org/earthsemantics/OSO#R2_SmartCable,R2 SmartCable
+https://w3id.org/earthsemantics/OSO#R3,R3
+https://w3id.org/earthsemantics/OSO#R3_SmartCable,R3 SmartCable
+https://w3id.org/earthsemantics/OSO#RDFFramework,RDF framework
+https://w3id.org/earthsemantics/OSO#RDFLib,RDFLib
+https://w3id.org/earthsemantics/OSO#RDFLibProject,RDFLib Project
+https://w3id.org/earthsemantics/OSO#RDFLibLogo,RDFLib logo
+https://w3id.org/earthsemantics/OSO#REVOSIMA,REVOSIMA
+https://w3id.org/earthsemantics/OSO#RegionalFacility,Regional Facility
+https://w3id.org/earthsemantics/OSO#RegionalFacility_is_linked_to_a_project,Regional Facility is linked to a project
+https://w3id.org/earthsemantics/OSO#RegionalFacility_is_part_of_a_RI,Regional Facility is part of a Research Infrastructure
+https://w3id.org/earthsemantics/OSO#RegionalFacility_is_related_to_RI,Regional Facility is related to a Research Infrastructure
+https://w3id.org/earthsemantics/OSO#Research_Council_of_Norway,Research Council of Norway
+https://w3id.org/earthsemantics/OSO#ResearchInfrastructure,Research Infrastructure
+https://w3id.org/earthsemantics/OSO#isLedByPerson,Research Infrastructure is led by
+https://w3id.org/earthsemantics/OSO#ResearchProject,Research project
+https://w3id.org/earthsemantics/OSO#Roberto_BOZZANO,Roberto BOZZANO
+https://w3id.org/earthsemantics/OSO#Romania,Romania
+https://w3id.org/earthsemantics/OSO#SN-4,SN-4
+https://w3id.org/earthsemantics/OSO#SN1,SN1
+https://w3id.org/earthsemantics/OSO#SN1_Seabed_Station,SN1 Seabed Station
+https://w3id.org/earthsemantics/OSO#SPARQLService,SPARQL service
+https://w3id.org/earthsemantics/OSO#Sapin,Sapin
+https://w3id.org/earthsemantics/OSO#ScInObs,ScInObs
+https://w3id.org/earthsemantics/OSO#SeaMoNEast,SeaMoN East
+https://w3id.org/earthsemantics/OSO#SeaMoNWest,SeaMoN West
+https://w3id.org/earthsemantics/OSO#SemanticDatabase,Semantic database
+https://w3id.org/earthsemantics/OSO#SemanticDocumentationTool,Semantic documentation tool
+https://w3id.org/earthsemantics/OSO#SemanticEcosystemResource,Semantic ecosystem resource
+https://w3id.org/earthsemantics/OSO#SemanticPortalFramework,Semantic portal framework
+https://w3id.org/earthsemantics/OSO#SemanticRepository,Semantic repository
+https://w3id.org/earthsemantics/OSO#SemanticTool,Semantic tool
+https://w3id.org/earthsemantics/OSO#SemanticVisualizationTool,Semantic visualization tool
+https://w3id.org/earthsemantics/OSO#SeriesOfOceanographicCampaigns,Series of Oceanographic Campaigns
+https://w3id.org/earthsemantics/OSO#Sintra,Sintra
+https://w3id.org/earthsemantics/OSO#Site_is_part_of_a_RI,Site is part of a Research Infrastructure
+https://w3id.org/earthsemantics/OSO#SmartBay,SmartBay
+https://w3id.org/earthsemantics/OSO#SmartBay_buoy,SmartBay Buoy
+https://w3id.org/earthsemantics/OSO#SmartBay_observatory,SmartBay Observatory
+https://w3id.org/earthsemantics/OSO#Sorbonne_Universite,Sorbonne Université
+https://w3id.org/earthsemantics/OSO#South_Adriatic_Sea,South Adriatic Sea
+https://w3id.org/earthsemantics/OSO#South_Adriatic_Sea_EMSO_membership,South Adriatic Sea EMSO membership
+https://w3id.org/earthsemantics/OSO#South_Cape,South Cape
+https://w3id.org/earthsemantics/OSO#South_Cape_Seabed_Station,South Cape Seabed Station
+https://w3id.org/earthsemantics/OSO#South_Cape_Subsurface_Mooring,South Cape Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#SouthCrystal,South Crystal
+https://w3id.org/earthsemantics/OSO#South_Rockall_Trough,South Rockall Trough
+https://w3id.org/earthsemantics/OSO#South_Rockall_Trough_Mooring,South Rockall Trough Mooring
+https://w3id.org/earthsemantics/OSO#Spain,Spain
+https://w3id.org/earthsemantics/OSO#StanfordCenterForBiomedicalInformaticsResearch,Stanford Center for Biomedical Informatics Research
+https://w3id.org/earthsemantics/OSO#StanfordCenterForBiomedicalInformaticsResearchLogo,Stanford Center for Biomedical Informatics Research logo
+https://w3id.org/earthsemantics/OSO#Station_M,Station M
+https://w3id.org/earthsemantics/OSO#Station_M_Subsurface_Mooring,Station M Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#Status,Status
+https://w3id.org/earthsemantics/OSO#Stefano_MISEROCCHI,Stefano MISEROCCHI
+https://w3id.org/earthsemantics/OSO#Steffen_JORGENSEN,Steffen LETH JORGENSEN
+https://w3id.org/earthsemantics/OSO#Steven_PIEL,Steven PIEL
+https://w3id.org/earthsemantics/OSO#Stylaster,Stylaster
+https://w3id.org/earthsemantics/OSO#Surface,Surface
+https://w3id.org/earthsemantics/OSO#Lucky_Strike_Surface_BOREL,Surface BOREL
+https://w3id.org/earthsemantics/OSO#Susan_HARTMAN,Susan HARTMAN
+https://w3id.org/earthsemantics/OSO#Svinoy,Svinoy
+https://w3id.org/earthsemantics/OSO#Svinoy_North,Svinoy North
+https://w3id.org/earthsemantics/OSO#Svinoy_North_Subsurface_Mooring,Svinoy North Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#Svinoy_South,Svinoy South
+https://w3id.org/earthsemantics/OSO#Svinoy_South_Subsurface_Mooring,Svinoy South Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#Sweden,Sweden
+https://w3id.org/earthsemantics/OSO#Sebastien_GARZIGLIA,Sébastien GARZIGLIA
+https://w3id.org/earthsemantics/OSO#Séverine_MARTINI,Séverine MARTINI
+https://w3id.org/earthsemantics/OSO#TamTam,Tam Tam
+https://w3id.org/earthsemantics/OSO#Thibault_BARREYRE,Thibault BARREYRE
+https://w3id.org/earthsemantics/OSO#TourEiffel,Tour Eiffel
+https://w3id.org/earthsemantics/OSO#Turkey,Türkiye
+https://w3id.org/earthsemantics/OSO#ULPGC,ULPGC
+https://w3id.org/earthsemantics/OSO#UPC,UPC
+https://w3id.org/earthsemantics/OSO#UiB,UiB
+https://w3id.org/earthsemantics/OSO#Ukraine,Ukraine
+https://w3id.org/earthsemantics/OSO#United_Kingdom,United Kingdom
+https://w3id.org/earthsemantics/OSO#Vanessa_CARDIN,Vanessa CARDIN
+https://w3id.org/earthsemantics/OSO#Vanuatu,Vanuatu
+https://w3id.org/earthsemantics/OSO#Vanuatu_Trench,Vanuatu Trench
+https://w3id.org/earthsemantics/OSO#NewHebridesSite,Vanuatu Trench Site
+https://w3id.org/earthsemantics/OSO#Virtuoso,Virtuoso
+https://w3id.org/earthsemantics/OSO#VirtuosoLogo,Virtuoso logo
+https://w3id.org/earthsemantics/OSO#Vlad_Rădulescu,Vlad Rădulescu
+https://w3id.org/earthsemantics/OSO#W1M3A,W1M3A
+https://w3id.org/earthsemantics/OSO#W1M3A_Mooring,W1M3A Mooring
+https://w3id.org/earthsemantics/OSO#WebVOWL,WebVOWL
+https://w3id.org/earthsemantics/OSO#WebVOWLLogo,WebVOWL logo
+https://w3id.org/earthsemantics/OSO#WestLake,West Lake
+https://w3id.org/earthsemantics/OSO#Western_Ionian_Sea,Western Ionian Sea
+https://w3id.org/earthsemantics/OSO#Western_Mediterranean_Sea,Western Mediterranean Sea
+https://w3id.org/earthsemantics/OSO#WhiteCastle,White Castle
+https://w3id.org/earthsemantics/OSO#Widoco,Widoco
+https://w3id.org/earthsemantics/OSO#WidocoLogo,Widoco logo
+https://w3id.org/earthsemantics/OSO#Y3,Y3
+https://w3id.org/earthsemantics/OSO#YASGUI,YASGUI
+https://w3id.org/earthsemantics/OSO#YASGUILogo,YASGUI logo
+nff0f6f407a334e579afe594e6ca2c330b3,Zenodo DOI for OSO
+https://w3id.org/earthsemantics/OSO#Zuzia_STROYNOWSKI,Zuzia STROYNOWSKI
+https://w3id.org/earthsemantics/OSO#Benthic_station,benthic station
+https://w3id.org/earthsemantics/OSO#containsPlatform,contains platform
+https://w3id.org/earthsemantics/OSO#containsSite,contains site
+https://w3id.org/earthsemantics/OSO#containsSubPlatform,contains sub-platform
+https://w3id.org/earthsemantics/OSO#distanceFromLand,distance from land
+https://w3id.org/earthsemantics/OSO#eastBoundLongitude,east bound longitude
+https://w3id.org/earthsemantics/OSO#federatesResearchInfrastructure,federates research infrastructure
+https://w3id.org/earthsemantics/OSO#hasDataAndScienceOfficer,has Data and Science Officer
+https://w3id.org/earthsemantics/OSO#hasDirectorGeneral,has Director General
+https://w3id.org/earthsemantics/OSO#hasERICMembership,has ERIC membership
+https://w3id.org/earthsemantics/OSO#hasPrincipalInvestigator,has Principal Investigator
+https://w3id.org/earthsemantics/OSO#hasRegionalTeamLeader,has Regional Team Leader
+https://w3id.org/earthsemantics/OSO#hasROR,has a ROR
+https://w3id.org/earthsemantics/OSO#hasEDMO,has an EDMO
+https://w3id.org/earthsemantics/OSO#hasBoundingBox,has bounding box
+https://w3id.org/earthsemantics/OSO#hasCountry,has country
+https://w3id.org/earthsemantics/OSO#hasDeployment,has deployment
+https://w3id.org/earthsemantics/OSO#hasDepth,has depth
+https://w3id.org/earthsemantics/OSO#hasFormerDirectorGeneral,has former Director General
+https://w3id.org/earthsemantics/OSO#hasGeometry,has geometry
+https://w3id.org/earthsemantics/OSO#hasGroupLeader,has group leader
+https://w3id.org/earthsemantics/OSO#hasLocation,has location
+https://w3id.org/earthsemantics/OSO#hasLogo,has logo
+https://w3id.org/earthsemantics/OSO#maxWaterDepth,has maximum depth
+https://w3id.org/earthsemantics/OSO#hasMemberOrganisation,has member organisation
+https://w3id.org/earthsemantics/OSO#minWaterDepth,has minimum depth
+https://w3id.org/earthsemantics/OSO#hasPlatformCategory,has platform category
+https://w3id.org/earthsemantics/OSO#hasSiteResponsible,has site responsible
+https://w3id.org/earthsemantics/OSO#hasSpatialExtent,has spatial extent
+https://w3id.org/earthsemantics/OSO#hasStatus,has status
+https://w3id.org/earthsemantics/OSO#hasSubsite,has subsite
+https://w3id.org/earthsemantics/OSO#isERICMembershipOf,is ERIC membership of
+https://w3id.org/earthsemantics/OSO#isPrincipalInvestigatorOf,is Principal Investigator of
+https://w3id.org/earthsemantics/OSO#isRegionalTeamLeaderOf,is Regional Team Leader of
+https://w3id.org/earthsemantics/OSO#isAssociatedWithNetwork,is associated with network
+https://w3id.org/earthsemantics/OSO#isBoundingBoxOf,is bounding box of
+https://w3id.org/earthsemantics/OSO#isCampaignLinkedTo,is campaign linked to
+https://w3id.org/earthsemantics/OSO#isCampaignSeriesLinkedTo,is campaign series linked to
+https://w3id.org/earthsemantics/OSO#isCountryOf,is country of
+https://w3id.org/earthsemantics/OSO#isGeometryOf,is geometry of
+https://w3id.org/earthsemantics/OSO#isInvolvedIn,is involved in
+https://w3id.org/earthsemantics/OSO#isLedByOrganization,is led by organisation
+https://w3id.org/earthsemantics/OSO#isLinkedToCampaign,is linked to campaign
+https://w3id.org/earthsemantics/OSO#isLinkedToCampaignSeries,is linked to campaign series
+https://w3id.org/earthsemantics/OSO#isLocationOf,is location of
+https://w3id.org/earthsemantics/OSO#isManagedBy,is managed by
+https://w3id.org/earthsemantics/OSO#isMemberOf,is member of
+https://w3id.org/earthsemantics/OSO#isPartOfResearchInfrastructure,is part of research infrastructure
+https://w3id.org/earthsemantics/OSO#isPlatformOf,is platform of
+https://w3id.org/earthsemantics/OSO#isResponsibleForSite,is responsible for site
+https://w3id.org/earthsemantics/OSO#isSiteLedBy,is site led by
+https://w3id.org/earthsemantics/OSO#isSiteOf,is site of
+https://w3id.org/earthsemantics/OSO#isSpatialExtentOf,is spatial extent of
+https://w3id.org/earthsemantics/OSO#isSubPlatformOf,is sub-platform of
+https://w3id.org/earthsemantics/OSO#isSubsiteOf,is subsite of
+https://w3id.org/earthsemantics/OSO#isTestSite,is test site
+https://w3id.org/earthsemantics/OSO#leadsRegionalFacility,leads regional facility
+https://w3id.org/earthsemantics/OSO#leadsSite,leads site
+https://w3id.org/earthsemantics/OSO#managesInfrastructure,manages infrastructure
+https://w3id.org/earthsemantics/OSO#membershipInERIC,membership in ERIC
+https://w3id.org/earthsemantics/OSO#mooring_line_A,mooring line A
+https://w3id.org/earthsemantics/OSO#mooring_line_B,mooring line B
+https://w3id.org/earthsemantics/OSO#mooring_line_C,mooring line C
+https://w3id.org/earthsemantics/OSO#node1,node1
+https://w3id.org/earthsemantics/OSO#node2,node2
+https://w3id.org/earthsemantics/OSO#node3,node3
+https://w3id.org/earthsemantics/OSO#node4,node4
+https://w3id.org/earthsemantics/OSO#northBoundLatitude,northBoundLatitude
+https://w3id.org/earthsemantics/OSO#pilot_line,pilot line
+https://w3id.org/earthsemantics/OSO#southBoundLatitude,south bound latitude
+https://w3id.org/earthsemantics/OSO#westBoundLongitude,west bound longitude

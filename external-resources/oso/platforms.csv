@@ -1,0 +1,150 @@
+uri,label
+https://w3id.org/earthsemantics/OSO#ALBATROSS,ALBATROSS
+https://w3id.org/earthsemantics/OSO#BB_Mooring,BB mooring
+https://w3id.org/earthsemantics/OSO#BB_Mooring,BB-fortøyning
+https://w3id.org/earthsemantics/OSO#BB_Mooring,Fondeo BB
+https://w3id.org/earthsemantics/OSO#BB_Mooring,Fundeio BB
+https://w3id.org/earthsemantics/OSO#BB_Mooring,Mouillage BB
+https://w3id.org/earthsemantics/OSO#BB_Mooring,Ormeggio BB
+https://w3id.org/earthsemantics/OSO#BB_Mooring,Sistem de ancorare BB
+https://w3id.org/earthsemantics/OSO#BB_Mooring,Αγκυροβολημένη πλατφόρμα BB
+https://w3id.org/earthsemantics/OSO#BJS_BathyBot,BJS BathyBot
+https://w3id.org/earthsemantics/OSO#BJS_BathyDock,BJS BathyDock
+https://w3id.org/earthsemantics/OSO#BJS_SeabedStation,BJS Seabed Station
+https://w3id.org/earthsemantics/OSO#Benthic_station,benthic station
+https://w3id.org/earthsemantics/OSO#Billion_mooring,Billion Mooring
+https://w3id.org/earthsemantics/OSO#Billion_mooring,mouillage Billion
+https://w3id.org/earthsemantics/OSO#CTD,CTD
+https://w3id.org/earthsemantics/OSO#Calipso_Seabed_Station,Calipso Seabed Station
+https://w3id.org/earthsemantics/OSO#Central_Fram_Strait_mooring,Central Fram Strait Subsurface mooring
+https://w3id.org/earthsemantics/OSO#DAS,DAS
+https://w3id.org/earthsemantics/OSO#Dione_Seabed_Station,Dione Seabed Station
+https://w3id.org/earthsemantics/OSO#Dyfamed_Mugobs,DYFAMED MUGOBS
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,Boa ODAS DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,Boia ODAS DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,Bouée ODAS DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,Boya ODAS DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,DYFAMED ODAS Buoy
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,DYFAMED ODAS-bøye
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,Geamandură ODAS DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS,Πλωτήρας DYFAMED ODAS
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,DYFAMED mooring
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,DYFAMED-fortøyning
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,Fondeo DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,Fundeio DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,Mouillage DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,Ormeggio DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,Sistem de ancorare DYFAMED
+https://w3id.org/earthsemantics/OSO#Dyfamed_mooring,Αγκυροβολημένη πλατφόρμα DYFAMED
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,E1M3A mooring
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,E1M3A-fortøyning
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,Fondeo E1M3A
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,Fundeio E1M3A
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,Mouillage E1M3A
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,Ormeggio E1M3A
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,Sistem de ancorare E1M3A
+https://w3id.org/earthsemantics/OSO#E1M3A_mooring,Αγκυροβολημένη πλατφόρμα E1M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,Boa E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,Boia E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,Bouée E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,Boya E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,E2M3A buoy
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,E2M3A-bøye
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,Geamandură E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_buoy,Πλωτήρας E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,E2M3A mooring
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,E2M3A-fortøyning
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,Fondeo E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,Fundeio E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,Mouillage E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,Ormeggio E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,Sistem de ancorare E2M3A
+https://w3id.org/earthsemantics/OSO#E2M3A_mooring,Αγκυροβολημένη πλατφόρμα E2M3A
+https://w3id.org/earthsemantics/OSO#EDOKKO,EDOKKO
+https://w3id.org/earthsemantics/OSO#ESTOC_Autonomous_Devices,ESTOC Autonomous Devices
+https://w3id.org/earthsemantics/OSO#ESTOC_Moored_Surface_Buoy,ESTOC Moored Surface Buoy
+https://w3id.org/earthsemantics/OSO#ESTOC_Subsurface_gliders,ESTOC Subsurface gliders
+https://w3id.org/earthsemantics/OSO#ESTOC_Subsurface_mooring,ESTOC Subsurface mooring
+https://w3id.org/earthsemantics/OSO#East_of_Gran_Canaria_Autonomous_Devices,East of Gran Canaria Autonomous Devices
+https://w3id.org/earthsemantics/OSO#East_of_Gran_Canaria_Seabed_Station,East of Gran Canaria Seabed Station
+https://w3id.org/earthsemantics/OSO#EuxRo01_seabed_station,EuxRo01 seabed station
+https://w3id.org/earthsemantics/OSO#EuxRo01_surface_buoy,EuxRo01 surface buoy
+https://w3id.org/earthsemantics/OSO#EuxRo02_seabed_station,EuxRo02 seabed station
+https://w3id.org/earthsemantics/OSO#EuxRo02_surface_buoy,EuxRo02 surface buoy
+https://w3id.org/earthsemantics/OSO#EuxRo03_seabed_station,EuxRo03 seabed station
+https://w3id.org/earthsemantics/OSO#EuxRo03_surface_buoy,EuxRo03 surface buoy
+https://w3id.org/earthsemantics/OSO#FF_Mooring,FF mooring
+https://w3id.org/earthsemantics/OSO#FF_Mooring,FF-fortøyning
+https://w3id.org/earthsemantics/OSO#FF_Mooring,Fondeo FF
+https://w3id.org/earthsemantics/OSO#FF_Mooring,Fundeio FF
+https://w3id.org/earthsemantics/OSO#FF_Mooring,Mouillage FF
+https://w3id.org/earthsemantics/OSO#FF_Mooring,Ormeggio FF
+https://w3id.org/earthsemantics/OSO#FF_Mooring,Sistem de ancorare FF
+https://w3id.org/earthsemantics/OSO#FF_Mooring,Αγκυροβολημένη πλατφόρμα FF
+https://w3id.org/earthsemantics/OSO#Galatea_Mooring,Galatea Mooring
+https://w3id.org/earthsemantics/OSO#IL07,IL07
+https://w3id.org/earthsemantics/OSO#IbMaCSV_SaoVicenteCanyon,IbMa-CSV Sao Vicente Canyon
+https://w3id.org/earthsemantics/OSO#IbMaCSV_SaoVicenteCanyon,IbMa-CSV São Vicente canyon
+https://w3id.org/earthsemantics/OSO#IbMaCSV_Seabed_Station,IbMa-CSV Seabed Station
+https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_Fixed_SubSurface_Vertical_Profiler,IbMa-CSV TUPEM Fixed SubSurface Vertical Profiler
+https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_SubSurface_Mooring,IbMa-CSV TUPEM SubSurface Mooring
+https://w3id.org/earthsemantics/OSO#Lion_mooring,Lion mooring
+https://w3id.org/earthsemantics/OSO#Lion_mooring,mouillage Lion
+https://w3id.org/earthsemantics/OSO#Lucky_Strike_AutonomousDevices,Lucky Strike Autonomous Devices
+https://w3id.org/earthsemantics/OSO#Lucky_Strike_Hydrographic_Mooring,Lucky Strike Hydrographic Mooring
+https://w3id.org/earthsemantics/OSO#Lucky_Strike_Surface_BOREL,Surface BOREL
+https://w3id.org/earthsemantics/OSO#MARLEY,MARLEY
+https://w3id.org/earthsemantics/OSO#MII,MII
+https://w3id.org/earthsemantics/OSO#Marmara_AutonomousDevices,Marmara Autonomous Devices
+https://w3id.org/earthsemantics/OSO#MayotteCCNode1,Mayotte CC Node 1
+https://w3id.org/earthsemantics/OSO#MayotteCCNode2,Mayotte CC Node 2
+https://w3id.org/earthsemantics/OSO#MayotteCCNode3,Mayotte CC Node 3
+https://w3id.org/earthsemantics/OSO#MayotteCCNode4,Mayotte CC Node 4
+https://w3id.org/earthsemantics/OSO#Mohn_Seabed_Station,Mohn Seabed Station
+https://w3id.org/earthsemantics/OSO#Mohn_Subsurface_mooring,Mohn Subsurface mooring
+https://w3id.org/earthsemantics/OSO#Molene_AutonomousDevices,Molène Autonomous Devices
+https://w3id.org/earthsemantics/OSO#Molene_SubmarinePlatform,Molène Submarine Platform
+https://w3id.org/earthsemantics/OSO#Nice_East_station,Nice East station
+https://w3id.org/earthsemantics/OSO#Nice_West_station,Nice West station
+https://w3id.org/earthsemantics/OSO#OBSEA_buoy,OBSEA buoy
+https://w3id.org/earthsemantics/OSO#OBSEA_seabed_station,OBSEA seabed station
+https://w3id.org/earthsemantics/OSO#ODASItalia1,ODAS Italia 1
+https://w3id.org/earthsemantics/OSO#PYLOS_Mooring,PYLOS Mooring
+https://w3id.org/earthsemantics/OSO#PYLOS_Platform,PYLOS Platform
+https://w3id.org/earthsemantics/OSO#Poulmic_Platform,Poulmic Platform
+https://w3id.org/earthsemantics/OSO#R1_SmartCable,R1 SmartCable
+https://w3id.org/earthsemantics/OSO#R2_SmartCable,R2 SmartCable
+https://w3id.org/earthsemantics/OSO#R3_SmartCable,R3 SmartCable
+https://w3id.org/earthsemantics/OSO#SN1_Seabed_Station,SN1 Seabed Station
+https://w3id.org/earthsemantics/OSO#SeaMoNEast,SeaMoN East
+https://w3id.org/earthsemantics/OSO#SeaMoNWest,SeaMoN West
+https://w3id.org/earthsemantics/OSO#SmartBay_buoy,SmartBay Buoy
+https://w3id.org/earthsemantics/OSO#SmartBay_observatory,SmartBay Observatory
+https://w3id.org/earthsemantics/OSO#South_Cape_Seabed_Station,South Cape Seabed Station
+https://w3id.org/earthsemantics/OSO#South_Cape_Subsurface_Mooring,South Cape Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#South_Rockall_Trough_Mooring,South Rockall Trough Mooring
+https://w3id.org/earthsemantics/OSO#Station_M_Subsurface_Mooring,Station M Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#SubmarinePlatform,Molène Submarine Platform
+https://w3id.org/earthsemantics/OSO#Svinoy_North_Subsurface_Mooring,Svinoy North Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#Svinoy_North_Subsurface_Mooring,Svinøy North Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#Svinoy_South_Subsurface_Mooring,Svinoy South Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#Svinoy_South_Subsurface_Mooring,Svinøy South Subsurface Mooring
+https://w3id.org/earthsemantics/OSO#W1M3A_Mooring,W1M3A Mooring
+https://w3id.org/earthsemantics/OSO#WestLake,West Lake
+https://w3id.org/earthsemantics/OSO#mooring_line_A,ligne de mouillage A
+https://w3id.org/earthsemantics/OSO#mooring_line_A,mooring line A
+https://w3id.org/earthsemantics/OSO#mooring_line_B,ligne de mouillage B
+https://w3id.org/earthsemantics/OSO#mooring_line_B,mooring line B
+https://w3id.org/earthsemantics/OSO#mooring_line_C,ligne de mouillage C
+https://w3id.org/earthsemantics/OSO#mooring_line_C,mooring line C
+https://w3id.org/earthsemantics/OSO#node1,node1
+https://w3id.org/earthsemantics/OSO#node2,node2
+https://w3id.org/earthsemantics/OSO#node3,node3
+https://w3id.org/earthsemantics/OSO#node4,node4
+https://w3id.org/earthsemantics/OSO#pilot_line,ligne pilote
+https://w3id.org/earthsemantics/OSO#pilot_line,pilot line
+https://w3id.org/earthsemantics/OSO#profil_CTD,CTD profile
+https://w3id.org/earthsemantics/OSO#profil_CTD,CTD-profil
+https://w3id.org/earthsemantics/OSO#profil_CTD,perfil CTD
+https://w3id.org/earthsemantics/OSO#profil_CTD,profil CTD
+https://w3id.org/earthsemantics/OSO#profil_CTD,profilo CTD

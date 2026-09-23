@@ -1,0 +1,362 @@
+{
+  "https://w3id.org/earthsemantics/OSO#IL07": {
+    "site": "ANTARES",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#BB_Mooring": {
+    "site": "BB",
+    "regional_facility": "South Adriatic Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#Billion_mooring": {
+    "site": "BILLION",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#BJS_BathyBot": {
+    "site": "BJS",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#BJS_BathyDock": {
+    "site": "BJS",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#BJS_SeabedStation": {
+    "site": "BJS",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#Calipso_Seabed_Station": {
+    "site": "Calipso",
+    "regional_facility": "Western Ionian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#Capelinhos_AutonomousDevices": {
+    "site": "Capelinhos",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#Central_Fram_Strait_mooring": {
+    "site": "Central Fram Strait",
+    "regional_facility": "Nordic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#Dyfamed_Mugobs": {
+    "site": "DYFAMED",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#Dyfamed_ODAS": {
+    "site": "DYFAMED",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#Dyfamed_mooring": {
+    "site": "DYFAMED",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#Dione_Seabed_Station": {
+    "site": "Dione",
+    "regional_facility": "Western Ionian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#E1M3A_mooring": {
+    "site": "E1M3A",
+    "regional_facility": "Cretan Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#E2M3A_buoy": {
+    "site": "E2M3A",
+    "regional_facility": "South Adriatic Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#E2M3A_mooring": {
+    "site": "E2M3A",
+    "regional_facility": "South Adriatic Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#ESTOC_Autonomous_Devices": {
+    "site": "ESTOC",
+    "regional_facility": "Canarias"
+  },
+  "https://w3id.org/earthsemantics/OSO#ESTOC_Moored_Surface_Buoy": {
+    "site": "ESTOC",
+    "regional_facility": "Canarias"
+  },
+  "https://w3id.org/earthsemantics/OSO#ESTOC_Subsurface_gliders": {
+    "site": "ESTOC",
+    "regional_facility": "Canarias"
+  },
+  "https://w3id.org/earthsemantics/OSO#ESTOC_Subsurface_mooring": {
+    "site": "ESTOC",
+    "regional_facility": "Canarias"
+  },
+  "https://w3id.org/earthsemantics/OSO#East_of_Gran_Canaria_Autonomous_Devices": {
+    "site": "East of Gran Canaria",
+    "regional_facility": "Canarias"
+  },
+  "https://w3id.org/earthsemantics/OSO#East_of_Gran_Canaria_Seabed_Station": {
+    "site": "East of Gran Canaria",
+    "regional_facility": "Canarias"
+  },
+  "https://w3id.org/earthsemantics/OSO#EuxRo01_seabed_station": {
+    "site": "EuxRo01",
+    "regional_facility": "Black Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#EuxRo01_surface_buoy": {
+    "site": "EuxRo01",
+    "regional_facility": "Black Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#EuxRo02_seabed_station": {
+    "site": "EuxRo02",
+    "regional_facility": "Black Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#EuxRo02_surface_buoy": {
+    "site": "EuxRo02",
+    "regional_facility": "Black Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#EuxRo03_seabed_station": {
+    "site": "EuxRo03",
+    "regional_facility": "Black Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#EuxRo03_surface_buoy": {
+    "site": "EuxRo03",
+    "regional_facility": "Black Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#FF_Mooring": {
+    "site": "FF",
+    "regional_facility": "South Adriatic Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#Galatea_Mooring": {
+    "site": "Galatea",
+    "regional_facility": "Western Ionian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#IbMaCSV_SaoVicenteCanyon": {
+    "site": "IbMa-CSV",
+    "regional_facility": "Iberian Margin"
+  },
+  "https://w3id.org/earthsemantics/OSO#IbMaCSV_Seabed_Station": {
+    "site": "IbMa-CSV",
+    "regional_facility": "Iberian Margin"
+  },
+  "https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_Fixed_SubSurface_Vertical_Profiler": {
+    "site": "IbMa-CSV",
+    "regional_facility": "Iberian Margin"
+  },
+  "https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_SubSurface_Mooring": {
+    "site": "IbMa-CSV",
+    "regional_facility": "Iberian Margin"
+  },
+  "https://w3id.org/earthsemantics/OSO#Lion_mooring": {
+    "site": "LION",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#ALBATROSS": {
+    "site": "LO",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#MII": {
+    "site": "LO",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#MARLEY": {
+    "site": "Lampaul Canyon",
+    "regional_facility": "Bay of Biscay canyons"
+  },
+  "https://w3id.org/earthsemantics/OSO#SeaMoNWest": {
+    "site": "Lava Lake",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#WestLake": {
+    "site": "Lava Lake",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#Lucky_Strike_AutonomousDevices": {
+    "site": "Lucky Strike",
+    "regional_facility": "Azores"
+  },
+  "https://w3id.org/earthsemantics/OSO#Lucky_Strike_EGIM": {
+    "site": "Lucky Strike",
+    "regional_facility": "Azores"
+  },
+  "https://w3id.org/earthsemantics/OSO#Lucky_Strike_Hydrographic_Mooring": {
+    "site": "Lucky Strike",
+    "regional_facility": "Azores"
+  },
+  "https://w3id.org/earthsemantics/OSO#Marmara_AutonomousDevices": {
+    "site": "Marmara",
+    "regional_facility": "Marmara Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#MayotteCCNode1": {
+    "site": "Mayotte site",
+    "regional_facility": "Mayotte"
+  },
+  "https://w3id.org/earthsemantics/OSO#MayotteCCNode2": {
+    "site": "Mayotte site",
+    "regional_facility": "Mayotte"
+  },
+  "https://w3id.org/earthsemantics/OSO#MayotteCCNode3": {
+    "site": "Mayotte site",
+    "regional_facility": "Mayotte"
+  },
+  "https://w3id.org/earthsemantics/OSO#MayotteCCNode4": {
+    "site": "Mayotte site",
+    "regional_facility": "Mayotte"
+  },
+  "https://w3id.org/earthsemantics/OSO#Mohn_Seabed_Station": {
+    "site": "Mohn",
+    "regional_facility": "Nordic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#Mohn_Subsurface_mooring": {
+    "site": "Mohn",
+    "regional_facility": "Nordic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#Molene_AutonomousDevices": {
+    "site": "Molène",
+    "regional_facility": "Iroise"
+  },
+  "https://w3id.org/earthsemantics/OSO#Molene_SubmarinePlatform": {
+    "site": "Molène",
+    "regional_facility": "Iroise"
+  },
+  "https://w3id.org/earthsemantics/OSO#MontSegur_AutonomousDevices": {
+    "site": "Mont Segur",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#Benthic_station": {
+    "site": "Munida",
+    "regional_facility": "New Caledonia"
+  },
+  "https://w3id.org/earthsemantics/OSO#CTD": {
+    "site": "Munida",
+    "regional_facility": "New Caledonia"
+  },
+  "https://w3id.org/earthsemantics/OSO#mooring_line_A": {
+    "site": "Munida",
+    "regional_facility": "New Caledonia"
+  },
+  "https://w3id.org/earthsemantics/OSO#mooring_line_B": {
+    "site": "Munida",
+    "regional_facility": "New Caledonia"
+  },
+  "https://w3id.org/earthsemantics/OSO#mooring_line_C": {
+    "site": "Munida",
+    "regional_facility": "New Caledonia"
+  },
+  "https://w3id.org/earthsemantics/OSO#DAS": {
+    "site": "Vanuatu Trench Site",
+    "regional_facility": "Vanuatu Trench"
+  },
+  "https://w3id.org/earthsemantics/OSO#node1": {
+    "site": "Vanuatu Trench Site",
+    "regional_facility": "Vanuatu Trench"
+  },
+  "https://w3id.org/earthsemantics/OSO#node2": {
+    "site": "Vanuatu Trench Site",
+    "regional_facility": "Vanuatu Trench"
+  },
+  "https://w3id.org/earthsemantics/OSO#node3": {
+    "site": "Vanuatu Trench Site",
+    "regional_facility": "Vanuatu Trench"
+  },
+  "https://w3id.org/earthsemantics/OSO#node4": {
+    "site": "Vanuatu Trench Site",
+    "regional_facility": "Vanuatu Trench"
+  },
+  "https://w3id.org/earthsemantics/OSO#Nice_East_station": {
+    "site": "Nice",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#Nice_West_station": {
+    "site": "Nice",
+    "regional_facility": "Ligurian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#OBSEA_buoy": {
+    "site": "OBSEA",
+    "regional_facility": "Balearic Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#OBSEA_seabed_station": {
+    "site": "OBSEA",
+    "regional_facility": "Balearic Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#PYLOS_Mooring": {
+    "site": "PYLOS",
+    "regional_facility": "Hellenic Arc"
+  },
+  "https://w3id.org/earthsemantics/OSO#PYLOS_Platform": {
+    "site": "PYLOS",
+    "regional_facility": "Hellenic Arc"
+  },
+  "https://w3id.org/earthsemantics/OSO#Poulmic_Platform": {
+    "site": "Poulmic",
+    "regional_facility": "Iroise"
+  },
+  "https://w3id.org/earthsemantics/OSO#R1_SmartCable": {
+    "site": "R1",
+    "regional_facility": "Western Ionian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#R2_SmartCable": {
+    "site": "R2",
+    "regional_facility": "Western Ionian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#R3_SmartCable": {
+    "site": "R3",
+    "regional_facility": "Western Ionian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#SN1_Seabed_Station": {
+    "site": "SN1",
+    "regional_facility": "Western Ionian Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#SmartBay_buoy": {
+    "site": "SmartBay",
+    "regional_facility": "Celtic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#SmartBay_observatory": {
+    "site": "SmartBay",
+    "regional_facility": "Celtic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#South_Cape_Seabed_Station": {
+    "site": "South Cape",
+    "regional_facility": "Nordic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#South_Cape_Subsurface_Mooring": {
+    "site": "South Cape",
+    "regional_facility": "Nordic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#South_Rockall_Trough_Mooring": {
+    "site": "South Rockall Trough",
+    "regional_facility": "Celtic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#Station_M_Subsurface_Mooring": {
+    "site": "Station M",
+    "regional_facility": "Nordic Seas"
+  },
+  "https://w3id.org/earthsemantics/OSO#EDOKKO": {
+    "site": "Stylaster",
+    "regional_facility": "New Caledonia"
+  },
+  "https://w3id.org/earthsemantics/OSO#pilot_line": {
+    "site": "Stylaster",
+    "regional_facility": "New Caledonia"
+  },
+  "https://w3id.org/earthsemantics/OSO#profil_CTD": {
+    "site": "Stylaster",
+    "regional_facility": "New Caledonia"
+  },
+  "https://w3id.org/earthsemantics/OSO#Lucky_Strike_Surface_BOREL": {
+    "site": "Surface",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#Svinoy_North_Subsurface_Mooring": {
+    "site": "Svinoy North",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#Svinoy_South_Subsurface_Mooring": {
+    "site": "Svinoy South",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#SeaMoNEast": {
+    "site": "Tour Eiffel",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#TourEiffel_AutonomousDevices": {
+    "site": "Tour Eiffel",
+    "regional_facility": ""
+  },
+  "https://w3id.org/earthsemantics/OSO#ODASItalia1": {
+    "site": "W1M3A",
+    "regional_facility": "Western Mediterranean Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#W1M3A_Mooring": {
+    "site": "W1M3A",
+    "regional_facility": "Western Mediterranean Sea"
+  }
+}

@@ -34,6 +34,27 @@ Several example datasets compliant with the latest version of the specifications
 * **Automation**: Structured metadata supports automated data ingestion, validation, and processing workflows.
 
 
+# Licensing and attribution #
+
+The material authored by EMSO ERIC in this repository &mdash; the normative specifications, the OceanSITES and
+DataCite reference tables, and the scripts under `external-resources/` &mdash; is released under the
+**MIT License** (see [LICENSE](LICENSE)).
+
+`external-resources/` additionally redistributes vocabularies published by third parties (SeaDataNet/NVS, GEMET,
+EuroSciVoc, Copernicus, NASA GCMD). **These are not covered by the MIT licence**: they remain under the terms of
+their respective publishers, most of them Creative Commons Attribution, which requires credit, a link to the
+licence and an indication of any changes made.
+
+That attribution is recorded in three places, all generated from the same source so they cannot drift apart:
+
+* [NOTICE](NOTICE) &mdash; the authoritative, per-resource attribution list, at the repository root.
+* [external-resources/README.md](external-resources/README.md) &mdash; the same information as a table.
+* `external-resources/vocabularies.json` &mdash; machine-readable `license`, `license_url` and `modifications`
+  fields on every resource, so attribution travels with the data to downstream tools.
+
+If you redistribute these files, carry the corresponding entries from `NOTICE` with them.
+
+
 # Contact info #
 * **version**: v1.0.7
 * **author**: Enoc Martínez  
