@@ -1,5 +1,4 @@
 {
-  "NOTE": "resources.json is deprecated, dependency handling has been moved to manifest.json (EMSO-related files) and vocabularies (external files) to better support versionning",
   "P01": {
     "hash": "27281ced94c04dbc4ee9ec685b9188ed",
     "csv": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/sdn/P01.csv",
