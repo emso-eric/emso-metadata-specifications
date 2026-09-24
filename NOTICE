@@ -142,6 +142,13 @@ Observatories of the Seas Ontology (OSO)
                    external-resources/oso/rfs.csv
                    external-resources/oso/sites.csv
 
+Research Organization Registry (ROR)
+    Publisher    : ROR (Research Organization Registry)
+    Source       : https://doi.org/10.5281/zenodo.6347574
+    Licence      : CC0-1.0  <https://creativecommons.org/publicdomain/zero/1.0/>
+    Modifications: Zenodo CSV data dump subset to five columns (id, ror_display, acronym, country_name, website); nested-schema column names shortened to their last path segment. Values unchanged.
+    Files        : external-resources/ror/ror.csv
+
 ==============================================================================================================
 
 The OceanSITES and DataCite reference tables under external-resources/ are EMSO ERIC's curated

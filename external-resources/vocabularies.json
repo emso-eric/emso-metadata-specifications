@@ -5,7 +5,7 @@
   "canonical_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/vocabularies.json",
   "ref": "refs/heads/develop",
   "mutable": true,
-  "snapshot_date": "2026-09-23",
+  "snapshot_date": "2026-09-24",
   "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/",
   "notes": [
     "Resolve a file as base_url + resources.<key>.files.<name>.path",
@@ -339,7 +339,7 @@
       "files": {
         "csv": {
           "path": "external-resources/oso/oso.csv",
-          "md5": "5b440270f7eeab11fc74caa850b3b2c3",
+          "md5": "f64b11cf25bbd662ac44dc01b5664405",
           "bytes": 31754
         },
         "platforms": {
@@ -361,6 +361,21 @@
           "path": "external-resources/oso/platform_metadata.json",
           "md5": "8ed36eec42525c087fefe9005f9fc28e",
           "bytes": 11630
+        }
+      }
+    },
+    "ROR": {
+      "title": "Research Organization Registry",
+      "governed_by": "ROR (Research Organization Registry)",
+      "source": "https://doi.org/10.5281/zenodo.6347574",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modifications": "Zenodo CSV data dump subset to five columns (id, ror_display, acronym, country_name, website); nested-schema column names shortened to their last path segment. Values unchanged.",
+      "files": {
+        "csv": {
+          "path": "external-resources/ror/ror.csv",
+          "md5": "b1688149a2b4e1a180a90e1641f48ca2",
+          "bytes": 14994263
         }
       }
     }

@@ -4,6 +4,7 @@ import re
 import gzip
 import time
 import json
+import zipfile
 import urllib
 import urllib.request
 import urllib.error
@@ -74,6 +75,7 @@ vocabulary_provenance = {
 
 cc_by_4 = ("CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/")
 cc_by_3 = ("CC-BY-3.0", "https://creativecommons.org/licenses/by/3.0/")
+cc0 = ("CC0-1.0", "https://creativecommons.org/publicdomain/zero/1.0/")
 public_domain = ("PD-US-GOV", "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies")
 
 sdn_modifications = "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files."
@@ -90,6 +92,9 @@ resource_licences = {
     "EuroSciVoc": (*cc_by_4, "SKOS-XL RDF converted to CSV (concept URI and English preferred label)."),
     "OSO": (*cc_by_4, "Turtle ontology converted to CSV tables; platform/site/regional-facility relations "
                       "resolved into a lookup table."),
+    "ROR": (*cc0, "Zenodo CSV data dump subset to five columns (id, ror_display, acronym, country_name, "
+                  "website); nested-schema column names shortened to their last path segment. Values "
+                  "unchanged."),
     "spdx_licenses": (*cc_by_3, "Redistributed verbatim."),
     "dwc_terms": (*cc_by_4, "Columns subset to term_localName and term_iri."),
 }
@@ -104,6 +109,8 @@ keyword_vocabulary_provenance = {
                    "https://op.europa.eu/en/web/eu-vocabularies/euroscivoc"),
     "OSO": ("Observatories of the Seas Ontology", "EMSO ERIC",
             "https://github.com/emso-eric/oso-ontology"),
+    "ROR": ("Research Organization Registry", "ROR (Research Organization Registry)",
+            "https://doi.org/10.5281/zenodo.6347574"),
 }
 
 sdn_vocab_p01_url = "https://vocab.nerc.ac.uk/downloads/publish/P01.json"
@@ -171,6 +178,23 @@ euroscivoc_alternative_url = "https://files.obsea.es/other/vocabs/EuroSciVoc.rdf
 # latter: OSO.__init__ set self.graph from docs/ontology.ttl before calling load_vocab(), so the OSO.ttl
 # download was discarded without being read. Both the concepts and the instances come from this single file.
 oso_ontology_url = "https://raw.githubusercontent.com/emso-eric/oso-ontology/refs/heads/main/docs/ontology.ttl"
+
+# ROR (Research Organization Registry). Published as periodic data dumps on Zenodo under a single concept DOI
+# (10.5281/zenodo.6347574); the API resolves that to the newest version, so no release has to be hardcoded.
+# Mirroring it replaces a live HTTPS request the harmonizer used to make per validated ROR identifier.
+ror_zenodo_concept_id = "6347574"
+ror_zenodo_api = "https://zenodo.org/api/records"
+
+# Columns kept from the ROR CSV dump. The dump ships 35 columns of nested-schema paths; only these are useful
+# downstream. Names are shortened to their last path segment (locations.geonames_details.country_name ->
+# country_name).
+ror_columns = [
+    "id",
+    "names.types.ror_display",
+    "names.types.acronym",
+    "locations.geonames_details.country_name",
+    "links.type.website",
+]
 
 oso_class_uris = {
     "platforms": "https://w3id.org/earthsemantics/OSO#Platform",
@@ -684,6 +708,45 @@ def process_keyword_vocabularies(force_download=False):
     return outputs
 
 
+def process_ror(force_download=False):
+    """
+    Download the latest ROR data dump from Zenodo and publish the subset the harmonizer needs.
+
+    The dump is a ~37 MB zip containing a full JSON and a 55 MB CSV; only five columns of the CSV are kept,
+    which brings the published file down to ~15 MB. Values are left exactly as ROR publishes them (including
+    the "no_lang_code: " / "en: " language prefixes on name fields and ";"-separated multi-valued acronyms).
+    """
+    csv_out = os.path.join("ror", "ror.csv")
+    zip_file = os.path.join(".temp", "ror-data.zip")
+
+    if not os.path.isfile(zip_file) or force_download:
+        rich.print("Resolving latest ROR release on Zenodo...", end="")
+        with urllib.request.urlopen(f"{ror_zenodo_api}/{ror_zenodo_concept_id}") as response:
+            concept = json.load(response)
+        with urllib.request.urlopen(concept["links"]["latest"]) as response:
+            record = json.load(response)
+        dump = next(f for f in record["files"] if f["key"].endswith(".zip"))
+        rich.print(f"[green] {record['metadata']['title']} {dump['key']}")
+        rich.print(f"Downloading ROR dump ({dump['size'] / 1e6:.0f} MB)...", end="")
+        download_file(dump["links"]["self"], zip_file)
+        rich.print("[green]done!")
+
+    rich.print("Extracting ROR CSV...", end="")
+    with zipfile.ZipFile(zip_file) as archive:
+        name = next(n for n in archive.namelist() if n.endswith(".csv"))
+        with archive.open(name) as f:
+            df = pd.read_csv(f, usecols=ror_columns, low_memory=False)
+
+    # Shorten the nested-schema column names, keeping the requested order
+    df = df.rename(columns={c: c.split(".")[-1] for c in ror_columns})
+    df = df[[c.split(".")[-1] for c in ror_columns]]
+
+    os.makedirs(os.path.dirname(csv_out), exist_ok=True)
+    df.to_csv(csv_out, index=False)
+    rich.print(f"[green]done! ({len(df):,} organisations)")
+    return {"csv": csv_out}
+
+
 def process_oso(force_download=False):
     """
     Publish OSO as plain tables so the harmonizer needs no RDF at runtime:
@@ -964,6 +1027,7 @@ def build_vocabularies():
             "rfs": os.path.join("oso", "rfs.csv"),
             "platform_metadata": os.path.join("oso", "platform_metadata.json"),
         },
+        "ROR": {"csv": os.path.join("ror", "ror.csv")},
     }
     for key, files in keyword_files.items():
         title, governed_by, source = keyword_vocabulary_provenance[key]
@@ -1286,6 +1350,7 @@ if __name__ == "__main__":
     # The RDF work happens here now and only the parsed tables are published.
     process_keyword_vocabularies(force_download=args.force_download)
     process_oso(force_download=args.force_download)
+    process_ror(force_download=args.force_download)
 
     # ======== Write the manifests =========#
     # Legacy v1 manifest, still consumed by harmonizer <= 1.0.9. Keep writing it until those clients are gone.

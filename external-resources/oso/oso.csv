@@ -127,7 +127,7 @@ https://w3id.org/earthsemantics/OSO#EuxRo03,EuxRo03
 https://w3id.org/earthsemantics/OSO#EuxRo03_seabed_station,EuxRo03 seabed station
 https://w3id.org/earthsemantics/OSO#EuxRo03_surface_buoy,EuxRo03 surface buoy
 https://w3id.org/earthsemantics/OSO#FAIRAssessmentTool,FAIR assessment tool
-nff0f6f407a334e579afe594e6ca2c330b1,FAIRsharing DOI for OSO
+n3570e7ed0dd3408e88c3add72898198fb1,FAIRsharing DOI for OSO
 https://w3id.org/earthsemantics/OSO#FCT,FCT
 https://w3id.org/earthsemantics/OSO#FF,FF
 https://w3id.org/earthsemantics/OSO#FF_Mooring,FF mooring
@@ -289,7 +289,7 @@ https://w3id.org/earthsemantics/OSO#PYLOS_Platform,PYLOS Platform
 https://w3id.org/earthsemantics/OSO#Pacific_Peering,Pacific Peering
 https://w3id.org/earthsemantics/OSO#Patrice_BRETEL,Patrice BRETEL
 https://w3id.org/earthsemantics/OSO#Paulo_RELVAS,Paulo RELVAS
-nff0f6f407a334e579afe594e6ca2c330b2,Persistent IRI for OSO
+n3570e7ed0dd3408e88c3add72898198fb2,Persistent IRI for OSO
 https://w3id.org/earthsemantics/OSO#physical_oceanography,Physical oceanography
 https://w3id.org/earthsemantics/OSO#Pierre_HENRY,Pierre HENRY
 https://w3id.org/earthsemantics/OSO#Planned,Planned
@@ -401,7 +401,7 @@ https://w3id.org/earthsemantics/OSO#WidocoLogo,Widoco logo
 https://w3id.org/earthsemantics/OSO#Y3,Y3
 https://w3id.org/earthsemantics/OSO#YASGUI,YASGUI
 https://w3id.org/earthsemantics/OSO#YASGUILogo,YASGUI logo
-nff0f6f407a334e579afe594e6ca2c330b3,Zenodo DOI for OSO
+n3570e7ed0dd3408e88c3add72898198fb3,Zenodo DOI for OSO
 https://w3id.org/earthsemantics/OSO#Zuzia_STROYNOWSKI,Zuzia STROYNOWSKI
 https://w3id.org/earthsemantics/OSO#Benthic_station,benthic station
 https://w3id.org/earthsemantics/OSO#containsPlatform,contains platform
