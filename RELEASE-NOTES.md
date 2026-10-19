@@ -1,3 +1,7 @@
+## version 1.0.8 ##
+* 'sensor_type_*' is now multiple
+* mandatory goos_passport_id
+
 ## version 1.0.7 ##
 * Change `projects` to `project` to align with [ACDD](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3)
 * Add `project_uri` to provide normative links to project descriptions
