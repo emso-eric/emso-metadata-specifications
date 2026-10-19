@@ -56,7 +56,7 @@ If you redistribute these files, carry the corresponding entries from `NOTICE` w
 
 
 # Contact info #
-* **version**: v1.0.7
+* **version**: v1.0.8
 * **author**: Enoc Martínez  
 * **contributors**: Enoc Martínez 
 * **organization**: Universitat Politècnica de Catalunya (UPC)
