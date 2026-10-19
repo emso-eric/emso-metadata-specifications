@@ -19,9 +19,10 @@ Each dataset must define the following global attributes:
 | `keywords_vocabulary_uri`  | List of vocabulary URIs                                                     |
 
 - All attributes are **string lists**
-- `keywords`, `keywords_uri`, `keywords_type`, and `keywords_vocabulary` are **comma-separated** lists
-- `keywords_vocabulary_uri` is a **space-separated** list
+- `keywords`, `keywords_type`, and `keywords_vocabulary` are **comma-separated** lists
+-  `keywords_uri` and `keywords_vocabulary_uri` is a **space-separated** list
 - Values must follow the rules defined below
+- If a keyword contains comma in the preferred label, replace it by semicolon (`;`) instead.
 
 ---
 
