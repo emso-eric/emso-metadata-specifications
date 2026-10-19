@@ -127,7 +127,7 @@ https://w3id.org/earthsemantics/OSO#EuxRo03,EuxRo03
 https://w3id.org/earthsemantics/OSO#EuxRo03_seabed_station,EuxRo03 seabed station
 https://w3id.org/earthsemantics/OSO#EuxRo03_surface_buoy,EuxRo03 surface buoy
 https://w3id.org/earthsemantics/OSO#FAIRAssessmentTool,FAIR assessment tool
-n3570e7ed0dd3408e88c3add72898198fb1,FAIRsharing DOI for OSO
+nafbcad41f58846128811be50a74203c9b1,FAIRsharing DOI for OSO
 https://w3id.org/earthsemantics/OSO#FCT,FCT
 https://w3id.org/earthsemantics/OSO#FF,FF
 https://w3id.org/earthsemantics/OSO#FF_Mooring,FF mooring
@@ -162,8 +162,8 @@ https://w3id.org/earthsemantics/OSO#IbMaCSV_SaoVicenteCanyon,IbMa-CSV Sao Vicent
 https://w3id.org/earthsemantics/OSO#IbMaCSV_Seabed_Station,IbMa-CSV Seabed Station
 https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_Fixed_SubSurface_Vertical_Profiler,IbMa-CSV TUPEM Fixed SubSurface Vertical Profiler
 https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_SubSurface_Mooring,IbMa-CSV TUPEM SubSurface Mooring
-https://w3id.org/earthsemantics/OSO#IbMa-N,IbMa-N
 https://w3id.org/earthsemantics/OSO#IbMaN,IbMa-N
+https://w3id.org/earthsemantics/OSO#IbMa-N,IbMa-N
 https://w3id.org/earthsemantics/OSO#IbMaCSV_Seabed_Station_geometry,IbMaCSV Seabed Station geometry
 https://w3id.org/earthsemantics/OSO#IbMaCSV_SaoVicenteCanyon_geometry,IbMaCSV São Vicente Canyon geometry
 https://w3id.org/earthsemantics/OSO#IbMaCSV_TUPEM_Fixed_SubSurface_Vertical_Profiler_geometry,IbMaCSV TUPEM fixed subsurface vertical profiler geometry
@@ -239,8 +239,8 @@ https://w3id.org/earthsemantics/OSO#Mohn_Seabed_Station,Mohn Seabed Station
 https://w3id.org/earthsemantics/OSO#Mohn_Subsurface_mooring,Mohn Subsurface mooring
 https://w3id.org/earthsemantics/OSO#Molene,Molène
 https://w3id.org/earthsemantics/OSO#Molene_AutonomousDevices,Molène Autonomous Devices
-https://w3id.org/earthsemantics/OSO#Molene_SubmarinePlatform,Molène Submarine Platform
 https://w3id.org/earthsemantics/OSO#SubmarinePlatform,Molène Submarine Platform
+https://w3id.org/earthsemantics/OSO#Molene_SubmarinePlatform,Molène Submarine Platform
 https://w3id.org/earthsemantics/OSO#MontSegur,Mont Segur
 https://w3id.org/earthsemantics/OSO#Munida,Munida
 https://w3id.org/earthsemantics/OSO#NOC,NOC
@@ -265,7 +265,7 @@ https://w3id.org/earthsemantics/OSO#hasORCID,ORCID
 https://w3id.org/earthsemantics/OSO#Platform,Observation Platform
 https://w3id.org/earthsemantics/OSO#SubPlatform,Observation Subplatform
 https://w3id.org/earthsemantics/OSO#Subsite,Observation Subsite
-http://www.w3.org/2003/01/geo/wgs84_pos,Observatories of the Seas Ontology
+https://w3id.org/earthsemantics/OSO,Observatories of the Seas Ontology
 https://w3id.org/earthsemantics/OSO#Site,Observatory Site
 https://w3id.org/earthsemantics/OSO#ObsoleteClass,Obsolete class
 https://w3id.org/earthsemantics/OSO#Ocean_Data_Acquisition_System,Ocean Data Acquisition System
@@ -289,7 +289,7 @@ https://w3id.org/earthsemantics/OSO#PYLOS_Platform,PYLOS Platform
 https://w3id.org/earthsemantics/OSO#Pacific_Peering,Pacific Peering
 https://w3id.org/earthsemantics/OSO#Patrice_BRETEL,Patrice BRETEL
 https://w3id.org/earthsemantics/OSO#Paulo_RELVAS,Paulo RELVAS
-n3570e7ed0dd3408e88c3add72898198fb2,Persistent IRI for OSO
+nafbcad41f58846128811be50a74203c9b2,Persistent IRI for OSO
 https://w3id.org/earthsemantics/OSO#physical_oceanography,Physical oceanography
 https://w3id.org/earthsemantics/OSO#Pierre_HENRY,Pierre HENRY
 https://w3id.org/earthsemantics/OSO#Planned,Planned
@@ -401,7 +401,7 @@ https://w3id.org/earthsemantics/OSO#WidocoLogo,Widoco logo
 https://w3id.org/earthsemantics/OSO#Y3,Y3
 https://w3id.org/earthsemantics/OSO#YASGUI,YASGUI
 https://w3id.org/earthsemantics/OSO#YASGUILogo,YASGUI logo
-n3570e7ed0dd3408e88c3add72898198fb3,Zenodo DOI for OSO
+nafbcad41f58846128811be50a74203c9b3,Zenodo DOI for OSO
 https://w3id.org/earthsemantics/OSO#Zuzia_STROYNOWSKI,Zuzia STROYNOWSKI
 https://w3id.org/earthsemantics/OSO#Benthic_station,benthic station
 https://w3id.org/earthsemantics/OSO#containsPlatform,contains platform

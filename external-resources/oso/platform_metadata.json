@@ -147,10 +147,6 @@
     "site": "LO",
     "regional_facility": "Ligurian Sea"
   },
-  "https://w3id.org/earthsemantics/OSO#MARLEY": {
-    "site": "Lampaul Canyon",
-    "regional_facility": "Bay of Biscay canyons"
-  },
   "https://w3id.org/earthsemantics/OSO#SeaMoNWest": {
     "site": "Lava Lake",
     "regional_facility": ""
@@ -358,5 +354,9 @@
   "https://w3id.org/earthsemantics/OSO#W1M3A_Mooring": {
     "site": "W1M3A",
     "regional_facility": "Western Mediterranean Sea"
+  },
+  "https://w3id.org/earthsemantics/OSO#MARLEY": {
+    "site": "Lampaul Canyon",
+    "regional_facility": "Bay of Biscay canyons"
   }
 }

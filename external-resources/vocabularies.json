@@ -5,7 +5,7 @@
   "canonical_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/vocabularies.json",
   "ref": "refs/heads/develop",
   "mutable": true,
-  "snapshot_date": "2026-09-24",
+  "snapshot_date": "2026-10-19",
   "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/",
   "notes": [
     "Resolve a file as base_url + resources.<key>.files.<name>.path",
@@ -24,23 +24,23 @@
       "files": {
         "csv": {
           "path": "external-resources/sdn/P01.csv",
-          "md5": "c86a88358d082ddca48d8e069790fbd7",
-          "bytes": 16549899
+          "md5": "07fa0648ef9a00e1c75da543fa78348a",
+          "bytes": 16553174
         },
         "narrower": {
           "path": "external-resources/sdn/P01.narrower.json",
-          "md5": "d8d9c79b3131617994470039b020cbcb",
-          "bytes": 3323200
+          "md5": "8093ac556604a25068da7ca834469b23",
+          "bytes": 3323712
         },
         "broader": {
           "path": "external-resources/sdn/P01.broader.json",
-          "md5": "15e5b6f4fe722f5fe558254dcfd8e71e",
-          "bytes": 16150280
+          "md5": "946350f9cb6b7416eac27fa078a9605a",
+          "bytes": 16152544
         },
         "related": {
           "path": "external-resources/sdn/P01.related.json",
-          "md5": "61837a626674434ad2c8d2bc7fd69e92",
-          "bytes": 11126925
+          "md5": "7ebd876e03f8ea776719ffa45cdebf5b",
+          "bytes": 11128554
         }
       }
     },
@@ -54,22 +54,22 @@
       "files": {
         "csv": {
           "path": "external-resources/sdn/P02.csv",
-          "md5": "08aa81d9fc67a418d8f05ac51330d757",
+          "md5": "d44c6959afbbc495da176a9fc8e49f59",
           "bytes": 131575
         },
         "narrower": {
           "path": "external-resources/sdn/P02.narrower.json",
-          "md5": "57d04deba59e6a38e507a7c68c6c6d04",
-          "bytes": 3254596
+          "md5": "823780a846303318185a08a052087a11",
+          "bytes": 3255076
         },
         "broader": {
           "path": "external-resources/sdn/P02.broader.json",
-          "md5": "f8df380d151df20503a3631e5f17f3a4",
+          "md5": "f8e5b5506321e6bc125a76575e774c5a",
           "bytes": 217705
         },
         "related": {
           "path": "external-resources/sdn/P02.related.json",
-          "md5": "2830c7f2e6c4de39c835c59c39edd916",
+          "md5": "448b76384d55af72d5ab3d8c4ec086e8",
           "bytes": 90572
         }
       }
@@ -84,23 +84,23 @@
       "files": {
         "csv": {
           "path": "external-resources/sdn/P06.csv",
-          "md5": "4bad43784c4f59b296f04924e3aba6e9",
+          "md5": "95cc90c2b5ec1dae8d50f6d902c9a97b",
           "bytes": 63016
         },
         "narrower": {
           "path": "external-resources/sdn/P06.narrower.json",
-          "md5": "6d4aa7b281febd726c228fbebb5eea14",
+          "md5": "6842daeded9f9498a18bbdf901718237",
           "bytes": 24600
         },
         "broader": {
           "path": "external-resources/sdn/P06.broader.json",
-          "md5": "0b935ed28d3f9162b41d3a372a44342b",
+          "md5": "0d5bd193ba8850ff72dad3036b1f15e5",
           "bytes": 38531
         },
         "related": {
           "path": "external-resources/sdn/P06.related.json",
-          "md5": "6be5cfd96db8eb6467be3f23c7e51048",
-          "bytes": 3498169
+          "md5": "4cf5137a0f79a1729851570118a68928",
+          "bytes": 3501712
         }
       }
     },
@@ -114,23 +114,23 @@
       "files": {
         "csv": {
           "path": "external-resources/sdn/P07.csv",
-          "md5": "98f4b5b76847b058ef467ddb3b3f8002",
+          "md5": "4d204f24d91b0d0e98da6490b9b6e338",
           "bytes": 4582483
         },
         "narrower": {
           "path": "external-resources/sdn/P07.narrower.json",
-          "md5": "fb2ee1c3cee1ac6d227f6efc6a820007",
+          "md5": "d513d0c378b3a7180a9cef93ea94fef0",
           "bytes": 368898
         },
         "broader": {
           "path": "external-resources/sdn/P07.broader.json",
-          "md5": "536a887aff21b062160dd97796afc892",
+          "md5": "61e6476afb84ac87b4d2235b6bf9082f",
           "bytes": 665402
         },
         "related": {
           "path": "external-resources/sdn/P07.related.json",
-          "md5": "06b924bb11bfd71a6ea5d236f1e82952",
-          "bytes": 713554
+          "md5": "81693a35678cd985e75e09d491f38cc9",
+          "bytes": 715908
         }
       }
     },
@@ -144,22 +144,22 @@
       "files": {
         "csv": {
           "path": "external-resources/sdn/L05.csv",
-          "md5": "11358717ef0bf017c417f95533f7fd27",
+          "md5": "13ce282bd99742ca65b3ef81b3c25ab7",
           "bytes": 77972
         },
         "narrower": {
           "path": "external-resources/sdn/L05.narrower.json",
-          "md5": "f56ba906d66fdb9f0975df1418766d0e",
-          "bytes": 245571
+          "md5": "3e46f618a97fe9b503de937ff73409c5",
+          "bytes": 246291
         },
         "broader": {
           "path": "external-resources/sdn/L05.broader.json",
-          "md5": "d704c7456dbff934895cb36c472f1b12",
-          "bytes": 72443
+          "md5": "426076df306ca0dd2c6e2d06c47877da",
+          "bytes": 72499
         },
         "related": {
           "path": "external-resources/sdn/L05.related.json",
-          "md5": "2c504d325c42419a09e6376f5a26c3b0",
+          "md5": "38dfece02159426705a0fdb46decc564",
           "bytes": 25952
         }
       }
@@ -174,22 +174,22 @@
       "files": {
         "csv": {
           "path": "external-resources/sdn/L06.csv",
-          "md5": "e42a3e84b0774a68916a88029759a2c3",
+          "md5": "34e03785a7118062b74228834f35d0e9",
           "bytes": 18059
         },
         "narrower": {
           "path": "external-resources/sdn/L06.narrower.json",
-          "md5": "66357c81fe6aafac72605fe9697bfd6f",
-          "bytes": 425316
+          "md5": "c76be483457bdeaf4ebd422b0a2dff38",
+          "bytes": 426380
         },
         "broader": {
           "path": "external-resources/sdn/L06.broader.json",
-          "md5": "9706d86e63c0898dd6c0d5dd00282c69",
+          "md5": "9671519e51eb72d848503559c4ba3105",
           "bytes": 18788
         },
         "related": {
           "path": "external-resources/sdn/L06.related.json",
-          "md5": "ec9054194efa97e68a4e8319dfe26625",
+          "md5": "2c65a7bccff9c76000237ae11e4f3d7f",
           "bytes": 8579
         }
       }
@@ -204,23 +204,23 @@
       "files": {
         "csv": {
           "path": "external-resources/sdn/L22.csv",
-          "md5": "eadcf670fe28d12cf5f19f40d1fba25a",
-          "bytes": 1837352
+          "md5": "17b698ec4a9295f8b58685cfcfe22c83",
+          "bytes": 1845699
         },
         "narrower": {
           "path": "external-resources/sdn/L22.narrower.json",
-          "md5": "2b1c9cc4b01319bce4cdc8711a7099fe",
-          "bytes": 157567
+          "md5": "198c42b097a4e040012bed321193a834",
+          "bytes": 158015
         },
         "broader": {
           "path": "external-resources/sdn/L22.broader.json",
-          "md5": "c1b21d69702f6493adfb382150a8f24e",
-          "bytes": 434392
+          "md5": "3c010c648f5aaf32bda74264f7b33991",
+          "bytes": 435487
         },
         "related": {
           "path": "external-resources/sdn/L22.related.json",
-          "md5": "05ecd3e012d73f84aae71920ae0fde20",
-          "bytes": 373766
+          "md5": "81709f4c8336abfcd985bf2f49e38a19",
+          "bytes": 375033
         }
       }
     },
@@ -234,23 +234,23 @@
       "files": {
         "csv": {
           "path": "external-resources/sdn/L35.csv",
-          "md5": "86f22abbaeb78f32af2e0c2455e8f587",
-          "bytes": 144170
+          "md5": "5fff8636232331d9a81977c537b9894f",
+          "bytes": 144890
         },
         "narrower": {
           "path": "external-resources/sdn/L35.narrower.json",
-          "md5": "d9eada4280c2f223755f379cdd56484c",
-          "bytes": 25326
+          "md5": "eca00553b21f3d82601e7b48eb8c2ff2",
+          "bytes": 25515
         },
         "broader": {
           "path": "external-resources/sdn/L35.broader.json",
-          "md5": "d9eada4280c2f223755f379cdd56484c",
-          "bytes": 25326
+          "md5": "eca00553b21f3d82601e7b48eb8c2ff2",
+          "bytes": 25515
         },
         "related": {
           "path": "external-resources/sdn/L35.related.json",
-          "md5": "ccd29e39e7d855bb5e015cfd938407da",
-          "bytes": 98592
+          "md5": "b918f91cced291f651753fe92d1b95d2",
+          "bytes": 99315
         }
       }
     },
@@ -264,8 +264,8 @@
       "files": {
         "csv": {
           "path": "external-resources/edmo/EDMO.csv",
-          "md5": "437c72b55105570cece739c1604b0e9a",
-          "bytes": 525274
+          "md5": "fe142e4abc88cf6fb5a4aacffd368849",
+          "bytes": 526304
         }
       }
     },
@@ -294,8 +294,8 @@
       "files": {
         "csv": {
           "path": "external-resources/keywords/gcmd/gcmd.csv",
-          "md5": "12f95ca6bd2374f84141647957cc8fc2",
-          "bytes": 628646
+          "md5": "c5ab0723fcd060afdf8920e299c10e37",
+          "bytes": 629281
         }
       }
     },
@@ -339,27 +339,27 @@
       "files": {
         "csv": {
           "path": "external-resources/oso/oso.csv",
-          "md5": "f64b11cf25bbd662ac44dc01b5664405",
-          "bytes": 31754
+          "md5": "43130d2787fd7819d733eb1b98df306f",
+          "bytes": 31750
         },
         "platforms": {
           "path": "external-resources/oso/platforms.csv",
-          "md5": "6d8c14ba7c27f9abfca87bc08ed78371",
+          "md5": "0ea7ea208e99f728561e3abd33771206",
           "bytes": 10684
         },
         "sites": {
           "path": "external-resources/oso/sites.csv",
-          "md5": "e87293ce86c7bd3b1068e4c2570ef77a",
+          "md5": "374fd28b5b7c5b731b43362da0f8d643",
           "bytes": 4347
         },
         "rfs": {
           "path": "external-resources/oso/rfs.csv",
-          "md5": "fa966b78174add4d3a316ebbc88a2e35",
-          "bytes": 5921
+          "md5": "eff5ea86922a6f8cae05ce3f63b08954",
+          "bytes": 6566
         },
         "platform_metadata": {
           "path": "external-resources/oso/platform_metadata.json",
-          "md5": "8ed36eec42525c087fefe9005f9fc28e",
+          "md5": "c943508910eae9ad16f3152bcd691228",
           "bytes": 11630
         }
       }
@@ -374,8 +374,8 @@
       "files": {
         "csv": {
           "path": "external-resources/ror/ror.csv",
-          "md5": "b1688149a2b4e1a180a90e1641f48ca2",
-          "bytes": 14994263
+          "md5": "ec3cd3c2cfe08e08caf4e624d2302ad4",
+          "bytes": 15316661
         }
       }
     }
