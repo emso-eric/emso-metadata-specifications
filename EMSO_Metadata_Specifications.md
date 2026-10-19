@@ -58,6 +58,22 @@ lists". Consecutive words in such a list are separated by one or more adjacent s
 In special circumstances a blank-separated list is not suitable, like in a list of author names. These cases, explicitly
 described in the specifications, use a comma separated list.
 
+2. Attributes that use a comma separated list are marked in the attribute tables with the footnote index <sup>1</sup>.
+This index is normative and machine-read: the separator is derived from the footnote number itself, not from the
+footnote text. Footnote indices already published shall not be reassigned or renumbered, and an attribute whose cell
+carries no footnote index, or an index other than `1`, is blank-separated.
+
+3. A comma is reserved as a list separator and shall not appear inside an attribute value. When a value taken from a
+controlled vocabulary contains a comma in its preferred label, the comma is replaced by a semicolon (`;`). The
+substitution applies only to the value as written in the dataset; the term is still identified unambiguously by its
+accompanying URI and URN. Compliance tests apply the same substitution to the vocabulary labels before comparing, so
+the substituted form is the compliant one.
+
+```yaml
+  # the P02 preferred label is "Shellfish morphology, age and physiology"
+  keywords: "Shellfish morphology; age and physiology, CTD"
+```
+
 #### Variable naming
 In the following tables, when an attribute `$name` is defined, it refers to the variable name inside the dataset rather 
 than an attribute of the variable.
@@ -388,9 +404,9 @@ The following attributes are expected in `sensor` variables:
 | sdn_instrument_urn<sup>9</sup>      | Sensor model, L22 URN                                                    | sdn_vocab_urn#L22             | true     | false    |
 | sdn_instrument_uri<sup>9</sup>      | Sensor model, L22 uri                                                    | sdn_vocab_uri#L22             | true     | false    |
 | sensor_SeaVoX_L22_code<sup>10</sup> | Same as `sdn_instrument_urn`                                             | sdn_vocab_urn#L22             | true     | false    |
-| sensor_type_name                    | Sensor type,  L05 preferred label                                        | sdn_vocab_pref_label#L05      | true     | false    |
-| sensor_type_urn                     | Sensor type L05 URN                                                      | sdn_vocab_urn#L05             | true     | false    |
-| sensor_type_uri                     | Sensor type L05 URI                                                      | sdn_vocab_uri#L05             | true     | false    |
+| sensor_type_name<sup>1</sup>        | Sensor type,  L05 preferred label                                        | sdn_vocab_pref_label#L05      | true     | true     |
+| sensor_type_urn                     | Sensor type L05 URN                                                      | sdn_vocab_urn#L05             | true     | true     |
+| sensor_type_uri                     | Sensor type L05 URI                                                      | sdn_vocab_uri#L05             | true     | true     |
 | sensor_manufacturer_name            | Sensor model, L35 preferred label                                        | sdn_vocab_pref_label#L35      | true     | false    |
 | sensor_manufacturer_uri             | Sensor model (URI from the L35 term)                                     | sdn_vocab_uri#L35             | true     | false    |
 | sensor_manufacturer_urn             | Sensor model (should be preferred label from the L35 term)               | sdn_vocab_urn#L35             | true     | false    |
@@ -400,8 +416,26 @@ The following attributes are expected in `sensor` variables:
 | sensor_reference                    | Link to additional information,e.g. sensor datasheet                     | data_type#str                 | false    | false    |
 | comment                             | free-text to add additional comments                                     | data_type#str                 | false    | false    |
 
+<sup>1</sup> Since the values may contain spaces, use comma as separator instead of the usual blank space, e.g. `"CTD, dissolved gas sensors"`  
 <sup>9</sup> Used for compatibility with SeaDataNet data file format  
 <sup>10</sup> Used for compatibility with OceanSITES format
+
+A single sensor might not be adequately described by one L05 term, as in a multiparameter probe whose sensing elements
+belong to several distinct device categories. In that case `sensor_type_name`, `sensor_type_urn` and `sensor_type_uri`
+each take one L05 term per sensing element, listed in the same order across the three attributes. `sensor_type_name` is
+comma-separated, since L05 preferred labels contain spaces, while `sensor_type_urn` and `sensor_type_uri` are
+blank-separated, following the general [Multiple Attributes](#multiple-attributes) convention. When a single L05 term
+already covers the sensor, use that one term.
+
+```yaml
+  sensor_type_name: "CTD, dissolved gas sensors"
+  sensor_type_urn: "SDN:L05::130 SDN:L05::351"
+  sensor_type_uri: "http://vocab.nerc.ac.uk/collection/L05/current/130/ http://vocab.nerc.ac.uk/collection/L05/current/351/"
+```
+
+Only `sensor_type_*` admits multiple values, since L05 describes the device category of each sensing element. The
+instrument itself remains a single product, so `sdn_instrument_*` and `sensor_SeaVoX_L22_code` take exactly one L22
+term and `sensor_manufacturer_*` exactly one L35 term.
 
 
 ### Platform Variables ###
@@ -425,8 +459,8 @@ The following attributes are expected in `platform` variables:
 | platform_type_uri   | Platform type L06 URI                                             | sdn_vocab_uri#L06          | true     | false    |
 | emso_platform_name  | Link to the platform entry in OSO ontology                        | oso_ontology_name#platform | true     | false    |
 | emso_platform_uri   | Link to the platform entry in OSO ontology                        | oso_ontology_uri#platform  | true     | false    |
+| goos_passport_id    | Global Ocean Observing System (GOOS) Passport identifier          | data_type#str              | true     | false    |
 | wmo_platform_code   | World Meteorological Organization (WMO) platform code             | data_type#str              | false    | false    |
-| wsi_platform_code   | (WIGOS Station Identifier)[https://community.wmo.int/wigos-station-identifiers] | data_type#str | false | false |
 | platform_reference  | Link to additional information                                    | data_type#uri              | false    | false    |
 | comment             | free-text to add additional comment s                             | data_type#str              | false    | false    |
 | latitude            | nominal latitude (for fixed-point platforms only)                 | data_type#float            | false    | false    |

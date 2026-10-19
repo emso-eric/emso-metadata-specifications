@@ -14,7 +14,7 @@ http://vocab.nerc.ac.uk/collection/L06/current/91/,ice island,A floating ice she
 http://vocab.nerc.ac.uk/collection/L06/current/92/,ice shelf,A floating ice sheet attached to the coast.,,SDN:L06::92
 http://vocab.nerc.ac.uk/collection/L06/current/93/,pack ice,Sea ice not connected to land with an ice concentration of over 70 per cent.,,SDN:L06::93
 http://vocab.nerc.ac.uk/collection/L06/current/3C/,surface gliders,"Platforms operating at a single depth near the sea surface, using a combination of solar energy and wave motion as means of propulsion.",,SDN:L06::3C
-http://vocab.nerc.ac.uk/collection/L06/current/3B/,autonomous surface water vehicle,A self-propelled vehicle operating on the sea surface with no human occupants.,,SDN:L06::3B
+http://vocab.nerc.ac.uk/collection/L06/current/3B/,autonomous surface water vehicle,A programmed or remotely controlled self-propelled vessel operating on the surface of water bodies with no human occupants; includes saildrones.,uncrewed surface vehicle (USV),SDN:L06::3B
 http://vocab.nerc.ac.uk/collection/L06/current/3D/,drillship,A drillship is a merchant vessel designed for use in exploratory offshore drilling of new oil and gas wells or for scientific drilling purposes.,,SDN:L06::3D
 http://vocab.nerc.ac.uk/collection/L06/current/3Z/,surface vessel,A mobile platform with propulsion operating on and restricted to the surface of a water body.,,SDN:L06::3Z
 http://vocab.nerc.ac.uk/collection/L06/current/36/,fishing vessel,A platform operating on the surface of the water column whose primary purpose is the commercial harvesting of fish or shellfish but may be engaged in scientific activities such as fish stock surveys or mooring deployments and recoveries.,,SDN:L06::36

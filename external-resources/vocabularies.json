@@ -1,0 +1,383 @@
+{
+  "schema": "emso-vocabularies/1",
+  "title": "EMSO Metadata Specifications - external vocabulary snapshot",
+  "description": "Pre-processed snapshot of externally governed vocabularies mirrored by EMSO ERIC. These vocabularies are maintained by third parties (NVS/SeaDataNet, Copernicus) and are refreshed on their own cadence, independently of the EMSO Metadata Specifications version. There is exactly one current snapshot: it is NOT selectable per specification version.",
+  "canonical_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/external-resources/vocabularies.json",
+  "ref": "refs/heads/develop",
+  "mutable": true,
+  "snapshot_date": "2026-10-19",
+  "base_url": "https://raw.githubusercontent.com/emso-eric/emso-metadata-specifications/refs/heads/develop/",
+  "notes": [
+    "Resolve a file as base_url + resources.<key>.files.<name>.path",
+    "This snapshot always tracks the tip of develop. It applies to every specification version; do not cache it under a version-specific key.",
+    "md5 values describe the snapshot at the time this file was generated. Because the ref is mutable, a download whose md5 does not match means the snapshot moved: re-fetch this file. Clients should treat a mismatch as a cache-refresh signal, not an error.",
+    "Re-check policy: compare this file's md5 values against the local cache; a 24h staleness window is sufficient given the refresh cadence (a few times per year)."
+  ],
+  "resources": {
+    "P01": {
+      "title": "BODC Parameter Usage Vocabulary",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/P01/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/P01.csv",
+          "md5": "07fa0648ef9a00e1c75da543fa78348a",
+          "bytes": 16553174
+        },
+        "narrower": {
+          "path": "external-resources/sdn/P01.narrower.json",
+          "md5": "8093ac556604a25068da7ca834469b23",
+          "bytes": 3323712
+        },
+        "broader": {
+          "path": "external-resources/sdn/P01.broader.json",
+          "md5": "946350f9cb6b7416eac27fa078a9605a",
+          "bytes": 16152544
+        },
+        "related": {
+          "path": "external-resources/sdn/P01.related.json",
+          "md5": "7ebd876e03f8ea776719ffa45cdebf5b",
+          "bytes": 11128554
+        }
+      }
+    },
+    "P02": {
+      "title": "SeaDataNet Parameter Discovery Vocabulary",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/P02/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/P02.csv",
+          "md5": "d44c6959afbbc495da176a9fc8e49f59",
+          "bytes": 131575
+        },
+        "narrower": {
+          "path": "external-resources/sdn/P02.narrower.json",
+          "md5": "823780a846303318185a08a052087a11",
+          "bytes": 3255076
+        },
+        "broader": {
+          "path": "external-resources/sdn/P02.broader.json",
+          "md5": "f8e5b5506321e6bc125a76575e774c5a",
+          "bytes": 217705
+        },
+        "related": {
+          "path": "external-resources/sdn/P02.related.json",
+          "md5": "448b76384d55af72d5ab3d8c4ec086e8",
+          "bytes": 90572
+        }
+      }
+    },
+    "P06": {
+      "title": "BODC-approved data storage units",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/P06/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/P06.csv",
+          "md5": "95cc90c2b5ec1dae8d50f6d902c9a97b",
+          "bytes": 63016
+        },
+        "narrower": {
+          "path": "external-resources/sdn/P06.narrower.json",
+          "md5": "6842daeded9f9498a18bbdf901718237",
+          "bytes": 24600
+        },
+        "broader": {
+          "path": "external-resources/sdn/P06.broader.json",
+          "md5": "0d5bd193ba8850ff72dad3036b1f15e5",
+          "bytes": 38531
+        },
+        "related": {
+          "path": "external-resources/sdn/P06.related.json",
+          "md5": "4cf5137a0f79a1729851570118a68928",
+          "bytes": 3501712
+        }
+      }
+    },
+    "P07": {
+      "title": "Climate and Forecast Standard Names",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/P07/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/P07.csv",
+          "md5": "4d204f24d91b0d0e98da6490b9b6e338",
+          "bytes": 4582483
+        },
+        "narrower": {
+          "path": "external-resources/sdn/P07.narrower.json",
+          "md5": "d513d0c378b3a7180a9cef93ea94fef0",
+          "bytes": 368898
+        },
+        "broader": {
+          "path": "external-resources/sdn/P07.broader.json",
+          "md5": "61e6476afb84ac87b4d2235b6bf9082f",
+          "bytes": 665402
+        },
+        "related": {
+          "path": "external-resources/sdn/P07.related.json",
+          "md5": "81693a35678cd985e75e09d491f38cc9",
+          "bytes": 715908
+        }
+      }
+    },
+    "L05": {
+      "title": "SeaDataNet device categories",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/L05/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/L05.csv",
+          "md5": "13ce282bd99742ca65b3ef81b3c25ab7",
+          "bytes": 77972
+        },
+        "narrower": {
+          "path": "external-resources/sdn/L05.narrower.json",
+          "md5": "3e46f618a97fe9b503de937ff73409c5",
+          "bytes": 246291
+        },
+        "broader": {
+          "path": "external-resources/sdn/L05.broader.json",
+          "md5": "426076df306ca0dd2c6e2d06c47877da",
+          "bytes": 72499
+        },
+        "related": {
+          "path": "external-resources/sdn/L05.related.json",
+          "md5": "38dfece02159426705a0fdb46decc564",
+          "bytes": 25952
+        }
+      }
+    },
+    "L06": {
+      "title": "SeaVoX Platform Categories",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/L06/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/L06.csv",
+          "md5": "34e03785a7118062b74228834f35d0e9",
+          "bytes": 18059
+        },
+        "narrower": {
+          "path": "external-resources/sdn/L06.narrower.json",
+          "md5": "c76be483457bdeaf4ebd422b0a2dff38",
+          "bytes": 426380
+        },
+        "broader": {
+          "path": "external-resources/sdn/L06.broader.json",
+          "md5": "9671519e51eb72d848503559c4ba3105",
+          "bytes": 18788
+        },
+        "related": {
+          "path": "external-resources/sdn/L06.related.json",
+          "md5": "2c65a7bccff9c76000237ae11e4f3d7f",
+          "bytes": 8579
+        }
+      }
+    },
+    "L22": {
+      "title": "SeaVoX Device Catalogue",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/L22/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/L22.csv",
+          "md5": "17b698ec4a9295f8b58685cfcfe22c83",
+          "bytes": 1845699
+        },
+        "narrower": {
+          "path": "external-resources/sdn/L22.narrower.json",
+          "md5": "198c42b097a4e040012bed321193a834",
+          "bytes": 158015
+        },
+        "broader": {
+          "path": "external-resources/sdn/L22.broader.json",
+          "md5": "3c010c648f5aaf32bda74264f7b33991",
+          "bytes": 435487
+        },
+        "related": {
+          "path": "external-resources/sdn/L22.related.json",
+          "md5": "81709f4c8336abfcd985bf2f49e38a19",
+          "bytes": 375033
+        }
+      }
+    },
+    "L35": {
+      "title": "SenseOcean device developers and manufacturers",
+      "governed_by": "NERC Vocabulary Server (NVS) / SeaDataNet",
+      "source": "https://vocab.nerc.ac.uk/collection/L35/current/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "JSON-LD converted to CSV; broader/narrower/related relations extracted into JSON files.",
+      "files": {
+        "csv": {
+          "path": "external-resources/sdn/L35.csv",
+          "md5": "5fff8636232331d9a81977c537b9894f",
+          "bytes": 144890
+        },
+        "narrower": {
+          "path": "external-resources/sdn/L35.narrower.json",
+          "md5": "eca00553b21f3d82601e7b48eb8c2ff2",
+          "bytes": 25515
+        },
+        "broader": {
+          "path": "external-resources/sdn/L35.broader.json",
+          "md5": "eca00553b21f3d82601e7b48eb8c2ff2",
+          "bytes": 25515
+        },
+        "related": {
+          "path": "external-resources/sdn/L35.related.json",
+          "md5": "b918f91cced291f651753fe92d1b95d2",
+          "bytes": 99315
+        }
+      }
+    },
+    "EDMO": {
+      "title": "European Directory of Marine Organisations",
+      "governed_by": "SeaDataNet",
+      "source": "https://edmo.seadatanet.org/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "SPARQL JSON results converted to CSV.",
+      "files": {
+        "csv": {
+          "path": "external-resources/edmo/EDMO.csv",
+          "md5": "fe142e4abc88cf6fb5a4aacffd368849",
+          "bytes": 526304
+        }
+      }
+    },
+    "Copernicus Parameters": {
+      "title": "Copernicus Marine In Situ TAC parameter list",
+      "governed_by": "Copernicus Marine Service / Ifremer",
+      "source": "https://archimer.ifremer.fr/doc/00422/53381/108480.xlsx",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "XLSX parameter list converted to a Markdown table, columns subset.",
+      "files": {
+        "md": {
+          "path": "external-resources/copernicus/copernicus_variables.md",
+          "md5": "b7d207e8e8b973b8c70cc96a1e62db20",
+          "bytes": 13814
+        }
+      }
+    },
+    "GCMD": {
+      "title": "NASA Global Change Master Directory Science Keywords",
+      "governed_by": "NASA Earthdata",
+      "source": "https://www.earthdata.nasa.gov/data/tools/gcmd-keyword-viewer",
+      "license": "PD-US-GOV",
+      "license_url": "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies",
+      "modifications": "Paginated RDF pages merged into one graph; concepts extracted to CSV with prefLabel expanded to the full hierarchical path.",
+      "files": {
+        "csv": {
+          "path": "external-resources/keywords/gcmd/gcmd.csv",
+          "md5": "c5ab0723fcd060afdf8920e299c10e37",
+          "bytes": 629281
+        }
+      }
+    },
+    "GEMET": {
+      "title": "GEneral Multilingual Environmental Thesaurus",
+      "governed_by": "European Environment Agency / Eionet",
+      "source": "https://www.eionet.europa.eu/gemet/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "Gzipped RDF decompressed, empty xsd:dateTime literals removed, concepts extracted to CSV.",
+      "files": {
+        "csv": {
+          "path": "external-resources/keywords/gemet/gemet.csv",
+          "md5": "2b7de78bf8c8375c101e571db048537e",
+          "bytes": 356363
+        }
+      }
+    },
+    "EuroSciVoc": {
+      "title": "European Science Vocabulary",
+      "governed_by": "Publications Office of the European Union",
+      "source": "https://op.europa.eu/en/web/eu-vocabularies/euroscivoc",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "SKOS-XL RDF converted to CSV (concept URI and English preferred label).",
+      "files": {
+        "csv": {
+          "path": "external-resources/keywords/euroscivoc/euroscivoc.csv",
+          "md5": "99c2608d1f120813de0f68985b2b1691",
+          "bytes": 96703
+        }
+      }
+    },
+    "OSO": {
+      "title": "Observatories of the Seas Ontology",
+      "governed_by": "EMSO ERIC",
+      "source": "https://github.com/emso-eric/oso-ontology",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "modifications": "Turtle ontology converted to CSV tables; platform/site/regional-facility relations resolved into a lookup table.",
+      "files": {
+        "csv": {
+          "path": "external-resources/oso/oso.csv",
+          "md5": "43130d2787fd7819d733eb1b98df306f",
+          "bytes": 31750
+        },
+        "platforms": {
+          "path": "external-resources/oso/platforms.csv",
+          "md5": "0ea7ea208e99f728561e3abd33771206",
+          "bytes": 10684
+        },
+        "sites": {
+          "path": "external-resources/oso/sites.csv",
+          "md5": "374fd28b5b7c5b731b43362da0f8d643",
+          "bytes": 4347
+        },
+        "rfs": {
+          "path": "external-resources/oso/rfs.csv",
+          "md5": "eff5ea86922a6f8cae05ce3f63b08954",
+          "bytes": 6566
+        },
+        "platform_metadata": {
+          "path": "external-resources/oso/platform_metadata.json",
+          "md5": "c943508910eae9ad16f3152bcd691228",
+          "bytes": 11630
+        }
+      }
+    },
+    "ROR": {
+      "title": "Research Organization Registry",
+      "governed_by": "ROR (Research Organization Registry)",
+      "source": "https://doi.org/10.5281/zenodo.6347574",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modifications": "Zenodo CSV data dump subset to five columns (id, ror_display, acronym, country_name, website); nested-schema column names shortened to their last path segment. Values unchanged.",
+      "files": {
+        "csv": {
+          "path": "external-resources/ror/ror.csv",
+          "md5": "ec3cd3c2cfe08e08caf4e624d2302ad4",
+          "bytes": 15316661
+        }
+      }
+    }
+  }
+}
